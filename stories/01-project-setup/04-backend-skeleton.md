@@ -1,6 +1,6 @@
 ---
 title: Set Up Express Backend & Vercel Config
-status: todo
+status: done
 story: 01-project-setup
 depends_on: [01-init-project]
 ---
@@ -21,9 +21,9 @@ Create the Express server that will handle API routes, and configure it for both
 - Add npm script: `start` (runs the local Express server)
 
 ## Acceptance Criteria
-- [ ] `npm start` runs Express server locally, serves the frontend
-- [ ] `GET /api/health` returns 200 with JSON response
-- [ ] Rate limiting is active (11th rapid request gets 429)
-- [ ] `vercel.json` is valid and routes are configured
-- [ ] API key is read from environment variable, not hardcoded
-- [ ] Server logs incoming requests to `/api/*` for debugging
+- [x] `npm start` runs Express server locally, serves the frontend
+- [x] `GET /api/health` returns 200 with JSON response
+- [x] Rate limiting is active (11th rapid request gets 429)
+- [x] `vercel.json` is valid and routes are configured
+- [x] API key is read from environment variable, not hardcoded
+- [x] Server logs incoming requests to `/api/*` for debugging

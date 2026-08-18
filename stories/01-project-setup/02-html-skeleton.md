@@ -1,6 +1,6 @@
 ---
 title: Create HTML/CSS Game Shell
-status: todo
+status: done
 story: 01-project-setup
 depends_on: [01-init-project]
 ---
@@ -22,9 +22,9 @@ Build the base HTML layout and CSS that will contain all game screens. This esta
 - Minimum supported viewport: 1024×768
 
 ## Acceptance Criteria
-- [ ] Page loads with a centered game container on cafe-colored background
-- [ ] Title screen shows game name and a "Start" button (non-functional yet)
-- [ ] Three screen sections exist in DOM (title, game, gameover) — only title visible
-- [ ] Layout is centered and looks correct at 1024px+ viewport widths
-- [ ] Custom font is loaded and applied
-- [ ] No JavaScript logic — this is pure structure and styling
+- [x] Page loads with a centered game container on cafe-colored background
+- [x] Title screen shows game name and a "Start" button (non-functional yet)
+- [x] Three screen sections exist in DOM (title, game, gameover) — only title visible
+- [x] Layout is centered and looks correct at 1024px+ viewport widths
+- [x] Custom font is loaded and applied
+- [x] No JavaScript logic — this is pure structure and styling

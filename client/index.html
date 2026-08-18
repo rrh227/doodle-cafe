@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doodle Cafe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <div id="game-container">
+
+    <!-- Title Screen -->
+    <div id="screen-title" class="screen active">
+      <h1 class="game-title">Doodle Cafe</h1>
+      <p class="subtitle">Sketch orders. Impress customers. Keep the cafe open.</p>
+      <button id="btn-start" class="btn-primary">Start</button>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="screen-game" class="screen">
+      <div id="hud">
+        <div id="hud-score">Score: <span id="score-value">0</span></div>
+        <div id="hud-reputation">
+          <span id="reputation-label">Rating:</span>
+          <div id="reputation-meter">
+            <div id="reputation-fill"></div>
+          </div>
+          <span id="reputation-value">3.5</span>
+        </div>
+        <div id="hud-order">Order #<span id="order-number">1</span></div>
+      </div>
+
+      <div id="game-area">
+        <div id="customer-area">
+          <div id="speech-bubble">
+            <p id="prompt-text">Your order will appear here...</p>
+          </div>
+        </div>
+
+        <div id="canvas-container">
+          <div id="canvas-placeholder"></div>
+        </div>
+
+        <div id="tool-palette">
+          <div id="tools"></div>
+          <div id="colors"></div>
+          <div id="actions"></div>
+        </div>
+      </div>
+
+      <button id="btn-serve" class="btn-primary">Serve</button>
+      <button id="btn-end-game" class="btn-primary" style="background-color: #f0a0a0; font-size: 1rem; padding: 0.3rem 1rem;">End Game (debug)</button>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="screen-gameover" class="screen">
+      <h2 class="gameover-title">Cafe Closed!</h2>
+      <div id="final-stats">
+        <p>Final Score: <span id="final-score">0</span></p>
+        <p>Orders Served: <span id="final-orders">0</span></p>
+        <p>Best Rating: <span id="final-best">0</span> stars</p>
+      </div>
+      <button id="btn-replay" class="btn-primary">Play Again</button>
+    </div>
+
+  </div>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

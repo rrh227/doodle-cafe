@@ -1,6 +1,6 @@
 ---
 title: Implement Game State Machine
-status: todo
+status: done
 story: 01-project-setup
 depends_on: [02-html-skeleton]
 ---
@@ -21,9 +21,9 @@ Create the core state machine that controls which screen is visible and manages 
 - `client/js/main.js` initializes the state machine on page load, starts in `menu` state
 
 ## Acceptance Criteria
-- [ ] Clicking "Start" transitions from title screen to game screen
-- [ ] Game screen shows (with placeholder content for now)
-- [ ] A temporary "End Game" button (for testing) transitions to game over screen
-- [ ] "Play Again" on game over screen returns to title screen
-- [ ] State transitions are clean (no flicker, correct elements shown/hidden)
-- [ ] Console logs state transitions for debugging (e.g., "State: menu → playing")
+- [x] Clicking "Start" transitions from title screen to game screen
+- [x] Game screen shows (with placeholder content for now)
+- [x] A temporary "End Game" button (for testing) transitions to game over screen
+- [x] "Play Again" on game over screen returns to title screen
+- [x] State transitions are clean (no flicker, correct elements shown/hidden)
+- [x] Console logs state transitions for debugging (e.g., "State: menu → playing")

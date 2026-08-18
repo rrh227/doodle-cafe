@@ -1,0 +1,218 @@
+/* === Base Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === Color Palette === */
+:root {
+  --cream: #FFF8F0;
+  --brown: #8B6914;
+  --pink: #FFB6C1;
+  --sage: #9DC183;
+  --dark: #3B2F2F;
+  --light-brown: #D2B48C;
+}
+
+/* === Typography === */
+body {
+  font-family: 'Patrick Hand', cursive;
+  color: var(--dark);
+  background-color: var(--cream);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === Game Container === */
+#game-container {
+  width: 800px;
+  min-height: 620px;
+  position: relative;
+}
+
+/* === Screens === */
+.screen {
+  display: none;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.screen.active {
+  display: flex;
+}
+
+/* === Title Screen === */
+.game-title {
+  font-size: 4rem;
+  color: var(--brown);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  color: var(--dark);
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+/* === Buttons === */
+.btn-primary {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.5rem;
+  padding: 0.6rem 2.5rem;
+  background-color: var(--sage);
+  color: var(--dark);
+  border: 3px solid var(--dark);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.1s, background-color 0.15s;
+}
+
+.btn-primary:hover {
+  background-color: #b8d4a0;
+  transform: scale(1.03);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+/* === Game Screen === */
+#screen-game {
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+/* HUD */
+#hud {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 1rem;
+  background-color: var(--light-brown);
+  border-bottom: 2px solid var(--dark);
+  font-size: 1.2rem;
+}
+
+#hud-reputation {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+#reputation-meter {
+  width: 100px;
+  height: 14px;
+  background-color: var(--cream);
+  border: 2px solid var(--dark);
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+#reputation-fill {
+  width: 70%;
+  height: 100%;
+  background-color: var(--sage);
+  transition: width 0.4s ease;
+}
+
+/* Game Area */
+#game-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+/* Customer / Speech Bubble */
+#customer-area {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  min-height: 60px;
+  padding: 0.3rem 1rem;
+}
+
+#speech-bubble {
+  background-color: white;
+  border: 2px solid var(--dark);
+  border-radius: 12px;
+  padding: 0.6rem 1.2rem;
+  max-width: 500px;
+  text-align: center;
+  font-size: 1.2rem;
+  position: relative;
+}
+
+#speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--dark);
+}
+
+/* Canvas */
+#canvas-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#canvas-placeholder {
+  width: 400px;
+  height: 400px;
+  background-color: white;
+  border: 3px solid var(--dark);
+  border-radius: 4px;
+  box-shadow: 2px 2px 0 var(--dark);
+}
+
+/* Tool Palette */
+#tool-palette {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0.3rem 1rem;
+}
+
+/* Serve Button */
+#btn-serve {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--pink);
+}
+
+#btn-serve:hover {
+  background-color: #ffc8d4;
+}
+
+/* === Game Over Screen === */
+.gameover-title {
+  font-size: 3rem;
+  color: var(--brown);
+  margin-bottom: 1.5rem;
+}
+
+#final-stats {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  line-height: 2;
+}

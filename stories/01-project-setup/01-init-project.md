@@ -1,6 +1,6 @@
 ---
 title: Initialize Project Structure
-status: todo
+status: done
 story: 01-project-setup
 depends_on: []
 ---
@@ -20,9 +20,9 @@ Set up the project directory structure, package.json, and Vite dev server so the
 - Verify: running `npm run dev` opens a blank page with no errors in console
 
 ## Acceptance Criteria
-- [ ] `npm install` succeeds with no errors
-- [ ] `npm run dev` starts Vite and serves the page at localhost
-- [ ] Browser shows a blank page with "Doodle Cafe" in the title
-- [ ] All directories from the project structure exist
-- [ ] `.env.example` file exists with `OPENAI_API_KEY=your-key-here`
-- [ ] `.gitignore` includes `node_modules/`, `.env`, `dist/`
+- [x] `npm install` succeeds with no errors
+- [x] `npm run dev` starts Vite and serves the page at localhost
+- [x] Browser shows a blank page with "Doodle Cafe" in the title
+- [x] All directories from the project structure exist
+- [x] `.env.example` file exists with `OPENAI_API_KEY=your-key-here`
+- [x] `.gitignore` includes `node_modules/`, `.env`, `dist/`
