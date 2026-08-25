@@ -1,6 +1,6 @@
 ---
 title: Create Drawing Canvas Element
-status: todo
+status: done
 story: 02-drawing-canvas
 depends_on: [01-project-setup/03-game-state-machine]
 ---
@@ -21,9 +21,9 @@ Create the HTML5 Canvas element where players will draw, with proper sizing and 
 - Canvas has a visible border/frame (styled to look like a napkin or sketchpad)
 
 ## Acceptance Criteria
-- [ ] Canvas appears in the game screen when state transitions to `playing`
-- [ ] Canvas is 400x400 with white background
-- [ ] Drawing on canvas works (basic — just track mouse and draw, even without tool logic yet)
-- [ ] `getCanvasDataURL()` returns a valid base64 PNG string
-- [ ] Canvas looks sharp on retina displays (2x pixel ratio handling)
-- [ ] Coordinate mapping is correct (drawing appears where the cursor is, not offset)
+- [x] Canvas appears in the game screen when state transitions to `playing`
+- [x] Canvas is 400x400 with white background
+- [x] Drawing on canvas works (basic — just track mouse and draw, even without tool logic yet)
+- [x] `getCanvasDataURL()` returns a valid base64 PNG string
+- [x] Canvas looks sharp on retina displays (2x pixel ratio handling)
+- [x] Coordinate mapping is correct (drawing appears where the cursor is, not offset)

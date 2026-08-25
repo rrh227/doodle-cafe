@@ -12,7 +12,7 @@
 | # | Story | Status | Tasks |
 |---|-------|--------|-------|
 | 01 | Project Setup | done | 4/4 |
-| 02 | Drawing Canvas | not started | 0/5 |
+| 02 | Drawing Canvas | done | 5/5 |
 | 03 | Game Loop | not started | 0/5 |
 | 04 | AI Integration | not started | 0/4 |
 | 05 | Scoring System | not started | 0/4 |
@@ -28,10 +28,10 @@
 - **Visuals**: All art is CSS/SVG — no image asset files
 - **No Three.js** or game frameworks — vanilla Canvas + DOM
 
-**Total: 4/32 tasks complete**
+**Total: 9/32 tasks complete**
 
 ---
 
 ## Current Phase: 1 — Foundation
 
-### Next Task: `stories/02-drawing-canvas/01-canvas-setup.md`
+### Next Task: `stories/03-game-loop/01-prompt-bank.md`

@@ -45,9 +45,33 @@
         </div>
 
         <div id="tool-palette">
-          <div id="tools"></div>
-          <div id="colors"></div>
-          <div id="actions"></div>
+          <div id="tools">
+            <button class="tool-btn active" data-tool="brush" title="Brush">&#9998;</button>
+            <button class="tool-btn" data-tool="eraser" title="Eraser">&#9003;</button>
+            <button class="tool-btn" data-tool="fill" title="Fill">&#9688;</button>
+          </div>
+          <div id="sizes">
+            <button class="size-btn" data-size="small" title="Small">&#8226;</button>
+            <button class="size-btn active" data-size="medium" title="Medium">&#9679;</button>
+            <button class="size-btn" data-size="large" title="Large">&#11044;</button>
+          </div>
+          <div id="colors">
+            <button class="color-swatch active" data-color="#000000" style="background-color:#000000" title="Black"></button>
+            <button class="color-swatch" data-color="#FFFFFF" style="background-color:#FFFFFF" title="White"></button>
+            <button class="color-swatch" data-color="#8B4513" style="background-color:#8B4513" title="Brown"></button>
+            <button class="color-swatch" data-color="#D2B48C" style="background-color:#D2B48C" title="Tan"></button>
+            <button class="color-swatch" data-color="#FFB6C1" style="background-color:#FFB6C1" title="Pink"></button>
+            <button class="color-swatch" data-color="#DC143C" style="background-color:#DC143C" title="Red"></button>
+            <button class="color-swatch" data-color="#FF8C00" style="background-color:#FF8C00" title="Orange"></button>
+            <button class="color-swatch" data-color="#FFD700" style="background-color:#FFD700" title="Yellow"></button>
+            <button class="color-swatch" data-color="#228B22" style="background-color:#228B22" title="Green"></button>
+            <button class="color-swatch" data-color="#4169E1" style="background-color:#4169E1" title="Blue"></button>
+          </div>
+          <div id="actions">
+            <button class="tool-btn" id="btn-undo" title="Undo (Ctrl+Z)">&#8630;</button>
+            <button class="tool-btn" id="btn-redo" title="Redo (Ctrl+Y)">&#8631;</button>
+            <button class="tool-btn" id="btn-clear" title="Clear">&#10060;</button>
+          </div>
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 ---
 title: Implement Undo/Redo and Clear Canvas
-status: todo
+status: done
 story: 02-drawing-canvas
 depends_on: [02-brush-tool]
 ---
@@ -26,12 +26,12 @@ Allow players to undo mistakes and clear the canvas entirely. Essential for a dr
 - Confirmation not needed (undo handles accidental clears)
 
 ## Acceptance Criteria
-- [ ] Drawing a stroke, then clicking Undo removes that stroke
-- [ ] Undo can be repeated up to 10 times (full history)
-- [ ] Redo restores an undone action
-- [ ] Redo stack clears when a new stroke is drawn after undo
-- [ ] Ctrl+Z and Ctrl+Y keyboard shortcuts work
-- [ ] Clear button resets to white canvas
-- [ ] Clear can be undone
-- [ ] Undo/Redo buttons show disabled state when stack is empty
-- [ ] Memory usage stays reasonable (10 states × 400×400 canvas = ~6MB max)
+- [x] Drawing a stroke, then clicking Undo removes that stroke
+- [x] Undo can be repeated up to 10 times (full history)
+- [x] Redo restores an undone action
+- [x] Redo stack clears when a new stroke is drawn after undo
+- [x] Ctrl+Z and Ctrl+Y keyboard shortcuts work
+- [x] Clear button resets to white canvas
+- [x] Clear can be undone
+- [x] Undo/Redo buttons show disabled state when stack is empty
+- [x] Memory usage stays reasonable (10 states × 400×400 canvas = ~6MB max)

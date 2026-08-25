@@ -1,6 +1,6 @@
 ---
 title: Implement Color Palette
-status: todo
+status: done
 story: 02-drawing-canvas
 depends_on: [02-brush-tool]
 ---
@@ -27,9 +27,9 @@ Create the color selector UI that lets players choose from a fixed set of cafe-t
 - Selected color applies to both brush and fill tool
 - Eraser always uses white regardless of selected color
 ## Acceptance Criteria
-- [ ] All 10 colors render as swatches in the tool palette
-- [ ] Clicking a swatch changes the active drawing color
-- [ ] Active color has a clear visual indicator (border, scale, glow)
-- [ ] Drawing with brush uses the selected color
-- [ ] Fill tool uses the selected color
-- [ ] Eraser ignores color selection (always white)
+- [x] All 10 colors render as swatches in the tool palette
+- [x] Clicking a swatch changes the active drawing color
+- [x] Active color has a clear visual indicator (border, scale, glow)
+- [x] Drawing with brush uses the selected color
+- [x] Fill tool uses the selected color
+- [x] Eraser ignores color selection (always white)

@@ -1,6 +1,6 @@
 ---
 title: Implement Eraser and Fill Tools
-status: todo
+status: done
 story: 02-drawing-canvas
 depends_on: [02-brush-tool]
 ---
@@ -29,9 +29,9 @@ Add eraser (draws in white) and flood fill (bucket) tools to the canvas toolkit.
 - Tool can be switched mid-drawing without losing canvas state
 
 ## Acceptance Criteria
-- [ ] Eraser removes drawn content (draws white) in a stroke
-- [ ] Fill tool floods a closed region with the selected color
-- [ ] Fill tool handles anti-aliased edges without leaving halos
-- [ ] Fill on a large empty area completes in under 200ms
-- [ ] Tool palette shows which tool is currently active
-- [ ] Switching tools mid-drawing works cleanly
+- [x] Eraser removes drawn content (draws white) in a stroke
+- [x] Fill tool floods a closed region with the selected color
+- [x] Fill tool handles anti-aliased edges without leaving halos
+- [x] Fill on a large empty area completes in under 200ms
+- [x] Tool palette shows which tool is currently active
+- [x] Switching tools mid-drawing works cleanly

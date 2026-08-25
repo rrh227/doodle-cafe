@@ -1,6 +1,6 @@
 ---
 title: Implement Brush Tool
-status: todo
+status: done
 story: 02-drawing-canvas
 depends_on: [01-canvas-setup]
 ---
@@ -21,8 +21,8 @@ Implement the primary drawing tool — a freehand brush that draws smooth lines 
 - Drawing only occurs within canvas bounds
 
 ## Acceptance Criteria
-- [ ] Click-and-drag draws a smooth continuous line on the canvas
-- [ ] Three size options work and visibly differ
-- [ ] Lines are smooth (round caps/joins, no sharp corners at normal drawing speed)
-- [ ] Drawing stops when mouse leaves canvas or mouse button is released
-- [ ] No drawing occurs on single click without movement (or a single dot appears — either is fine)
+- [x] Click-and-drag draws a smooth continuous line on the canvas
+- [x] Three size options work and visibly differ
+- [x] Lines are smooth (round caps/joins, no sharp corners at normal drawing speed)
+- [x] Drawing stops when mouse leaves canvas or mouse button is released
+- [x] No drawing occurs on single click without movement (or a single dot appears — either is fine)

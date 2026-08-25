@@ -176,10 +176,16 @@ body {
 #canvas-placeholder {
   width: 400px;
   height: 400px;
-  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#drawing-canvas {
   border: 3px solid var(--dark);
   border-radius: 4px;
   box-shadow: 2px 2px 0 var(--dark);
+  cursor: crosshair;
 }
 
 /* Tool Palette */
@@ -190,6 +196,73 @@ body {
   justify-content: center;
   gap: 1.5rem;
   padding: 0.3rem 1rem;
+}
+
+#tools, #sizes {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.tool-btn, .size-btn {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.3rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--dark);
+  border-radius: 6px;
+  background: var(--cream);
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.tool-btn:hover, .size-btn:hover {
+  background-color: var(--light-brown);
+}
+
+.tool-btn.active, .size-btn.active {
+  background-color: var(--sage);
+  border-color: var(--dark);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.tool-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.tool-btn:disabled:hover {
+  background: var(--cream);
+}
+
+#actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+#colors {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.color-swatch {
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--dark);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.color-swatch:hover {
+  transform: scale(1.15);
+}
+
+.color-swatch.active {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 3px var(--sage);
 }
 
 /* Serve Button */
