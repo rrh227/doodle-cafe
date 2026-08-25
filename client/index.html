@@ -15,7 +15,7 @@
     <!-- Title Screen -->
     <div id="screen-title" class="screen active">
       <h1 class="game-title">Doodle Cafe</h1>
-      <p class="subtitle">Sketch orders. Impress customers. Keep the cafe open.</p>
+      <p class="subtitle">Decorate orders. Impress customers. Keep the cafe open.</p>
       <button id="btn-start" class="btn-primary">Start</button>
     </div>
 
@@ -33,50 +33,40 @@
         <div id="hud-order">Order #<span id="order-number">1</span></div>
       </div>
 
-      <div id="game-area">
-        <div id="customer-area">
-          <div id="speech-bubble">
-            <p id="prompt-text">Your order will appear here...</p>
-          </div>
-        </div>
-
-        <div id="canvas-container">
-          <div id="canvas-placeholder"></div>
-        </div>
-
-        <div id="tool-palette">
-          <div id="tools">
-            <button class="tool-btn active" data-tool="brush" title="Brush">&#9998;</button>
-            <button class="tool-btn" data-tool="eraser" title="Eraser">&#9003;</button>
-            <button class="tool-btn" data-tool="fill" title="Fill">&#9688;</button>
-          </div>
-          <div id="sizes">
-            <button class="size-btn" data-size="small" title="Small">&#8226;</button>
-            <button class="size-btn active" data-size="medium" title="Medium">&#9679;</button>
-            <button class="size-btn" data-size="large" title="Large">&#11044;</button>
-          </div>
-          <div id="colors">
-            <button class="color-swatch active" data-color="#000000" style="background-color:#000000" title="Black"></button>
-            <button class="color-swatch" data-color="#FFFFFF" style="background-color:#FFFFFF" title="White"></button>
-            <button class="color-swatch" data-color="#8B4513" style="background-color:#8B4513" title="Brown"></button>
-            <button class="color-swatch" data-color="#D2B48C" style="background-color:#D2B48C" title="Tan"></button>
-            <button class="color-swatch" data-color="#FFB6C1" style="background-color:#FFB6C1" title="Pink"></button>
-            <button class="color-swatch" data-color="#DC143C" style="background-color:#DC143C" title="Red"></button>
-            <button class="color-swatch" data-color="#FF8C00" style="background-color:#FF8C00" title="Orange"></button>
-            <button class="color-swatch" data-color="#FFD700" style="background-color:#FFD700" title="Yellow"></button>
-            <button class="color-swatch" data-color="#228B22" style="background-color:#228B22" title="Green"></button>
-            <button class="color-swatch" data-color="#4169E1" style="background-color:#4169E1" title="Blue"></button>
-          </div>
-          <div id="actions">
-            <button class="tool-btn" id="btn-undo" title="Undo (Ctrl+Z)">&#8630;</button>
-            <button class="tool-btn" id="btn-redo" title="Redo (Ctrl+Y)">&#8631;</button>
-            <button class="tool-btn" id="btn-clear" title="Clear">&#10060;</button>
-          </div>
+      <div id="customer-area">
+        <div id="speech-bubble">
+          <p id="prompt-text">Your order will appear here...</p>
         </div>
       </div>
 
-      <button id="btn-serve" class="btn-primary">Serve</button>
-      <button id="btn-end-game" class="btn-primary" style="background-color: #f0a0a0; font-size: 1rem; padding: 0.3rem 1rem;">End Game (debug)</button>
+      <div id="game-area">
+        <!-- Left: Base Selection -->
+        <div id="base-panel">
+          <h3>Choose a base:</h3>
+          <div id="base-options"></div>
+        </div>
+
+        <!-- Center: Workspace -->
+        <div id="workspace">
+          <div id="workspace-content">
+            <p id="workspace-placeholder">Choose a base item to start!</p>
+          </div>
+          <div id="topping-counter">0/8 toppings</div>
+        </div>
+
+        <!-- Right: Topping Catalog -->
+        <div id="topping-panel">
+          <div id="topping-tabs"></div>
+          <div id="topping-grid"></div>
+        </div>
+      </div>
+
+      <div id="bottom-bar">
+        <div id="color-palette"></div>
+        <button id="btn-serve" class="btn-primary" disabled>Serve</button>
+      </div>
+
+      <button id="btn-end-game" class="btn-primary" style="background-color: #f0a0a0; font-size: 0.9rem; padding: 0.2rem 0.8rem; position: absolute; bottom: 4px; right: 4px;">End Game (debug)</button>
     </div>
 
     <!-- Game Over Screen -->

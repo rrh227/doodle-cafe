@@ -2,129 +2,191 @@
 
 ## Elevator Pitch
 
-A cozy, single-player browser game where you run a cafe as an artist-barista. Customers walk in with creative requests ("Draw me a latte that looks like my cat would approve of it") and you sketch their order on a small canvas. An AI judges how well your drawing matches the prompt. Serve enough satisfied customers to keep your cafe open — mess up too many orders and it's game over.
+A cozy, single-player browser game where you run a cafe as a barista-decorator. Customers walk in with creative requests ("Make me something that feels like a rainy afternoon") and you choose a base drink or food, color its sections, and decorate it with toppings to match the prompt. The closer your creation matches the order's hidden ideal, the higher you score. Serve enough satisfied customers to keep your cafe open — mess up too many orders and it's game over.
 
 ---
 
 ## Core Loop
 
 ```
-Customer enters → Reads their order prompt → Player draws on canvas → Submit drawing →
-AI evaluates match → Customer reacts → Score awarded → Next customer (or game over)
+Customer enters → Reads their order prompt → Player picks base item →
+Colors sections → Drags toppings onto item → Submits creation →
+Deterministic score calculated → Customer reacts → Next customer (or game over)
 ```
 
 ### Step-by-step:
 
 1. **Customer Arrives** — An NPC slides up to the counter with a speech bubble containing their order. A patience meter begins slowly draining.
-2. **Read the Prompt** — The order is literal but open-ended (e.g., "I'd like a cupcake that reminds me of the ocean"). The player must interpret what visual elements would satisfy this.
-3. **Draw** — Using a minimal toolset (brush, eraser, fill, ~8 colors), the player sketches on a small fixed-size canvas.
-4. **Submit** — Player hits a "Serve" button. The drawing is sent to an image recognition AI for evaluation.
-5. **Judgment** — The AI scores how well the drawing matches the prompt. The score maps to a customer reaction (delighted, satisfied, disappointed, angry).
-6. **Scoring** — Points are awarded based on the AI's confidence score and remaining patience meter time.
-7. **Next Customer** — The next order appears. Difficulty gradually increases via prompt complexity.
-8. **Game Over** — Triggered when the player's cumulative "reputation" (rolling average score) drops below a threshold.
+2. **Read the Prompt** — The order is open-ended with increasing abstraction (e.g., "I'd like something warm that reminds me of autumn").
+3. **Choose Base Item** — Player selects from 2-3 base options (e.g., latte, cupcake, toast). The base choice affects score — some bases match the prompt better.
+4. **Color Sections** — Each base item has defined regions (cup, lid, frosting, bread, etc.) that the player colors by selecting from a palette.
+5. **Decorate** — Player drags toppings/decorations from a large catalog (50+) onto the item. Position them freely on the base.
+6. **Submit** — Player hits "Serve". The game evaluates the creation against the prompt's hidden scoring tags.
+7. **Judgment** — A deterministic score is calculated based on how well the base, colors, and toppings match the prompt's ideal.
+8. **Next Customer** — The next order appears. Difficulty increases via prompt abstraction.
+9. **Game Over** — Triggered when the player's reputation drops below threshold.
 
 ---
 
 ## Scoring & Judgment
 
-### AI Evaluation
+### Deterministic Scoring System
 
-The drawing + prompt are sent to an image recognition/multimodal AI (e.g., a vision model API). The system prompt asks the AI to rate 1-5 on:
+Each prompt has hidden scoring data:
 
-- **Relevance** — Does the drawing contain elements related to the prompt?
-- **Creativity** — Did the player interpret the prompt in an interesting way?
-- **Effort** — Is this a genuine attempt (not blank/scribble)?
+```
+{
+  prompt: "Something warm that feels like a cozy autumn day",
+  idealBase: { latte: 1.0, cocoa: 0.8, cupcake: 0.4 },
+  idealColors: { brown: 0.9, orange: 0.8, red: 0.6, cream: 0.5 },
+  idealToppings: { cinnamon: 1.0, whipped_cream: 0.8, caramel_drizzle: 0.9, maple_leaf: 1.0, nutmeg: 0.7 },
+  bonusCombos: [["cinnamon", "caramel_drizzle"], ["maple_leaf", "whipped_cream"]]
+}
+```
 
-The three scores average into a final rating (1-5 stars).
+### Score Calculation
 
-### Customer Reactions
+1. **Base Score** (0-20 points): Weight from `idealBase` × 20
+2. **Color Score** (0-30 points): Average weight of chosen section colors × 30
+3. **Topping Score** (0-40 points): Sum of topping weights (capped at 40). Each topping placed either adds its weight or 0 if not in the ideal list.
+4. **Combo Bonus** (0-10 points): Bonus for placing specific topping combinations together.
 
-| Stars | Reaction | Points | Effect |
-|-------|----------|--------|--------|
-| 5 | Ecstatic — leaves a big tip | 100 | Reputation boost |
-| 4 | Happy — satisfied customer | 75 | Slight reputation boost |
-| 3 | Neutral — "It's fine, I guess" | 40 | No reputation change |
-| 2 | Disappointed — frowns | 15 | Reputation drops |
-| 1 | Angry — storms out | 0 | Major reputation hit |
+**Total: 0-100 points per order**
+
+### Star Rating Mapping
+
+| Points | Stars | Reaction |
+|--------|-------|----------|
+| 80-100 | 5 | Ecstatic — "This is EXACTLY what I wanted!" |
+| 60-79 | 4 | Happy — "Ooh, nice!" |
+| 40-59 | 3 | Neutral — "It's fine, I guess." |
+| 20-39 | 2 | Disappointed — "Hmm, not quite..." |
+| 0-19 | 1 | Angry — "This isn't what I asked for!" |
 
 ### Patience Meter
 
 - Soft timer: a visible meter that drains over ~60-90 seconds.
-- If it runs out, the customer leaves automatically (scored as 1 star).
+- If it runs out, the customer leaves automatically (scored as 0 points / 1 star).
 - Remaining patience at submission time grants a small bonus multiplier (encourages confidence over perfectionism).
-- The meter does NOT speed up with difficulty — only prompt complexity increases.
 
 ### Reputation System (Game Over Condition)
 
-- Player has a "Cafe Rating" displayed as a meter (think: Yelp stars).
+- Player has a "Cafe Rating" displayed as a meter.
 - It's a weighted rolling average of the last ~10 orders.
 - If the rating drops below 2.0 stars, the cafe "closes" — game over.
-- This is more forgiving than a single-failure model: one bad drawing won't end the run, but a streak of bad ones will.
+- One bad order won't end the run, but a streak of bad ones will.
+
+---
+
+## Base Items
+
+### Available Bases (at launch)
+
+Each base has distinct colorable sections:
+
+| Base | Sections | Best For |
+|------|----------|----------|
+| Latte | cup, foam, liquid, sleeve | Warm drinks, cozy prompts |
+| Iced Drink | glass, liquid, ice, straw | Cold/refreshing prompts |
+| Cupcake | wrapper, cake, frosting, topper | Sweet/celebration prompts |
+| Toast | bread, spread, toppings | Savory/breakfast prompts |
+| Smoothie Bowl | bowl, base, surface | Healthy/colorful prompts |
+
+Per order, 2-3 bases are offered (randomized based on what fits the prompt tier).
+
+---
+
+## Toppings & Decorations
+
+### Categories (50+ total items)
+
+**Fruits (10+)**
+Cherry, strawberry, blueberry, banana slice, orange slice, kiwi, raspberry, lemon wedge, apple slice, mango chunk
+
+**Sauces & Drizzles (8+)**
+Chocolate drizzle, caramel drizzle, strawberry sauce, honey, maple syrup, matcha drizzle, condensed milk, vanilla glaze
+
+**Dry Toppings (10+)**
+Sprinkles, chocolate chips, cinnamon, nutmeg, cocoa powder, granola, crushed cookies, coconut flakes, crushed nuts, candy pieces
+
+**Cream & Foam (6+)**
+Whipped cream, cream dollop, foam art, marshmallow, ice cream scoop, meringue
+
+**Decorative (10+)**
+Maple leaf, flower, umbrella, cookie stick, wafer, candy cane, mint leaf, edible glitter, star decoration, heart decoration
+
+**Savory (6+)**
+Avocado, egg, bacon, cheese, herbs, tomato
+
+### Topping Properties
+
+Each topping has metadata for scoring:
+```
+{
+  id: "cinnamon",
+  name: "Cinnamon",
+  category: "dry_toppings",
+  tags: ["warm", "autumn", "spicy", "cozy", "brown"],
+  svg: "cinnamon.svg"
+}
+```
+
+Tags are what the scoring system matches against prompt ideals.
 
 ---
 
 ## Prompt Design & Difficulty Scaling
 
-### Prompt Structure
-
-All prompts follow the pattern: **[Object/Food] + [Creative Constraint/Modifier]**
-
 ### Difficulty Tiers
 
-**Tier 1 — Warm Up (Orders 1-5)**
-Simple, concrete requests with obvious visual answers.
-- "Draw me a sunny-side-up egg"
-- "I'd like a chocolate chip cookie"
-- "Can I get a cup of coffee with a heart in it?"
+**Tier 1 — Obvious (Orders 1-5)**
+Prompts with clear, literal answers. Many toppings score well.
+- "Make me a chocolate latte with whipped cream"
+- "I'd like a fruity cupcake"
+- "A classic breakfast toast with eggs"
 
-**Tier 2 — Getting Creative (Orders 6-15)**
-Concrete objects with an imaginative twist.
-- "A cupcake that reminds me of the ocean"
-- "A sandwich fit for a knight"
-- "Latte art that looks like a tiny forest"
+**Tier 2 — Themed (Orders 6-15)**
+Prompts with a clear theme but multiple valid interpretations.
+- "Something that reminds me of a beach vacation"
+- "A drink fit for a princess"
+- "Make it look like a garden"
 
-**Tier 3 — Abstract Thinking (Orders 16-25)**
-Requests that require more interpretation.
-- "Something sweet that captures the feeling of a snow day"
-- "A pastry that looks like it belongs in a dream"
-- "If jazz were a dessert, what would it look like?"
+**Tier 3 — Abstract (Orders 16-25)**
+Prompts requiring creative interpretation. Fewer high-scoring combinations.
+- "Something that captures the feeling of a rainy afternoon"
+- "If jazz were a food, what would it look like?"
+- "A dessert that belongs in a fairy tale"
 
-**Tier 4 — Wild Cards (Orders 26+)**
-Highly abstract, contradictory, or unusual prompts.
-- "A cake that's both elegant and chaotic"
-- "Draw me breakfast, but make it feel like nostalgia"
-- "Something savory that looks like a lullaby sounds"
+**Tier 4 — Cryptic (Orders 26+)**
+Highly abstract with very narrow ideal combos. Rewards lateral thinking.
+- "The opposite of summer in a cup"
+- "Make me something that sounds quiet"
+- "A snack that tastes like nostalgia looks"
 
-### Prompt Generation
-
-- A large bank of handcrafted prompts per tier (50+ per tier minimum).
-- Prompts are drawn randomly without replacement within a run.
-- Optional: AI-generated prompts for infinite variety (using a text model to generate new prompts matching tier difficulty guidelines).
+### Scaling Philosophy
+- Tier 1: 10+ toppings score well → easy to get 4-5 stars
+- Tier 2: 6-8 toppings score well → need to think thematically
+- Tier 3: 3-5 toppings score well → must interpret creatively
+- Tier 4: 2-3 toppings score high → puzzle-like, real challenge
 
 ---
 
-## Drawing Tools
+## Interaction Design
 
-Deliberately minimal — constraints breed creativity.
+### Drag and Drop
+- Toppings displayed in a scrollable catalog panel (organized by category)
+- Player drags a topping SVG from the catalog onto the base item
+- Topping snaps to the item and can be repositioned
+- Player can remove placed toppings by dragging them off the item (or clicking X)
+- Multiple of the same topping can be placed (e.g., many sprinkles)
+- Max ~8 toppings per item (prevents clutter, forces choices)
 
-### Available Tools
-- **Brush** — Single size (or 3 sizes: S/M/L)
-- **Eraser** — Same sizes as brush
-- **Fill Bucket** — Flood fill a region
-- **Color Palette** — 8-12 preset colors (cafe-themed: browns, creams, pinks, greens, blues)
-- **Undo/Redo** — Last 10 actions
-
-### Canvas
-- Fixed size: ~400x400px drawing area
-- White background
-- No layers, no stamps, no shapes — pure freehand
-
-### Why Minimal?
-- Levels the playing field (artistic skill matters less than interpretation)
-- Faster to draw = more orders served
-- The AI judges concept/relevance, not artistic quality
-- Keeps the game accessible and lighthearted
+### Section Coloring
+- Click a section of the base item to select it
+- Color palette appears (same 10 colors as before)
+- Selected section fills with the chosen color
+- Sections have a subtle outline to indicate they're clickable
+- Default color is the item's natural color (brown cup, white foam, etc.)
 
 ---
 
@@ -136,17 +198,17 @@ Deliberately minimal — constraints breed creativity.
 - Characters are simple, expressive doodle-style NPCs
 - UI elements look like they're sketched on napkins or chalkboards
 
+### Art Style for Items & Toppings
+- Hand-drawn SVG illustrations with slightly wobbly lines
+- Consistent stroke width and style across all items
+- Warm, slightly desaturated colors (not harsh/neon)
+- Each topping is a standalone SVG that looks good at various sizes
+
 ### Customer Characters
 - Variety of simple doodle-people with distinct silhouettes
 - Each has a brief idle animation (tapping foot, looking around)
 - Reactions are exaggerated and clear (big smile, steam-from-ears angry)
 - No deep backstories — they're one-off customers in endless mode
-
-### Audio Direction (Stretch Goal)
-- Lo-fi cafe background music
-- Pencil/marker sound effects while drawing
-- Cheerful ding for good scores, sad trombone for bad ones
-- Ambient cafe chatter
 
 ---
 
@@ -161,76 +223,72 @@ Deliberately minimal — constraints breed creativity.
     v
 [Main Game Loop]
     |→ Customer enters with order
-    |→ Player draws
-    |→ AI judges
-    |→ Score displayed with reaction
+    |→ Player picks base item (2-3 choices)
+    |→ Player colors sections
+    |→ Player drags toppings onto item
+    |→ Player hits "Serve"
+    |→ Score calculated deterministically
+    |→ Customer reacts
     |→ Repeat (difficulty scales with order count)
     |
     v
 [Game Over Screen]
     |→ Final score
     |→ Orders served count
-    |→ Best drawing (highest rated)
+    |→ Best order rating
     |→ [Play Again] button
 ```
 
 ### Session Length
 - Target: 5-15 minutes per run
 - Early game over (bad player): ~3 minutes
-- Skilled player run: 15-20 minutes before prompts become extremely abstract
+- Skilled player run: 15-20 minutes before prompts become very cryptic
+
+---
+
+## Platform & Technical
+
+- **Desktop only** — designed for mouse input on a computer screen
+- **No backend required** — fully client-side, works offline
+- **Pure static site** — can be hosted anywhere (Vercel, GitHub Pages, any CDN)
+- **No API keys needed** — deterministic scoring, no external services
+- Minimum viewport: 1024×768
 
 ---
 
 ## Key Design Decisions & Tradeoffs
 
-### Requires Internet
-The AI image recognition means the game needs an internet connection to function. This is the biggest tradeoff:
-- **Pro**: Genuine creative evaluation, infinite replayability, no "gaming the system"
-- **Con**: Can't play fully offline, API costs, latency between submit and judgment
+### Deterministic vs. AI Scoring
+- **Pro**: Works offline, no API costs, instant feedback, predictable/fair, no internet required
+- **Con**: Less "magic" than AI — players may learn optimal combos over time
+- **Mitigation**: Large prompt bank (100+) with varied ideals means memorization is impractical
 
-**Mitigation options:**
-- Cache a "fallback mode" with simpler keyword/tag-based scoring for offline play
-- Batch API calls efficiently
-- Show a fun "developing your order..." animation during API wait time
+### Decoration vs. Freehand Drawing
+- **Pro**: More accessible (no drawing skill needed), faster per order, clearer scoring criteria
+- **Con**: Less creative freedom, content-heavy (need 50+ topping SVGs)
+- **Mitigation**: Large topping variety + positioning + color choices = enormous combinatorial space
 
 ### No Meta-Progression
-Pure arcade keeps it simple and sessionable:
-- No accounts needed, no save files
-- Shareable: "I scored 2,450 — beat that!"
-- Lower development scope
+- No accounts, no unlocks, no save files
+- Pure arcade score-chasing
 - Every run starts equal
-
-### Soft Timer vs. Hard Timer
-The patience meter adds gentle urgency without punishing slow artists:
-- Players who draw fast get a small bonus, not a massive advantage
-- No one is "locked out" by being a slow drawer
-- Creates natural tension without frustration
 
 ---
 
 ## Success Metrics (What Makes This Fun?)
 
-1. **Creative expression** — Players feel clever when they nail an abstract prompt
-2. **Surprise** — AI reactions feel fair but sometimes unexpected (emergent humor)
-3. **Accessibility** — Anyone can play regardless of artistic skill
+1. **Puzzle satisfaction** — Players feel clever when they decode an abstract prompt
+2. **Creative expression** — Choosing toppings and colors feels personal
+3. **Accessibility** — Anyone can drag and drop, no art skill needed
 4. **"One more round"** — Short sessions + escalating difficulty = addictive loop
-5. **Shareability** — Funny drawings + scores are naturally social-media friendly
-
----
-
-## Platform
-
-- **Desktop only** — designed for mouse input on a computer screen
-- Minimum viewport: 1024×768
-- No mobile/tablet support needed
-- No touch input handling required
+5. **Shareability** — "I scored 3,200!" + funny creations are naturally shareable
 
 ---
 
 ## Open Questions
 
-- [ ] How to handle API rate limits during high-traffic play?
-- [ ] Should there be a "gallery" of your drawings from a run?
-- [ ] Should the AI provide written feedback ("I see a cat shape — nice!") or just a star rating?
-- [ ] Accessibility: how to handle colorblind players with limited palette?
+- [ ] Should there be a "gallery" of your creations from a run?
+- [ ] Should the score breakdown be shown (which toppings scored, which didn't)?
 - [ ] Should there be a practice/sandbox mode with no scoring?
+- [ ] Accessibility: how to handle colorblind players with limited palette?
+- [ ] Should placed toppings be resizable or fixed size?

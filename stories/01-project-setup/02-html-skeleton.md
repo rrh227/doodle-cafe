@@ -1,6 +1,6 @@
 ---
 title: Create HTML/CSS Game Shell
-status: done
+status: todo
 story: 01-project-setup
 depends_on: [01-init-project]
 ---
@@ -8,23 +8,29 @@ depends_on: [01-init-project]
 # Create HTML/CSS Game Shell
 
 ## Objective
-Build the base HTML layout and CSS that will contain all game screens. This establishes the visual container without any game logic.
+Build the base HTML layout and CSS for the new decoration-based game. Three screens (title, game, gameover) with layout for the item builder area.
 
 ## Requirements
-- `index.html` with semantic structure: game container, canvas area, UI overlay areas
-- Layout divs for: title screen, game screen (canvas + HUD), game over screen
-- Only the title screen visible initially (others hidden via CSS)
-- CSS establishes the cafe color palette: cream (#FFF8F0), soft brown (#8B6914), pastel pink (#FFB6C1), sage green (#9DC183)
-- Fixed-width game container: centered, 800px wide (desktop only)
-- Canvas placeholder div (actual canvas created in JS later)
-- HUD areas: top bar (score, reputation meter), customer speech bubble area, tool palette area
-- Basic font loaded (Google Fonts — something hand-drawn like "Patrick Hand" or "Caveat")
-- Minimum supported viewport: 1024×768
+- `index.html` with three screen sections: title, game, gameover
+- Game screen layout:
+  - Left panel: base item selection area (2-3 choices)
+  - Center: the decoration workspace (where the chosen base item is displayed and decorated)
+  - Right panel: topping catalog (scrollable, categorized)
+  - Bottom bar: color palette for section coloring
+  - Top bar: HUD (score, reputation, order count, patience meter)
+  - Customer speech bubble above the workspace
+- Title screen: game name, start button
+- Game over screen: final score, orders served, play again button
+- Fixed-width 1024px game container, centered
+- Patrick Hand font from Google Fonts
+- Cafe color palette CSS variables
+- Only title screen visible initially
 
 ## Acceptance Criteria
-- [x] Page loads with a centered game container on cafe-colored background
-- [x] Title screen shows game name and a "Start" button (non-functional yet)
-- [x] Three screen sections exist in DOM (title, game, gameover) — only title visible
-- [x] Layout is centered and looks correct at 1024px+ viewport widths
-- [x] Custom font is loaded and applied
-- [x] No JavaScript logic — this is pure structure and styling
+- [ ] Page loads with centered game container
+- [ ] Title screen shows with "Start" button
+- [ ] Game screen has distinct left (bases), center (workspace), right (toppings) layout
+- [ ] Game over screen has stats and replay button
+- [ ] Three screens exist, only title visible on load
+- [ ] Cafe color palette applied, custom font loaded
+- [ ] No JavaScript logic — pure structure and styling

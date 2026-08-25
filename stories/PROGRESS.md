@@ -11,27 +11,28 @@
 
 | # | Story | Status | Tasks |
 |---|-------|--------|-------|
-| 01 | Project Setup | done | 4/4 |
-| 02 | Drawing Canvas | done | 5/5 |
-| 03 | Game Loop | not started | 0/5 |
-| 04 | AI Integration | not started | 0/4 |
-| 05 | Scoring System | not started | 0/4 |
-| 06 | Difficulty & Progression | not started | 0/3 |
+| 01 | Project Setup | in progress | 1/3 |
+| 02 | Base Items & Coloring | not started | 0/4 |
+| 03 | Topping System | not started | 0/4 |
+| 04 | Scoring Engine | not started | 0/3 |
+| 05 | Game Loop | not started | 0/5 |
+| 06 | Content Creation | not started | 0/4 |
 | 07 | Visual Polish | not started | 0/4 |
-| 08 | Deployment | not started | 0/3 |
+| 08 | Deployment | not started | 0/2 |
+
+**Total: 1/29 tasks complete**
+
+---
+
+## Current Phase: 1 — Foundation
+
+### Next Task: `stories/01-project-setup/02-html-skeleton.md`
 
 ---
 
 ## Notes
 
 - **Platform**: Desktop only (mouse input, 1024px+ viewport)
-- **Visuals**: All art is CSS/SVG — no image asset files
-- **No Three.js** or game frameworks — vanilla Canvas + DOM
-
-**Total: 9/32 tasks complete**
-
----
-
-## Current Phase: 1 — Foundation
-
-### Next Task: `stories/03-game-loop/01-prompt-bank.md`
+- **Visuals**: SVG illustrations for base items and toppings
+- **No backend** — pure static site, fully deterministic scoring
+- **No external APIs** — works offline once loaded

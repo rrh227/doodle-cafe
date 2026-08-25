@@ -4,193 +4,205 @@
 
 | Layer | Choice | Rationale |
 |-------|--------|-----------|
-| Frontend | Vanilla HTML5 Canvas + DOM/CSS | No framework overhead; canvas for drawing, DOM for UI. Simple, fast, zero build step possible. |
-| Build Tool | Vite | Fast dev server, hot reload, simple config, handles TypeScript if needed |
+| Frontend | Vanilla JS + DOM/CSS/SVG | No framework needed; DOM for UI, SVG for items/toppings |
+| Build Tool | Vite | Fast dev server, hot reload, handles asset imports |
 | Language | JavaScript (ES modules) | Lower barrier than TypeScript, modern module syntax |
-| Backend | Node.js + Express | Proxies OpenAI calls, hides API key, serves static frontend |
-| AI Judging | OpenAI Vision API (GPT-4o) | Multimodal evaluation of drawings against prompts |
 | Storage | localStorage | High scores, settings — no database needed |
-| Deployment | Vercel | Free tier, serverless functions for Express routes, static hosting for frontend |
+| Deployment | Any static host (Vercel, GitHub Pages, Netlify) | No backend — pure static files |
 | Styling | CSS (no framework) | Game UI is custom enough that Tailwind/Bootstrap would fight it |
+| Assets | Inline SVG illustrations | Hand-drawn style toppings and base items |
+
+**No backend. No API keys. No external services.** The game is fully self-contained in the browser.
 
 ## Architecture Overview
 
 ```
-┌─────────────────────────────────────────────┐
-│                  Browser                      │
-│                                              │
-│  ┌──────────┐  ┌──────────┐  ┌───────────┐ │
-│  │  Canvas   │  │  Game     │  │  UI Layer │ │
-│  │  Drawing  │  │  Engine   │  │  (DOM)    │ │
-│  │  Module   │  │  (State)  │  │           │ │
-│  └──────────┘  └──────────┘  └───────────┘ │
-│        │              │              │        │
-│        └──────────────┼──────────────┘        │
-│                       │                       │
-│              [Submit Drawing]                  │
-│                       │                       │
-└───────────────────────┼───────────────────────┘
-                        │ POST /api/judge
-                        ▼
-┌───────────────────────────────────────────────┐
-│              Vercel Serverless Function         │
-│                                                │
-│  Express app:                                  │
-│  - Receives canvas image (base64)              │
-│  - Sends to OpenAI Vision API with prompt      │
-│  - Returns structured score (1-5, feedback)    │
-│  - Rate limiting                               │
-└───────────────────────────────────────────────┘
-                        │
-                        ▼
-┌───────────────────────────────────────────────┐
-│              OpenAI API                         │
-│  - GPT-4o vision                               │
-│  - System prompt: "Rate this drawing..."       │
-│  - Returns JSON: {relevance, creativity,       │
-│    effort, overall, feedback}                  │
-└───────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────┐
+│                       Browser                            │
+│                                                         │
+│  ┌───────────┐  ┌───────────┐  ┌────────────────────┐ │
+│  │  Game      │  │  Item      │  │  Scoring Engine    │ │
+│  │  State     │  │  Builder   │  │  (deterministic)   │ │
+│  │  Machine   │  │  (drag &   │  │                    │ │
+│  │            │  │   drop)    │  │  prompt.idealBase  │ │
+│  └───────────┘  └───────────┘  │  prompt.idealColors │ │
+│        │              │         │  prompt.idealToppings│ │
+│        │              │         └────────────────────┘ │
+│        │              │                │               │
+│  ┌───────────┐  ┌───────────┐        │               │
+│  │  Customer  │  │  Topping   │        │               │
+│  │  System    │  │  Catalog   │        │               │
+│  │  (prompts, │  │  (50+ SVG  │        │               │
+│  │   timer)   │  │   items)   │        │               │
+│  └───────────┘  └───────────┘        │               │
+│        │              │                │               │
+│        └──────────────┼────────────────┘               │
+│                       │                                 │
+│              [Submit / "Serve"]                         │
+│                       │                                 │
+│              Score calculated locally                   │
+│              Customer reacts                            │
+│              Next order or game over                    │
+└─────────────────────────────────────────────────────────┘
 ```
 
 ## Project Structure
 
 ```
 galileo-game-jam/
-├── client/                    # Frontend (served as static files)
+├── client/
 │   ├── index.html
 │   ├── css/
 │   │   └── styles.css
 │   ├── js/
 │   │   ├── main.js           # Entry point, game initialization
-│   │   ├── canvas.js         # Drawing tools (brush, eraser, fill, colors)
 │   │   ├── game.js           # Game state machine (menu, playing, gameover)
 │   │   ├── customers.js      # Customer spawning, patience timer, reactions
-│   │   ├── prompts.js        # Prompt bank + tier selection logic
-│   │   ├── scoring.js        # Score calculation, reputation tracking
-│   │   ├── ui.js             # DOM manipulation for HUD, menus, overlays
-│   │   └── api.js            # Fetch calls to backend /api/judge
-│   └── assets/
-│       └── sounds/           # SFX (stretch goal)
-├── api/                       # Vercel serverless functions
-│   └── judge.js              # POST endpoint — proxies to OpenAI
+│   │   ├── prompts.js        # Prompt bank + tier selection + scoring data
+│   │   ├── scoring.js        # Deterministic score calculation engine
+│   │   ├── builder.js        # Item builder: base selection, coloring, topping placement
+│   │   ├── toppings.js       # Topping catalog data + drag-and-drop logic
+│   │   ├── bases.js          # Base item definitions + section data
+│   │   └── ui.js             # DOM manipulation for HUD, menus, overlays
+│   ├── assets/
+│   │   ├── bases/            # SVG files for base items (latte, cupcake, etc.)
+│   │   ├── toppings/         # SVG files for decorations (50+)
+│   │   └── sounds/           # SFX (stretch goal)
+│   └── data/
+│       ├── prompts.json      # Full prompt bank with scoring weights
+│       ├── toppings.json     # Topping metadata (id, name, tags, category)
+│       └── bases.json        # Base item metadata (sections, default colors)
 ├── package.json
 ├── vite.config.js
-├── vercel.json
-├── .env.example              # OPENAI_API_KEY placeholder
 ├── GAME_CONCEPT.md
 ├── TECHNICAL_PLAN.md
-└── stories/                   # Task tracking (see below)
+└── stories/                   # Task tracking
 ```
-
-## Visual Assets Approach
-
-**No external image assets required.** All visuals are generated with code:
-
-| Element | Technique |
-|---------|-----------|
-| Customer characters | CSS art (divs + border-radius + pseudo-elements) or inline SVG |
-| Facial expressions | CSS class swaps on character elements (`.happy`, `.angry`, etc.) |
-| UI elements (buttons, meters) | Styled HTML elements with CSS |
-| Speech bubbles | CSS with `::after` pseudo-element for the tail |
-| Canvas frame | CSS borders, box-shadow, subtle gradients |
-| Animations | CSS `@keyframes` and transitions |
-| Icons (tools, undo) | Inline SVG or Unicode symbols |
-| Background/environment | CSS gradients and patterns |
-
-**Why no image files:**
-- Zero asset pipeline — no Photoshop, Figma, or sprite sheets
-- Instant iteration — tweak colors/shapes in CSS, see changes live
-- Tiny bundle size — no images to download
-- Consistent style — everything matches because it's all CSS
-- The "hand-drawn doodle" aesthetic is achieved through wobbly borders (SVG filters), the hand-drawn font, and intentionally imperfect shapes
-
-**No Three.js, no game engine.** This is a 2D desktop game. HTML5 Canvas handles the drawing surface; the DOM handles everything else. Adding a game engine or 3D library would introduce complexity without benefit.
 
 ## Key Dependencies
 
 ```json
 {
-  "dependencies": {
-    "express": "^4.18.0",
-    "openai": "^4.0.0",
-    "express-rate-limit": "^7.0.0"
-  },
   "devDependencies": {
-    "vite": "^5.0.0"
+    "vite": "^8.0.0"
   }
 }
 ```
 
-That's it. Intentionally minimal — no UI framework, no ORM, no state management library.
+**That's it.** Zero production dependencies. The game is vanilla JS with Vite for development convenience only.
+
+---
+
+## Core Systems
+
+### 1. Item Builder (builder.js)
+
+The central gameplay surface. Replaces the drawing canvas.
+
+- **Base Selection**: Show 2-3 base item options as clickable SVGs. Player picks one.
+- **Section Coloring**: Base SVG has named regions (paths/groups with IDs). Clicking a section selects it, then clicking a color fills that section.
+- **Topping Placement**: Drag-and-drop from the catalog onto the base item. Toppings are positioned freely within the item bounds. Max 8 toppings.
+- **Removal**: Drag a placed topping off the item, or click its X button.
+
+### 2. Topping Catalog (toppings.js)
+
+- Scrollable panel showing all available toppings, organized by category tabs
+- Each topping is a draggable SVG thumbnail
+- Search/filter by category (fruits, sauces, dry, cream, decorative, savory)
+- Shows topping name on hover
+
+### 3. Scoring Engine (scoring.js)
+
+Fully deterministic, no randomness:
+
+```javascript
+function calculateScore(prompt, playerChoice) {
+  const baseScore = (prompt.idealBase[playerChoice.base] || 0) * 20;
+  const colorScore = calculateColorScore(prompt.idealColors, playerChoice.sectionColors) * 30;
+  const toppingScore = calculateToppingScore(prompt.idealToppings, playerChoice.toppings) * 40;
+  const comboBonus = calculateCombos(prompt.bonusCombos, playerChoice.toppings) * 10;
+  return Math.min(100, baseScore + colorScore + toppingScore + comboBonus);
+}
+```
+
+### 4. Prompt System (prompts.js)
+
+Each prompt contains both the display text and hidden scoring data:
+
+```javascript
+{
+  id: "autumn-warm",
+  text: "Something warm that feels like a cozy autumn day",
+  tier: 2,
+  idealBase: { latte: 1.0, cocoa: 0.8, cupcake: 0.4, iced_drink: 0.1 },
+  idealColors: { "#8B4513": 0.9, "#FF8C00": 0.8, "#DC143C": 0.6, "#D2B48C": 0.5 },
+  idealToppings: { cinnamon: 1.0, maple_leaf: 1.0, caramel_drizzle: 0.9, whipped_cream: 0.8, nutmeg: 0.7 },
+  bonusCombos: [["cinnamon", "caramel_drizzle"], ["maple_leaf", "whipped_cream"]]
+}
+```
 
 ---
 
 ## Constraints & Considerations
 
-### 1. API Cost & Rate Limiting
+### 1. SVG Asset Creation (Biggest Effort)
 
-- **Cost**: GPT-4o vision is ~$0.01-0.03 per image evaluation depending on resolution.
-- **Mitigation**: Resize canvas to 512x512 before sending (reduces token cost). Add server-side rate limiting (e.g., max 10 requests/minute per IP).
-- **Budget math**: 100 plays/day × 15 orders/play = 1,500 API calls = ~$15-45/day at full usage.
+- 50+ topping SVGs + 5 base item SVGs = significant art content
+- **Mitigation**: Consistent simple style (hand-drawn, monoline, ~100×100px). Can batch-create with a consistent template.
+- SVGs are small files (~1-5KB each). Total asset budget: <500KB.
 
-### 2. API Latency
+### 2. Drag and Drop Performance
 
-- OpenAI vision calls take 2-5 seconds typically.
-- **Mitigation**: Show a "brewing your order..." animation during the wait. The patience meter pauses during evaluation. Design the UX so the wait feels intentional, not broken.
+- Must feel responsive with 50+ items in the catalog
+- **Mitigation**: Virtualize the catalog (only render visible items) if performance issues arise. Use CSS `will-change` on dragged elements. Keep SVGs simple.
 
-### 3. Offline Play
+### 3. Section Coloring in SVG
 
-- The game requires internet for AI judging — there is no meaningful offline mode.
-- **Mitigation for local/downloaded play**: Player can run the Express server locally with their own API key. Document this clearly in README.
+- Base item SVGs must have clearly named groups/paths for each section
+- **Mitigation**: Design SVGs with `id` attributes on each colorable section. Use `fill` attribute changes for coloring.
+- Each section needs a clear visual boundary (stroke) so players know where to click.
 
-### 4. API Key Security
+### 4. Scoring Balance
 
-- Never expose the OpenAI key in client-side code.
-- The Express backend (Vercel serverless function) holds the key server-side.
-- For local play: player sets their own key in a `.env` file.
+- Deterministic scoring means players could theoretically "solve" prompts
+- **Mitigation**: 100+ prompts with varied ideals. Tier 3-4 prompts have many partial-credit toppings so "solving" requires lateral thinking.
+- Weighted scoring means players get partial credit — not binary right/wrong.
 
-### 5. Canvas-to-Image Quality
+### 5. Topping Positioning
 
-- HTML5 Canvas exports to PNG/base64 natively via `canvas.toDataURL()`.
-- Send at 512x512 resolution — balances quality vs. API cost.
-- White background ensures drawings are visible against the canvas.
+- Free-form drag and drop means toppings can overlap or be placed oddly
+- **Mitigation**: Toppings snap to within the base item bounds. Overlap is fine (it's decorating). Score is based on what's placed, not where.
 
-### 6. AI Scoring Consistency
+### 6. Content Authoring
 
-- LLMs can be inconsistent in scoring across similar drawings.
-- **Mitigation**: Use a structured system prompt that forces JSON output with specific rubric. Include few-shot examples in the prompt. Temperature set to 0 for determinism.
+- 100+ prompts with hand-tuned scoring weights is labor-intensive
+- **Mitigation**: Build a simple scoring data format. Weight values are 0-1 floats. Author prompts in JSON.
 
 ### 7. Browser Compatibility
 
-- HTML5 Canvas is supported in all modern browsers (Chrome, Firefox, Safari, Edge).
-- Desktop only — no mobile/tablet support required.
-- Mouse input only (no touch event handling needed).
-- No IE11 support needed.
+- SVG manipulation supported in all modern browsers
+- Drag and Drop API has quirks — use mouse events (mousedown/move/up) for custom drag behavior
+- Desktop only, mouse only
+- No IE11 support needed
 
-### 8. Vercel Serverless Limits
+### 8. Offline / Local Play
 
-- Free tier: 100GB bandwidth, 100 hours serverless execution/month.
-- Function timeout: 10 seconds (sufficient for OpenAI call).
-- If traffic exceeds free tier, upgrade or add caching layer.
-
-### 9. Drawing Input
-
-- Mouse events only (`mousedown`, `mousemove`, `mouseup`).
-- No touch/pen/stylus support needed (desktop only).
-- Target resolution: assume minimum 1024px viewport width.
+- Game works entirely offline once loaded (no API calls)
+- Can be downloaded and opened locally (Vite builds to static `dist/`)
+- Can be hosted on any static file server
 
 ---
 
 ## Phases
 
-### Phase 1: Foundation (Stories 01-02)
-Project setup, drawing canvas with tools, basic game state machine.
+### Phase 1: Foundation
+Project setup, game state machine, base item system with section coloring.
 
-### Phase 2: Core Game Loop (Stories 03-04)
-Customer system, prompt delivery, submission flow, AI integration.
+### Phase 2: Topping System
+Topping catalog UI, drag-and-drop placement, topping data model.
 
-### Phase 3: Scoring & Progression (Stories 05-06)
-Score calculation, reputation system, game over condition, difficulty scaling.
+### Phase 3: Scoring & Game Loop
+Prompt bank, deterministic scoring engine, customer system, patience timer.
 
-### Phase 4: Polish & Deploy (Stories 07-08)
-Visual polish, animations, sound, deployment to Vercel, local play documentation.
+### Phase 4: Content & Polish
+Full prompt bank (100+), all SVG assets, visual polish, deployment.
