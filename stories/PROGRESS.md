@@ -11,8 +11,8 @@
 
 | # | Story | Status | Tasks |
 |---|-------|--------|-------|
-| 01 | Project Setup | in progress | 1/3 |
-| 02 | Base Items & Coloring | not started | 0/4 |
+| 01 | Project Setup | done | 3/3 |
+| 02 | Base Items & Coloring | done | 4/4 |
 | 03 | Topping System | not started | 0/4 |
 | 04 | Scoring Engine | not started | 0/3 |
 | 05 | Game Loop | not started | 0/5 |
@@ -20,13 +20,13 @@
 | 07 | Visual Polish | not started | 0/4 |
 | 08 | Deployment | not started | 0/2 |
 
-**Total: 1/29 tasks complete**
+**Total: 7/29 tasks complete**
 
 ---
 
 ## Current Phase: 1 — Foundation
 
-### Next Task: `stories/01-project-setup/02-html-skeleton.md`
+### Next Task: `stories/03-topping-system/01-topping-catalog-data.md`
 
 ---
 

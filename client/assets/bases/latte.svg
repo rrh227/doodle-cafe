@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <!-- Latte: cup, foam, liquid, sleeve -->
+  <g id="cup">
+    <path d="M85 100 Q83 105 78 280 Q78 290 150 290 Q222 290 222 280 L217 100 Z" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g id="sleeve">
+    <path d="M92 170 Q90 172 88 220 L212 220 Q210 172 208 170 Z" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g id="liquid">
+    <path d="M90 130 Q89 135 86 240 Q86 250 150 250 Q214 250 214 240 L211 130 Z" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g id="foam">
+    <path d="M88 100 Q88 95 92 90 Q110 75 150 72 Q190 75 208 90 Q212 95 212 100 L211 130 Q180 135 150 133 Q120 135 90 130 Z" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

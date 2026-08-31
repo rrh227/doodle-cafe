@@ -1,6 +1,6 @@
 ---
 title: Create Base Item SVGs
-status: todo
+status: done
 story: 02-base-items
 depends_on: [01-project-setup/02-html-skeleton]
 ---
@@ -24,10 +24,10 @@ Design and create the SVG illustrations for all base food/drink items. Each SVG 
 - `client/data/bases.json` — metadata for each base: id, name, sections list, default colors
 
 ## Acceptance Criteria
-- [ ] 5 SVG files exist in `client/assets/bases/`
-- [ ] Each SVG has clearly named sections with unique IDs
-- [ ] SVGs render correctly in the browser at various sizes
-- [ ] Sections can be targeted individually via JS (`getElementById`)
-- [ ] Art style is consistent across all 5 items (stroke width, line style)
-- [ ] `bases.json` lists all bases with their section metadata
-- [ ] Default colors look natural (brown cup, white frosting, etc.)
+- [x] 5 SVG files exist in `client/assets/bases/`
+- [x] Each SVG has clearly named sections with unique IDs
+- [x] SVGs render correctly in the browser at various sizes
+- [x] Sections can be targeted individually via JS (`getElementById`)
+- [x] Art style is consistent across all 5 items (stroke width, line style)
+- [x] `bases.json` lists all bases with their section metadata
+- [x] Default colors look natural (brown cup, white frosting, etc.)

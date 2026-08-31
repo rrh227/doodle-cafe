@@ -1,6 +1,6 @@
 ---
 title: Implement Section Coloring
-status: todo
+status: done
 story: 02-base-items
 depends_on: [02-base-selection-ui]
 ---
@@ -24,10 +24,10 @@ Allow players to color individual sections of the selected base item by clicking
   - Green (#228B22), Blue (#4169E1)
 
 ## Acceptance Criteria
-- [ ] Clicking a section selects it with a visual indicator
-- [ ] Clicking a color fills the selected section
-- [ ] Hovering over sections shows they're clickable (cursor change, subtle highlight)
-- [ ] Multiple sections can be colored in any order
-- [ ] Section colors persist until player changes them or order resets
-- [ ] All 10 colors are accessible as clickable swatches
-- [ ] Player's color choices are tracked for scoring
+- [x] Clicking a section selects it with a visual indicator
+- [x] Clicking a color fills the selected section
+- [x] Hovering over sections shows they're clickable (cursor change, subtle highlight)
+- [x] Multiple sections can be colored in any order
+- [x] Section colors persist until player changes them or order resets
+- [x] All 10 colors are accessible as clickable swatches
+- [x] Player's color choices are tracked for scoring

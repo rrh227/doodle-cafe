@@ -1,6 +1,6 @@
 ---
 title: Build Central Workspace Area
-status: todo
+status: done
 story: 02-base-items
 depends_on: [02-base-selection-ui]
 ---
@@ -21,9 +21,9 @@ Create the central area where the selected base item is displayed and decorated.
 - Workspace resets between orders (clears toppings, resets base)
 
 ## Acceptance Criteria
-- [ ] Workspace area is 400×400px, centered, with a styled border
-- [ ] Base item SVG renders inside at appropriate scale
-- [ ] Placeholder message shows when no base is selected
-- [ ] Serve button exists and is disabled until a base is chosen
-- [ ] Workspace can hold layered elements (base + toppings on top)
-- [ ] Workspace resets cleanly between orders
+- [x] Workspace area is 400×400px, centered, with a styled border
+- [x] Base item SVG renders inside at appropriate scale
+- [x] Placeholder message shows when no base is selected
+- [x] Serve button exists and is disabled until a base is chosen
+- [x] Workspace can hold layered elements (base + toppings on top)
+- [x] Workspace resets cleanly between orders

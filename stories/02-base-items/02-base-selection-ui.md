@@ -1,6 +1,6 @@
 ---
 title: Build Base Item Selection UI
-status: todo
+status: done
 story: 02-base-items
 depends_on: [01-base-item-svgs]
 ---
@@ -21,9 +21,9 @@ When a new order starts, display 2-3 base item options for the player to choose 
 - Base selection resets between orders
 
 ## Acceptance Criteria
-- [ ] 2-3 base options displayed as clickable thumbnails
-- [ ] Clicking a base places it in the workspace at full size
-- [ ] Selected base is visually highlighted in the panel
-- [ ] Player can switch base choice before submitting
-- [ ] Workspace clears and resets between orders
-- [ ] Base SVG renders with all sections visible and clickable
+- [x] 2-3 base options displayed as clickable thumbnails
+- [x] Clicking a base places it in the workspace at full size
+- [x] Selected base is visually highlighted in the panel
+- [x] Player can switch base choice before submitting
+- [x] Workspace clears and resets between orders
+- [x] Base SVG renders with all sections visible and clickable

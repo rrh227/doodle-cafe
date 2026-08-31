@@ -1,0 +1,55 @@
+[
+  {
+    "id": "latte",
+    "name": "Latte",
+    "file": "assets/bases/latte.svg",
+    "sections": [
+      { "id": "cup", "label": "Cup", "defaultFill": "#FFFFFF" },
+      { "id": "sleeve", "label": "Sleeve", "defaultFill": "#FFFFFF" },
+      { "id": "liquid", "label": "Liquid", "defaultFill": "#FFFFFF" },
+      { "id": "foam", "label": "Foam", "defaultFill": "#FFFFFF" }
+    ]
+  },
+  {
+    "id": "iced_drink",
+    "name": "Iced Drink",
+    "file": "assets/bases/iced_drink.svg",
+    "sections": [
+      { "id": "glass", "label": "Glass", "defaultFill": "#FFFFFF" },
+      { "id": "liquid", "label": "Liquid", "defaultFill": "#FFFFFF" },
+      { "id": "ice", "label": "Ice", "defaultFill": "#FFFFFF" },
+      { "id": "straw", "label": "Straw", "defaultFill": "#FFFFFF" }
+    ]
+  },
+  {
+    "id": "cupcake",
+    "name": "Cupcake",
+    "file": "assets/bases/cupcake.svg",
+    "sections": [
+      { "id": "wrapper", "label": "Wrapper", "defaultFill": "#FFFFFF" },
+      { "id": "cake", "label": "Cake", "defaultFill": "#FFFFFF" },
+      { "id": "frosting", "label": "Frosting", "defaultFill": "#FFFFFF" },
+      { "id": "topper", "label": "Topper", "defaultFill": "#FFFFFF" }
+    ]
+  },
+  {
+    "id": "toast",
+    "name": "Toast",
+    "file": "assets/bases/toast.svg",
+    "sections": [
+      { "id": "bread", "label": "Bread", "defaultFill": "#FFFFFF" },
+      { "id": "spread", "label": "Spread", "defaultFill": "#FFFFFF" },
+      { "id": "toppings_area", "label": "Toppings Area", "defaultFill": "#FFFFFF" }
+    ]
+  },
+  {
+    "id": "smoothie_bowl",
+    "name": "Smoothie Bowl",
+    "file": "assets/bases/smoothie_bowl.svg",
+    "sections": [
+      { "id": "bowl", "label": "Bowl", "defaultFill": "#FFFFFF" },
+      { "id": "base_fill", "label": "Base", "defaultFill": "#FFFFFF" },
+      { "id": "surface", "label": "Surface", "defaultFill": "#FFFFFF" }
+    ]
+  }
+]

@@ -1,6 +1,6 @@
 ---
 title: Create HTML/CSS Game Shell
-status: todo
+status: done
 story: 01-project-setup
 depends_on: [01-init-project]
 ---
@@ -27,10 +27,10 @@ Build the base HTML layout and CSS for the new decoration-based game. Three scre
 - Only title screen visible initially
 
 ## Acceptance Criteria
-- [ ] Page loads with centered game container
-- [ ] Title screen shows with "Start" button
-- [ ] Game screen has distinct left (bases), center (workspace), right (toppings) layout
-- [ ] Game over screen has stats and replay button
-- [ ] Three screens exist, only title visible on load
-- [ ] Cafe color palette applied, custom font loaded
-- [ ] No JavaScript logic — pure structure and styling
+- [x] Page loads with centered game container
+- [x] Title screen shows with "Start" button
+- [x] Game screen has distinct left (bases), center (workspace), right (toppings) layout
+- [x] Game over screen has stats and replay button
+- [x] Three screens exist, only title visible on load
+- [x] Cafe color palette applied, custom font loaded
+- [x] No JavaScript logic — pure structure and styling
