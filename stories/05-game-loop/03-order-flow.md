@@ -1,6 +1,6 @@
 ---
 title: Implement Full Order Flow
-status: todo
+status: done
 story: 05-game-loop
 depends_on: [02-customer-system, 04-scoring-engine/03-score-feedback]
 ---

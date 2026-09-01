@@ -15,18 +15,18 @@
 | 02 | Base Items & Coloring | done | 4/4 |
 | 03 | Topping System | done | 4/4 |
 | 04 | Scoring Engine | done | 3/3 |
-| 05 | Game Loop | not started | 0/5 |
+| 05 | Game Loop | done | 5/5 |
 | 06 | Content Creation | not started | 0/4 |
 | 07 | Visual Polish | not started | 0/4 |
 | 08 | Deployment | not started | 0/2 |
 
-**Total: 14/29 tasks complete**
+**Total: 19/29 tasks complete**
 
 ---
 
-## Current Phase: 1 — Foundation
+## Current Phase: 2 — Content & Polish
 
-### Next Task: `stories/05-game-loop/01-game-state.md`
+### Next Task: `stories/06-content-creation/`
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Implement Difficulty Scaling
-status: todo
+status: done
 story: 05-game-loop
 depends_on: [03-order-flow]
 ---

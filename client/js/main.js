@@ -2,9 +2,13 @@ import { setState, onState } from './game.js';
 import { loadBases, showBaseOptions, resetBase, getSelectedBase } from './bases.js';
 import { initColorPalette, resetColoring, getSectionColors } from './coloring.js';
 import { loadToppings, showToppingCatalog, hideToppingCatalog } from './toppings.js';
-import { startDragFromCatalog, resetBuilder, getPlacedToppings } from './builder.js';
-import { generateOrder, resetOrders } from './orders.js';
+import { startDragFromCatalog, resetBuilder, getPlacedToppings, setWorkspaceLocked } from './builder.js';
+import { loadPrompts, resetOrders, nextOrder } from './orders.js';
 import { scoreOrder, getReaction } from './scoring.js';
+import {
+  spawnCustomer, showReaction, exitCustomer,
+  startPatience, pausePatience, stopPatience, getPatienceFraction, resetCustomers,
+} from './customers.js';
 
 const promptTextEl = document.getElementById('prompt-text');
 const orderNumberEl = document.getElementById('order-number');
@@ -21,12 +25,20 @@ const reputationValueEl = document.getElementById('reputation-value');
 const finalScoreEl = document.getElementById('final-score');
 const finalOrdersEl = document.getElementById('final-orders');
 const finalBestEl = document.getElementById('final-best');
+const speechBubbleEl = document.getElementById('speech-bubble');
+
+const REPUTATION_WINDOW = 10;
+const REPUTATION_START = 3.5;
+const GAME_OVER_THRESHOLD = 2.0;
 
 let currentOrder = null;
+let currentTier = 0;
 let totalScore = 0;
+let displayedScore = 0;
 let ordersServed = 0;
 let bestRating = 0;
-let reputation = 3.5;
+let recentStars = [];
+let scoreAnimId = null;
 
 document.getElementById('btn-start').addEventListener('click', () => {
   setState('playing');
@@ -40,49 +52,28 @@ document.getElementById('btn-replay').addEventListener('click', () => {
   setState('menu');
 });
 
-btnServe.addEventListener('click', () => {
-  if (!currentOrder) return;
-
-  const base = getSelectedBase();
-  const selectedBaseId = base ? base.id : null;
-  const placed = getPlacedToppings();
-  const colors = getSectionColors();
-
-  const result = scoreOrder(currentOrder, selectedBaseId, placed, colors);
-  const reaction = getReaction(result.stars);
-
-  totalScore += result.points;
-  ordersServed++;
-  if (result.stars > bestRating) bestRating = result.stars;
-
-  reputation = Math.max(0, Math.min(5,
-    reputation + (result.stars - 3) * 0.3
-  ));
-  updateHUD();
-
-  showScoreOverlay(result, reaction);
-});
+btnServe.addEventListener('click', () => serveOrder(false));
 
 btnNextOrder.addEventListener('click', () => {
   hideScoreOverlay();
+  exitCustomer();
 
-  if (reputation <= 0.5) {
+  if (getReputation() < GAME_OVER_THRESHOLD) {
     setState('gameover');
     return;
   }
 
-  resetBase();
-  resetColoring();
-  resetBuilder();
+  resetWorkspace();
   startNewOrder();
 });
 
 onState('playing', {
   onEnter() {
     totalScore = 0;
+    displayedScore = 0;
     ordersServed = 0;
     bestRating = 0;
-    reputation = 3.5;
+    recentStars = [];
     resetOrders();
     updateHUD();
     showToppingCatalog(startDragFromCatalog);
@@ -90,11 +81,11 @@ onState('playing', {
   },
   onExit() {
     hideScoreOverlay();
-    resetBase();
-    resetColoring();
-    resetBuilder();
+    resetWorkspace();
     hideToppingCatalog();
+    resetCustomers();
     currentOrder = null;
+    currentTier = 0;
 
     finalScoreEl.textContent = totalScore;
     finalOrdersEl.textContent = ordersServed;
@@ -103,28 +94,117 @@ onState('playing', {
 });
 
 function startNewOrder() {
-  const bases = [
-    { id: 'latte' }, { id: 'iced_drink' }, { id: 'cupcake' },
-    { id: 'toast' }, { id: 'smoothie_bowl' },
-  ];
-  currentOrder = generateOrder(bases);
-  promptTextEl.textContent = currentOrder.prompt;
+  currentOrder = nextOrder();
+  const prompt = currentOrder.prompt;
+
+  promptTextEl.textContent = prompt.text;
   orderNumberEl.textContent = currentOrder.orderNumber;
-  showBaseOptions();
+
+  if (currentOrder.tier > currentTier && currentTier > 0) {
+    speechBubbleEl.classList.remove('tier-up');
+    void speechBubbleEl.offsetWidth;
+    speechBubbleEl.classList.add('tier-up');
+  }
+  currentTier = Math.max(currentTier, currentOrder.tier);
+
+  spawnCustomer();
+  startPatience(currentOrder.patienceSeconds, () => serveOrder(true));
+  showBaseOptions(prompt.offeredBases);
+}
+
+function serveOrder(timedOut) {
+  if (!currentOrder) return;
+
+  pausePatience();
+  setWorkspaceLocked(true);
+  btnServe.disabled = true;
+
+  let result, reaction;
+  if (timedOut) {
+    result = { points: 0, stars: 1, breakdown: [{ label: 'Customer left!', points: 0 }] };
+    reaction = "Forget it, I don't have all day!";
+  } else {
+    const base = getSelectedBase();
+    result = scoreOrder(
+      currentOrder.prompt,
+      base ? base.id : null,
+      getPlacedToppings(),
+      getSectionColors(),
+      getPatienceFraction()
+    );
+    reaction = getReaction(result.stars);
+  }
+
+  stopPatience();
+
+  totalScore += result.points;
+  ordersServed++;
+  if (result.stars > bestRating) bestRating = result.stars;
+
+  recentStars.push(result.stars);
+  if (recentStars.length > REPUTATION_WINDOW) recentStars.shift();
+
+  updateHUD();
+  showReaction(result.stars);
+  showScoreOverlay(result, reaction);
+}
+
+function resetWorkspace() {
+  setWorkspaceLocked(false);
+  resetBase();
+  resetColoring();
+  resetBuilder();
+}
+
+function getReputation() {
+  if (recentStars.length === 0) return REPUTATION_START;
+  // Blend toward the starting value until the window fills, so one early
+  // bad order doesn't end the run.
+  const sum = recentStars.reduce((a, b) => a + b, 0);
+  const padding = REPUTATION_WINDOW - recentStars.length;
+  return (sum + REPUTATION_START * padding) / REPUTATION_WINDOW;
 }
 
 function updateHUD() {
-  scoreValueEl.textContent = totalScore;
+  animateScoreTo(totalScore);
+
+  const reputation = getReputation();
   reputationValueEl.textContent = reputation.toFixed(1);
   reputationFillEl.style.width = `${(reputation / 5) * 100}%`;
 
-  if (reputation >= 3) {
+  if (reputation >= 4) {
     reputationFillEl.style.backgroundColor = 'var(--sage)';
-  } else if (reputation >= 1.5) {
+  } else if (reputation >= 2.5) {
     reputationFillEl.style.backgroundColor = '#FFD700';
   } else {
     reputationFillEl.style.backgroundColor = '#dc143c';
   }
+}
+
+function animateScoreTo(target) {
+  if (scoreAnimId) cancelAnimationFrame(scoreAnimId);
+
+  if (target <= displayedScore) {
+    displayedScore = target;
+    scoreValueEl.textContent = target;
+    return;
+  }
+
+  const start = displayedScore;
+  const startTime = performance.now();
+  const duration = 600;
+
+  const step = (now) => {
+    const t = Math.min(1, (now - startTime) / duration);
+    displayedScore = Math.round(start + (target - start) * t);
+    scoreValueEl.textContent = displayedScore;
+    if (t < 1) {
+      scoreAnimId = requestAnimationFrame(step);
+    } else {
+      scoreAnimId = null;
+    }
+  };
+  scoreAnimId = requestAnimationFrame(step);
 }
 
 function showScoreOverlay(result, reaction) {
@@ -145,7 +225,6 @@ function showScoreOverlay(result, reaction) {
   scoreTotalEl.textContent = `Total: ${result.points} points`;
 
   scoreOverlay.classList.remove('hidden');
-  btnServe.disabled = true;
 }
 
 function hideScoreOverlay() {
@@ -153,7 +232,7 @@ function hideScoreOverlay() {
 }
 
 async function init() {
-  await Promise.all([loadBases(), loadToppings()]);
+  await Promise.all([loadBases(), loadToppings(), loadPrompts()]);
   initColorPalette();
   setState('menu');
 }

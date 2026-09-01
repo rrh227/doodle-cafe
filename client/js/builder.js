@@ -1,24 +1,34 @@
 const workspaceContentEl = document.getElementById('workspace-content');
 const toppingCounterEl = document.getElementById('topping-counter');
 
+const MAX_TOPPINGS = 8;
+
 let placedToppings = [];
+let workspaceLocked = false;
 
 export function getPlacedToppings() {
   return placedToppings.map(p => ({ id: p.id, x: p.x, y: p.y }));
+}
+
+export function setWorkspaceLocked(locked) {
+  workspaceLocked = locked;
 }
 
 export function resetBuilder() {
   const overlay = workspaceContentEl.querySelector('.topping-overlay');
   if (overlay) overlay.innerHTML = '';
   placedToppings = [];
+  workspaceLocked = false;
   updateCounter();
 }
 
 function updateCounter() {
-  toppingCounterEl.textContent = `${placedToppings.length} topping${placedToppings.length !== 1 ? 's' : ''}`;
+  toppingCounterEl.textContent = `${placedToppings.length}/${MAX_TOPPINGS} toppings`;
+  toppingCounterEl.classList.toggle('at-limit', placedToppings.length >= MAX_TOPPINGS);
 }
 
 export function startDragFromCatalog(topping, e) {
+  if (workspaceLocked || placedToppings.length >= MAX_TOPPINGS) return;
   blockWorkspacePointerEvents();
 
   const clone = document.createElement('img');
@@ -63,14 +73,14 @@ function placeTopping(topping, x, y) {
   updateCounter();
 
   el.addEventListener('mousedown', (e) => {
-    if (e.button !== 0) return;
+    if (e.button !== 0 || workspaceLocked) return;
     e.preventDefault();
     startRepositionDrag(entry, e);
   });
 
   el.addEventListener('contextmenu', (e) => {
     e.preventDefault();
-    removeTopping(entry);
+    if (!workspaceLocked) removeTopping(entry);
   });
 
   overlay.appendChild(el);

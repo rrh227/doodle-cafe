@@ -156,7 +156,16 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
   padding: 0.3rem 1rem;
+  min-height: 90px;
+}
+
+#customer-slot {
+  width: 70px;
+  height: 84px;
+  flex-shrink: 0;
 }
 
 #speech-bubble {
@@ -173,15 +182,176 @@ body {
 #speech-bubble::after {
   content: '';
   position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  left: -10px;
+  transform: translateY(-50%);
   width: 0;
   height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid var(--dark);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid var(--dark);
 }
+
+#speech-bubble.tier-up {
+  animation: tier-up-pulse 0.8s ease;
+}
+
+@keyframes tier-up-pulse {
+  0%, 100% { box-shadow: none; }
+  40% { box-shadow: 0 0 0 4px var(--pink); }
+}
+
+/* === Customer NPC (CSS doodle art) === */
+.customer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: customer-enter 0.5s ease-out;
+}
+
+@keyframes customer-enter {
+  from { transform: translateX(-120px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.customer.leaving {
+  animation: customer-leave 0.6s ease-in forwards;
+}
+
+@keyframes customer-leave {
+  to { transform: translateX(140px); opacity: 0; }
+}
+
+.customer.leaving-angry {
+  animation: customer-storm-out 0.5s ease-in forwards;
+}
+
+@keyframes customer-storm-out {
+  20% { transform: translateX(-8px) rotate(-4deg); }
+  to { transform: translateX(160px) rotate(6deg); opacity: 0; }
+}
+
+.customer-emote {
+  position: absolute;
+  top: -14px;
+  right: -6px;
+  font-size: 0.95rem;
+  color: var(--dark);
+  z-index: 2;
+}
+
+.customer[data-mood="ecstatic"] .customer-emote { color: #dc143c; animation: emote-pop 0.4s ease; }
+.customer[data-mood="angry"] .customer-emote { color: #dc143c; animation: emote-shake 0.4s ease; }
+
+@keyframes emote-pop {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+@keyframes emote-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+
+.customer-head {
+  width: 42px;
+  height: 42px;
+  position: relative;
+  z-index: 1;
+}
+
+.customer-hair {
+  position: absolute;
+  top: -4px;
+  left: 2px;
+  width: 38px;
+  height: 22px;
+  border-radius: 20px 20px 4px 4px;
+}
+
+.customer-face {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  width: 34px;
+  height: 36px;
+  background: #ffe0c2;
+  border: 2px solid var(--dark);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.customer-eyes::before {
+  content: '• •';
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: var(--dark);
+}
+
+.customer-mouth {
+  width: 10px;
+  height: 5px;
+  border: 2px solid var(--dark);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+}
+
+.customer-body {
+  width: 46px;
+  height: 38px;
+  margin-top: -4px;
+  border: 2px solid var(--dark);
+  border-radius: 14px 14px 6px 6px;
+  animation: customer-idle 2.4s ease-in-out infinite;
+}
+
+@keyframes customer-idle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+/* Variants: hair + shirt colors, small shape tweaks */
+.customer.variant-1 .customer-hair { background: #3B2F2F; }
+.customer.variant-1 .customer-body { background: var(--sage); }
+.customer.variant-2 .customer-hair { background: #8B4513; border-radius: 20px 20px 14px 14px; height: 26px; }
+.customer.variant-2 .customer-body { background: var(--pink); }
+.customer.variant-3 .customer-hair { background: #FFD700; }
+.customer.variant-3 .customer-body { background: #4169E1; }
+.customer.variant-4 .customer-hair { background: #dc143c; height: 16px; }
+.customer.variant-4 .customer-body { background: #f0e8d8; }
+.customer.variant-5 .customer-hair { background: #708090; border-radius: 20px 20px 18px 18px; height: 28px; }
+.customer.variant-5 .customer-body { background: #FF8C00; }
+.customer.variant-6 .customer-hair { background: #228B22; height: 14px; }
+.customer.variant-6 .customer-body { background: var(--light-brown); }
+
+/* Mood expressions */
+.customer[data-mood="ecstatic"] .customer-eyes::before { content: '^ ^'; }
+.customer[data-mood="ecstatic"] .customer-mouth { width: 14px; height: 7px; }
+.customer[data-mood="happy"] .customer-mouth { width: 12px; }
+.customer[data-mood="neutral"] .customer-mouth { border-radius: 0; height: 0; width: 10px; border-bottom: none; }
+.customer[data-mood="disappointed"] .customer-mouth {
+  border: 2px solid var(--dark);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  height: 5px;
+}
+.customer[data-mood="angry"] .customer-eyes::before { content: '> <'; }
+.customer[data-mood="angry"] .customer-mouth {
+  border: 2px solid var(--dark);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  height: 5px;
+}
+.customer[data-mood="angry"] .customer-face { background: #ffb8a0; }
 
 /* Game Area — 3 column layout */
 #game-area {
@@ -265,6 +435,11 @@ body {
   font-size: 1rem;
   color: var(--dark);
   opacity: 0.7;
+}
+
+#topping-counter.at-limit {
+  color: #dc143c;
+  opacity: 1;
 }
 
 .workspace-svg {

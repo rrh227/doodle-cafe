@@ -98,5 +98,5 @@ export function resetBase() {
   workspaceContentEl.appendChild(workspacePlaceholderEl);
   workspacePlaceholderEl.style.display = '';
   btnServe.disabled = true;
-  document.getElementById('topping-counter').textContent = '0 toppings';
+  document.getElementById('topping-counter').textContent = '0/8 toppings';
 }

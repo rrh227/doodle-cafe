@@ -1,102 +1,116 @@
-import { getToppingsData } from './toppings.js';
-
-export function scoreOrder(order, selectedBaseId, placedToppings, sectionColors) {
-  const toppingsData = getToppingsData();
-  const toppingLookup = Object.fromEntries(toppingsData.map(t => [t.id, t]));
-
-  let points = 0;
+export function scoreOrder(prompt, selectedBaseId, placedToppings, sectionColors, patienceFraction = 0) {
   const breakdown = [];
 
-  // 1. Base match
-  if (selectedBaseId === order.baseId) {
-    points += 50;
-    breakdown.push({ label: 'Correct base', points: 50 });
-  } else if (selectedBaseId) {
-    points += 10;
-    breakdown.push({ label: 'Wrong base', points: 10 });
-  } else {
-    breakdown.push({ label: 'No base selected', points: 0 });
-  }
+  // 1. Base score (0-20)
+  const baseWeight = selectedBaseId ? (prompt.idealBase[selectedBaseId] || 0) : 0;
+  const basePoints = Math.round(baseWeight * 20);
+  breakdown.push({ label: 'Base choice', points: basePoints });
 
-  // 2. Tag matching — collect all tags from placed toppings
-  const placedTags = new Set();
-  for (const placed of placedToppings) {
-    const data = toppingLookup[placed.id];
-    if (data) {
-      for (const tag of data.tags) {
-        placedTags.add(tag);
-      }
+  // 2. Color score (0-30) — average match weight of colored sections
+  const chosenColors = Object.values(sectionColors);
+  let colorPoints = 0;
+  if (chosenColors.length > 0) {
+    let totalWeight = 0;
+    for (const color of chosenColors) {
+      totalWeight += matchColorWeight(color, prompt.idealColors);
+    }
+    colorPoints = Math.round((totalWeight / chosenColors.length) * 30);
+  }
+  breakdown.push({ label: `Colors (${chosenColors.length} sections)`, points: colorPoints });
+
+  // 3. Topping score (0-40) — each unique ideal topping adds weight × 10
+  const placedIds = new Set(placedToppings.map(p => p.id));
+  let toppingSum = 0;
+  for (const id of placedIds) {
+    toppingSum += (prompt.idealToppings[id] || 0) * 10;
+  }
+  const toppingPoints = Math.min(40, Math.round(toppingSum));
+  breakdown.push({ label: `Toppings (${placedIds.size} kinds)`, points: toppingPoints });
+
+  // 4. Combo bonus (0-10)
+  let comboPoints = 0;
+  let combosHit = 0;
+  for (const [a, b] of prompt.bonusCombos || []) {
+    if (placedIds.has(a) && placedIds.has(b)) {
+      comboPoints += 5;
+      combosHit++;
     }
   }
-
-  let matchedTags = 0;
-  for (const tag of order.desiredTags) {
-    if (placedTags.has(tag)) {
-      matchedTags++;
-    }
+  comboPoints = Math.min(10, comboPoints);
+  if (comboPoints > 0) {
+    breakdown.push({ label: `Combo bonus (×${combosHit})`, points: comboPoints });
   }
 
-  const tagPoints = matchedTags * 30;
-  points += tagPoints;
-  breakdown.push({ label: `Tags matched (${matchedTags}/${order.desiredTags.length})`, points: tagPoints });
+  let points = basePoints + colorPoints + toppingPoints + comboPoints;
 
-  // 3. Category variety bonus
-  const categories = new Set();
-  for (const placed of placedToppings) {
-    const data = toppingLookup[placed.id];
-    if (data) categories.add(data.category);
+  // Patience bonus: up to +10% of earned points for serving quickly
+  const patienceBonus = Math.round(points * 0.1 * patienceFraction);
+  if (patienceBonus > 0) {
+    breakdown.push({ label: 'Quick service', points: patienceBonus });
   }
-  const varietyPoints = Math.min(categories.size, 4) * 10;
-  points += varietyPoints;
-  breakdown.push({ label: `Variety (${categories.size} categories)`, points: varietyPoints });
+  points = Math.min(100, points + patienceBonus);
 
-  // 4. Topping count bonus (rewarding decoration effort)
-  const effortPoints = Math.min(placedToppings.length, 6) * 5;
-  points += effortPoints;
-  breakdown.push({ label: `Toppings placed (${placedToppings.length})`, points: effortPoints });
-
-  // 5. Coloring bonus
-  const coloredSections = Object.keys(sectionColors).length;
-  const colorPoints = Math.min(coloredSections, 4) * 10;
-  points += colorPoints;
-  breakdown.push({ label: `Sections colored (${coloredSections})`, points: colorPoints });
-
-  // Star rating: max possible ~250 (50 base + 120 tags + 40 variety + 30 effort + 40 color)
-  const maxPoints = 50 + (order.desiredTags.length * 30) + 40 + 30 + 40;
-  const ratio = points / maxPoints;
   let stars;
-  if (ratio >= 0.9) stars = 5;
-  else if (ratio >= 0.7) stars = 4;
-  else if (ratio >= 0.5) stars = 3;
-  else if (ratio >= 0.3) stars = 2;
+  if (points >= 80) stars = 5;
+  else if (points >= 60) stars = 4;
+  else if (points >= 40) stars = 3;
+  else if (points >= 20) stars = 2;
   else stars = 1;
 
-  return { points, stars, breakdown, matchedTags, totalTags: order.desiredTags.length };
+  return { points, stars, breakdown };
+}
+
+function matchColorWeight(hex, idealColors) {
+  const rgb = hexToRgb(hex);
+  if (!rgb) return 0;
+
+  let best = 0;
+  for (const [idealHex, weight] of Object.entries(idealColors)) {
+    const ideal = hexToRgb(idealHex);
+    if (!ideal) continue;
+    const dist = Math.sqrt(
+      (rgb.r - ideal.r) ** 2 + (rgb.g - ideal.g) ** 2 + (rgb.b - ideal.b) ** 2
+    );
+    // Full credit for close matches, partial credit up to a moderate distance
+    if (dist <= 40) {
+      best = Math.max(best, weight);
+    } else if (dist <= 120) {
+      best = Math.max(best, weight * (1 - (dist - 40) / 80) * 0.7);
+    }
+  }
+  return best;
+}
+
+function hexToRgb(hex) {
+  const m = /^#?([0-9a-f]{6})$/i.exec(hex.trim());
+  if (!m) return null;
+  const n = parseInt(m[1], 16);
+  return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255 };
 }
 
 const REACTIONS = {
   5: [
+    "This is EXACTLY what I wanted!",
     "Absolutely perfect! You're a genius!",
-    "WOW! This is exactly what I wanted!",
-    "This is a masterpiece! Five stars!",
+    "WOW! A masterpiece! Five stars!",
   ],
   4: [
-    "Ooh, this looks great! Really nice work!",
+    "Ooh, nice! Really lovely work!",
     "Love it! Almost exactly what I imagined!",
     "So pretty! I'm impressed!",
   ],
   3: [
-    "Hey, not bad! I like it!",
-    "This is decent! Thanks!",
-    "Pretty good, I can work with this!",
+    "It's fine, I guess.",
+    "Hey, not bad! Thanks!",
+    "Pretty decent, I can work with this.",
   ],
   2: [
-    "Hmm, it's okay I guess...",
-    "Not quite what I had in mind...",
+    "Hmm, not quite...",
+    "Not really what I had in mind...",
     "Could be better, but thanks anyway.",
   ],
   1: [
-    "Um... this isn't really what I asked for.",
+    "This isn't what I asked for!",
     "I don't think you understood my order...",
     "Well... at least you tried?",
   ],

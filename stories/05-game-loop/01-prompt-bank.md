@@ -1,6 +1,6 @@
 ---
 title: Create Prompt Bank with Scoring Data
-status: todo
+status: done
 story: 05-game-loop
 depends_on: [04-scoring-engine/01-scoring-system, 03-topping-system/01-topping-catalog-data]
 ---

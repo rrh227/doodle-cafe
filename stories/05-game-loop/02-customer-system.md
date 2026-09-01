@@ -1,6 +1,6 @@
 ---
 title: Build Customer System
-status: todo
+status: done
 story: 05-game-loop
 depends_on: [01-prompt-bank]
 ---
