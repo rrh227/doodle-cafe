@@ -297,6 +297,26 @@ body {
   gap: 0.2rem;
 }
 
+.topping-tab {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 0.85rem;
+  padding: 0.15rem 0.5rem;
+  border: 2px solid var(--dark);
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.topping-tab:hover {
+  background-color: #f0e8d8;
+}
+
+.topping-tab.active {
+  background-color: var(--sage);
+  color: var(--dark);
+}
+
 #topping-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -307,6 +327,61 @@ body {
   border-radius: 6px;
   background: white;
   flex: 1;
+}
+
+.topping-cell {
+  width: 56px;
+  height: 56px;
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.topping-cell:hover {
+  transform: scale(1.08);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  border-color: var(--sage);
+}
+
+.topping-cell img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.drag-clone {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.85;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+}
+
+.placed-topping {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  cursor: grab;
+  pointer-events: auto;
+  transition: filter 0.1s;
+  z-index: 11;
+}
+
+.placed-topping:hover {
+  filter: drop-shadow(0 0 4px rgba(65,105,225,0.6));
+}
+
+.placed-topping.dragging {
+  cursor: grabbing;
+  opacity: 0.8;
 }
 
 /* Bottom Bar */

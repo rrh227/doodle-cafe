@@ -1,6 +1,6 @@
 ---
 title: Build Topping Catalog Panel
-status: todo
+status: done
 story: 03-topping-system
 depends_on: [02-topping-svgs]
 ---
@@ -20,10 +20,10 @@ Create the right-side panel that displays all available toppings organized by ca
 - Panel width: ~200px, height fills the game area
 
 ## Acceptance Criteria
-- [ ] All 50+ toppings render as thumbnails in the panel
-- [ ] Category tabs filter the displayed toppings
-- [ ] "All" tab shows every topping
-- [ ] Hovering shows topping name
-- [ ] Panel scrolls when content exceeds height
-- [ ] Toppings show grab cursor on hover
-- [ ] Panel renders without performance issues (50+ SVGs visible)
+- [x] All 50+ toppings render as thumbnails in the panel
+- [x] Category tabs filter the displayed toppings
+- [x] "All" tab shows every topping
+- [x] Hovering shows topping name
+- [x] Panel scrolls when content exceeds height
+- [x] Toppings show grab cursor on hover
+- [x] Panel renders without performance issues (50+ SVGs visible)

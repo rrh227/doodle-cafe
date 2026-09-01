@@ -1,6 +1,6 @@
 ---
 title: Create Topping Catalog Data
-status: todo
+status: done
 story: 03-topping-system
 depends_on: [01-project-setup/01-init-project]
 ---
@@ -26,9 +26,12 @@ Define the full topping catalog as structured data. Each topping has metadata us
 - No topping should have more than 5 tags (keeps scoring focused)
 
 ## Acceptance Criteria
-- [ ] `toppings.json` exists with 50+ entries
-- [ ] Every entry has id, name, category, tags, svgFile fields
-- [ ] All 6 categories have adequate items
-- [ ] Tags are diverse and overlap meaningfully across items
-- [ ] JSON is valid and parseable
-- [ ] Tag vocabulary is documented (list of all available tags)
+- [x] `toppings.json` exists with 50+ entries
+- [x] Every entry has id, name, category, tags, svgFile fields
+- [x] All 6 categories have adequate items
+- [x] Tags are diverse and overlap meaningfully across items
+- [x] JSON is valid and parseable
+- [x] Tag vocabulary is documented (list of all available tags)
+
+## Tag Vocabulary (31 tags)
+antioxidant, artistic, autumn, berry, bright, citrus, classic, colorful, cool, creamy, crunchy, earthy, elegant, festive, floral, fresh, fun, green, luxurious, mild, natural, nutty, red, savory, spicy, summer, sweet, tart, tropical, warm, winter

@@ -13,20 +13,20 @@
 |---|-------|--------|-------|
 | 01 | Project Setup | done | 3/3 |
 | 02 | Base Items & Coloring | done | 4/4 |
-| 03 | Topping System | not started | 0/4 |
+| 03 | Topping System | done | 4/4 |
 | 04 | Scoring Engine | not started | 0/3 |
 | 05 | Game Loop | not started | 0/5 |
 | 06 | Content Creation | not started | 0/4 |
 | 07 | Visual Polish | not started | 0/4 |
 | 08 | Deployment | not started | 0/2 |
 
-**Total: 7/29 tasks complete**
+**Total: 11/29 tasks complete**
 
 ---
 
 ## Current Phase: 1 — Foundation
 
-### Next Task: `stories/03-topping-system/01-topping-catalog-data.md`
+### Next Task: `stories/04-scoring-engine/01-prompt-generator.md`
 
 ---
 

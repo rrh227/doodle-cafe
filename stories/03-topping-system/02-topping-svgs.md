@@ -1,6 +1,6 @@
 ---
 title: Create Topping SVG Illustrations
-status: todo
+status: done
 story: 03-topping-system
 depends_on: [01-topping-catalog-data]
 ---
@@ -20,10 +20,10 @@ Create SVG illustrations for all 50+ toppings. Each is a small, standalone illus
 - Total asset budget: <500KB for all toppings combined
 
 ## Acceptance Criteria
-- [ ] 50+ SVG files exist in `client/assets/toppings/`
-- [ ] All files match their reference in `toppings.json`
-- [ ] Consistent art style across all toppings
-- [ ] SVGs render clearly at 40px (thumbnail) and 80px (placed)
-- [ ] All SVGs have transparent backgrounds
-- [ ] Total file size under 500KB
-- [ ] Each SVG is recognizable (you can tell what it is at a glance)
+- [x] 50+ SVG files exist in `client/assets/toppings/`
+- [x] All files match their reference in `toppings.json`
+- [x] Consistent art style across all toppings
+- [x] SVGs render clearly at 40px (thumbnail) and 80px (placed)
+- [x] All SVGs have transparent backgrounds
+- [x] Total file size under 500KB (200KB total)
+- [x] Each SVG is recognizable (you can tell what it is at a glance)
