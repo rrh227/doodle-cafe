@@ -1,6 +1,6 @@
 ---
 title: Create Topping SVGs — Fruits & Sauces (18 items)
-status: todo
+status: done
 story: 06-content-creation
 depends_on: [03-topping-system/01-topping-catalog-data]
 ---
@@ -26,7 +26,12 @@ chocolate_drizzle, caramel_drizzle, strawberry_sauce, honey, maple_syrup, matcha
 - Recognizable at 40px thumbnail size
 
 ## Acceptance Criteria
-- [ ] All 18 SVG files created in `client/assets/toppings/`
-- [ ] Consistent art style across batch
-- [ ] Each item is identifiable at thumbnail size
-- [ ] Files are under 5KB each
+- [x] All SVG files created in `client/assets/toppings/`
+- [x] Consistent art style across batch
+- [x] Each item is identifiable at thumbnail size
+- [x] Files are under 5KB each
+
+> Note (2026-09-01): The final topping roster in `toppings.json` diverged
+> slightly from this spec (e.g. `kiwi_slice` instead of `kiwi`,
+> `berry_compote`/`peanut_butter` instead of `condensed_milk`/`vanilla_glaze`).
+> All 18 fruit + sauce items in the shipped roster have SVGs.

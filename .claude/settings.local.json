@@ -13,7 +13,8 @@
       "Bash(curl -s http://localhost:5173/js/toppings.js)",
       "Bash(curl -s http://localhost:5173/data/toppings.json)",
       "Bash(curl -s http://localhost:5173/assets/toppings/cherry.svg)",
-      "Bash(pkill -f \"vite --port\")"
+      "Bash(pkill -f \"vite --port\")",
+      "Bash(python3 *)"
     ]
   }
 }

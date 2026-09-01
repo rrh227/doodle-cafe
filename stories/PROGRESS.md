@@ -16,17 +16,17 @@
 | 03 | Topping System | done | 4/4 |
 | 04 | Scoring Engine | done | 3/3 |
 | 05 | Game Loop | done | 5/5 |
-| 06 | Content Creation | not started | 0/4 |
+| 06 | Content Creation | done | 4/4 |
 | 07 | Visual Polish | not started | 0/4 |
 | 08 | Deployment | not started | 0/2 |
 
-**Total: 19/29 tasks complete**
+**Total: 23/29 tasks complete**
 
 ---
 
 ## Current Phase: 2 — Content & Polish
 
-### Next Task: `stories/06-content-creation/`
+### Next Task: `stories/07-visual-polish/`
 
 ---
 

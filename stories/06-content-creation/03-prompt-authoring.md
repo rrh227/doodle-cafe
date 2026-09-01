@@ -1,6 +1,6 @@
 ---
 title: Author Full Prompt Bank (100+ prompts)
-status: todo
+status: done
 story: 06-content-creation
 depends_on: [05-game-loop/01-prompt-bank]
 ---

@@ -27,8 +27,12 @@ const finalOrdersEl = document.getElementById('final-orders');
 const finalBestEl = document.getElementById('final-best');
 const speechBubbleEl = document.getElementById('speech-bubble');
 
-const REPUTATION_WINDOW = 10;
+// Balance-tested (stories/06-content-creation/04-balance-testing.md):
+// from a fresh 3.5 start, three 1-star or five 2-star orders end the run —
+// heavier failures drain reputation faster than mild ones. Novice runs
+// average ~8 orders.
 const REPUTATION_START = 3.5;
+const STAR_REP_DELTA = { 5: 0.25, 4: 0.15, 3: -0.15, 2: -0.35, 1: -0.6 };
 const GAME_OVER_THRESHOLD = 2.0;
 
 let currentOrder = null;
@@ -37,7 +41,7 @@ let totalScore = 0;
 let displayedScore = 0;
 let ordersServed = 0;
 let bestRating = 0;
-let recentStars = [];
+let reputation = REPUTATION_START;
 let scoreAnimId = null;
 
 document.getElementById('btn-start').addEventListener('click', () => {
@@ -58,7 +62,7 @@ btnNextOrder.addEventListener('click', () => {
   hideScoreOverlay();
   exitCustomer();
 
-  if (getReputation() < GAME_OVER_THRESHOLD) {
+  if (reputation < GAME_OVER_THRESHOLD) {
     setState('gameover');
     return;
   }
@@ -73,7 +77,7 @@ onState('playing', {
     displayedScore = 0;
     ordersServed = 0;
     bestRating = 0;
-    recentStars = [];
+    reputation = REPUTATION_START;
     resetOrders();
     updateHUD();
     showToppingCatalog(startDragFromCatalog);
@@ -141,8 +145,9 @@ function serveOrder(timedOut) {
   ordersServed++;
   if (result.stars > bestRating) bestRating = result.stars;
 
-  recentStars.push(result.stars);
-  if (recentStars.length > REPUTATION_WINDOW) recentStars.shift();
+  reputation = Math.max(0, Math.min(5,
+    reputation + STAR_REP_DELTA[result.stars]
+  ));
 
   updateHUD();
   showReaction(result.stars);
@@ -156,19 +161,9 @@ function resetWorkspace() {
   resetBuilder();
 }
 
-function getReputation() {
-  if (recentStars.length === 0) return REPUTATION_START;
-  // Blend toward the starting value until the window fills, so one early
-  // bad order doesn't end the run.
-  const sum = recentStars.reduce((a, b) => a + b, 0);
-  const padding = REPUTATION_WINDOW - recentStars.length;
-  return (sum + REPUTATION_START * padding) / REPUTATION_WINDOW;
-}
-
 function updateHUD() {
   animateScoreTo(totalScore);
 
-  const reputation = getReputation();
   reputationValueEl.textContent = reputation.toFixed(1);
   reputationFillEl.style.width = `${(reputation / 5) * 100}%`;
 

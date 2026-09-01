@@ -1,6 +1,6 @@
 ---
 title: Create Topping SVGs — Dry, Cream, Decorative, Savory (32+ items)
-status: todo
+status: done
 story: 06-content-creation
 depends_on: [03-topping-system/01-topping-catalog-data]
 ---
@@ -30,7 +30,13 @@ avocado, egg, bacon, cheese, herbs, tomato
 - Recognizable at thumbnail size
 
 ## Acceptance Criteria
-- [ ] All 32 SVG files created in `client/assets/toppings/`
-- [ ] Consistent with batch 1 art style
-- [ ] Each item identifiable at 40px
-- [ ] Files under 5KB each
+- [x] All SVG files created in `client/assets/toppings/`
+- [x] Consistent with batch 1 art style
+- [x] Each item identifiable at 40px
+- [x] Files under 5KB each
+
+> Note (2026-09-01): The shipped roster (66 toppings in `toppings.json`,
+> 66 SVGs on disk) diverged from this list — it adds an "abstract" category
+> (star, moon, cloud, music_note, etc.) and renames several items
+> (`egg_slice` for egg, `bacon_bits` for bacon). Every topping in
+> `toppings.json` has a matching SVG.
