@@ -6,12 +6,13 @@
     "offeredBases": [
       "latte",
       "iced_drink",
-      "cupcake"
+      "coffee_mug"
     ],
     "idealBase": {
       "latte": 1,
       "iced_drink": 0.5,
-      "cupcake": 0.3
+      "cupcake": 0.3,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#8C5A3C": 1,
@@ -55,7 +56,8 @@
     "idealBase": {
       "cupcake": 1,
       "toast": 0.4,
-      "latte": 0.2
+      "latte": 0.2,
+      "coffee_mug": 0.19
     },
     "idealColors": {
       "#EFA9B8": 1,
@@ -185,7 +187,8 @@
     "idealBase": {
       "iced_drink": 1,
       "smoothie_bowl": 0.6,
-      "latte": 0.2
+      "latte": 0.2,
+      "coffee_mug": 0.19
     },
     "idealColors": {
       "#EAB94D": 1,
@@ -227,7 +230,8 @@
     "idealBase": {
       "latte": 1,
       "iced_drink": 0.5,
-      "cupcake": 0.4
+      "cupcake": 0.4,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#8C5A3C": 1,
@@ -269,7 +273,8 @@
     "idealBase": {
       "cupcake": 1,
       "smoothie_bowl": 0.4,
-      "latte": 0.2
+      "latte": 0.2,
+      "coffee_mug": 0.19
     },
     "idealColors": {
       "#EFA9B8": 1,
@@ -430,12 +435,13 @@
     "offeredBases": [
       "latte",
       "toast",
-      "smoothie_bowl"
+      "coffee_mug"
     ],
     "idealBase": {
       "latte": 1,
       "toast": 0.5,
-      "smoothie_bowl": 0.3
+      "smoothie_bowl": 0.3,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#EAB94D": 1,
@@ -477,7 +483,8 @@
     "idealBase": {
       "cupcake": 1,
       "latte": 0.4,
-      "smoothie_bowl": 0.2
+      "smoothie_bowl": 0.2,
+      "coffee_mug": 0.38
     },
     "idealColors": {
       "#8C5A3C": 1,
@@ -560,7 +567,8 @@
     "idealBase": {
       "smoothie_bowl": 1,
       "toast": 0.6,
-      "latte": 0.2
+      "latte": 0.2,
+      "coffee_mug": 0.19
     },
     "idealColors": {
       "#D8BC94": 1,
@@ -602,7 +610,8 @@
     "idealBase": {
       "iced_drink": 1,
       "smoothie_bowl": 0.6,
-      "latte": 0.2
+      "latte": 0.2,
+      "coffee_mug": 0.19
     },
     "idealColors": {
       "#C9506B": 1,
@@ -644,7 +653,8 @@
     "idealBase": {
       "latte": 1,
       "cupcake": 0.4,
-      "toast": 0.2
+      "toast": 0.2,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#8C5A3C": 1,
@@ -767,7 +777,8 @@
     "idealBase": {
       "smoothie_bowl": 1,
       "cupcake": 0.5,
-      "latte": 0.4
+      "latte": 0.4,
+      "coffee_mug": 0.38
     },
     "idealColors": {
       "#8C5A3C": 1,
@@ -809,7 +820,8 @@
     "idealBase": {
       "iced_drink": 1,
       "latte": 0.4,
-      "cupcake": 0.2
+      "cupcake": 0.2,
+      "coffee_mug": 0.38
     },
     "idealColors": {
       "#7BA05B": 1,
@@ -844,12 +856,13 @@
     "offeredBases": [
       "latte",
       "iced_drink",
-      "smoothie_bowl"
+      "coffee_mug"
     ],
     "idealBase": {
       "latte": 1,
       "iced_drink": 0.6,
-      "smoothie_bowl": 0.4
+      "smoothie_bowl": 0.4,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#7BA05B": 1,
@@ -930,7 +943,8 @@
     "idealBase": {
       "toast": 1,
       "latte": 0.2,
-      "iced_drink": 0.1
+      "iced_drink": 0.1,
+      "coffee_mug": 0.19
     },
     "idealColors": {
       "#D8BC94": 1,
@@ -1051,7 +1065,8 @@
     "idealBase": {
       "latte": 1,
       "cupcake": 0.5,
-      "smoothie_bowl": 0.2
+      "smoothie_bowl": 0.2,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#8C5A3C": 1,
@@ -1092,7 +1107,8 @@
     "idealBase": {
       "iced_drink": 1,
       "smoothie_bowl": 0.8,
-      "latte": 0.2
+      "latte": 0.2,
+      "coffee_mug": 0.19
     },
     "idealColors": {
       "#6C87D1": 1,
@@ -1127,12 +1143,13 @@
     "offeredBases": [
       "iced_drink",
       "latte",
-      "cupcake"
+      "coffee_mug"
     ],
     "idealBase": {
       "iced_drink": 0.8,
       "latte": 1,
-      "cupcake": 0.6
+      "cupcake": 0.6,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#EFA9B8": 1,
@@ -1212,7 +1229,8 @@
     "idealBase": {
       "toast": 1,
       "latte": 0.8,
-      "cupcake": 0.5
+      "cupcake": 0.5,
+      "coffee_mug": 0.76
     },
     "idealColors": {
       "#8C5A3C": 1,
@@ -1247,12 +1265,13 @@
     "offeredBases": [
       "latte",
       "iced_drink",
-      "cupcake"
+      "coffee_mug"
     ],
     "idealBase": {
       "iced_drink": 1,
       "latte": 0.8,
-      "cupcake": 0.5
+      "cupcake": 0.5,
+      "coffee_mug": 0.76
     },
     "idealColors": {
       "#FFFDF7": 1,
@@ -1292,7 +1311,8 @@
     "idealBase": {
       "cupcake": 1,
       "latte": 0.7,
-      "iced_drink": 0.4
+      "iced_drink": 0.4,
+      "coffee_mug": 0.66
     },
     "idealColors": {
       "#C9506B": 1,
@@ -1332,7 +1352,8 @@
     "idealBase": {
       "smoothie_bowl": 1,
       "latte": 0.8,
-      "toast": 0.6
+      "toast": 0.6,
+      "coffee_mug": 0.76
     },
     "idealColors": {
       "#7BA05B": 1,
@@ -1447,12 +1468,13 @@
     "offeredBases": [
       "cupcake",
       "latte",
-      "toast"
+      "coffee_mug"
     ],
     "idealBase": {
       "cupcake": 1,
       "latte": 0.8,
-      "toast": 0.5
+      "toast": 0.5,
+      "coffee_mug": 0.76
     },
     "idealColors": {
       "#EFA9B8": 1,
@@ -1492,7 +1514,8 @@
     "idealBase": {
       "iced_drink": 1,
       "smoothie_bowl": 0.7,
-      "latte": 0.2
+      "latte": 0.2,
+      "coffee_mug": 0.19
     },
     "idealColors": {
       "#6C87D1": 1,
@@ -1532,7 +1555,8 @@
     "idealBase": {
       "toast": 1,
       "smoothie_bowl": 0.8,
-      "latte": 0.6
+      "latte": 0.6,
+      "coffee_mug": 0.57
     },
     "idealColors": {
       "#E58E4B": 1,
@@ -1611,7 +1635,8 @@
     "idealBase": {
       "cupcake": 1,
       "latte": 0.8,
-      "toast": 0.6
+      "toast": 0.6,
+      "coffee_mug": 0.76
     },
     "idealColors": {
       "#EAB94D": 1,
@@ -1686,12 +1711,13 @@
     "offeredBases": [
       "latte",
       "cupcake",
-      "smoothie_bowl"
+      "coffee_mug"
     ],
     "idealBase": {
       "latte": 1,
       "cupcake": 0.7,
-      "smoothie_bowl": 0.4
+      "smoothie_bowl": 0.4,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#FFFDF7": 1,
@@ -1811,7 +1837,8 @@
     "idealBase": {
       "iced_drink": 1,
       "latte": 0.8,
-      "cupcake": 0.5
+      "cupcake": 0.5,
+      "coffee_mug": 0.76
     },
     "idealColors": {
       "#4A3429": 0.9,
@@ -1846,12 +1873,13 @@
     "offeredBases": [
       "toast",
       "latte",
-      "smoothie_bowl"
+      "coffee_mug"
     ],
     "idealBase": {
       "toast": 1,
       "latte": 0.8,
-      "smoothie_bowl": 0.6
+      "smoothie_bowl": 0.6,
+      "coffee_mug": 0.76
     },
     "idealColors": {
       "#D8BC94": 1,
@@ -1931,7 +1959,8 @@
     "idealBase": {
       "cupcake": 1,
       "smoothie_bowl": 0.6,
-      "latte": 0.6
+      "latte": 0.6,
+      "coffee_mug": 0.57
     },
     "idealColors": {
       "#EFA9B8": 1,
@@ -1971,7 +2000,8 @@
     "idealBase": {
       "smoothie_bowl": 1,
       "latte": 0.8,
-      "toast": 0.4
+      "toast": 0.4,
+      "coffee_mug": 0.76
     },
     "idealColors": {
       "#7BA05B": 1,
@@ -2006,12 +2036,13 @@
     "offeredBases": [
       "latte",
       "cupcake",
-      "toast"
+      "coffee_mug"
     ],
     "idealBase": {
       "latte": 1,
       "cupcake": 0.8,
-      "toast": 0.6
+      "toast": 0.6,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#8C5A3C": 1,
@@ -2051,7 +2082,8 @@
     "idealBase": {
       "cupcake": 1,
       "iced_drink": 0.7,
-      "latte": 0.5
+      "latte": 0.5,
+      "coffee_mug": 0.48
     },
     "idealColors": {
       "#4A3429": 1,
@@ -2091,7 +2123,8 @@
     "idealBase": {
       "latte": 1,
       "toast": 0.6,
-      "iced_drink": 0.3
+      "iced_drink": 0.3,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#6C87D1": 1,
@@ -2120,13 +2153,14 @@
     "tier": 3,
     "offeredBases": [
       "latte",
-      "cupcake",
+      "coffee_mug",
       "iced_drink"
     ],
     "idealBase": {
       "latte": 1,
       "cupcake": 0.6,
-      "iced_drink": 0.6
+      "iced_drink": 0.6,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#4A3429": 1,
@@ -2161,7 +2195,8 @@
     "idealBase": {
       "cupcake": 1,
       "smoothie_bowl": 0.5,
-      "latte": 0.4
+      "latte": 0.4,
+      "coffee_mug": 0.38
     },
     "idealColors": {
       "#EFA9B8": 1,
@@ -2201,7 +2236,8 @@
     "idealBase": {
       "toast": 1,
       "latte": 0.8,
-      "smoothie_bowl": 0.5
+      "smoothie_bowl": 0.5,
+      "coffee_mug": 0.76
     },
     "idealColors": {
       "#D8BC94": 1,
@@ -2231,12 +2267,13 @@
     "offeredBases": [
       "latte",
       "iced_drink",
-      "cupcake"
+      "coffee_mug"
     ],
     "idealBase": {
       "latte": 1,
       "iced_drink": 0.6,
-      "cupcake": 0.3
+      "cupcake": 0.3,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#6C87D1": 1,
@@ -2310,7 +2347,8 @@
     "idealBase": {
       "latte": 1,
       "toast": 0.7,
-      "cupcake": 0.3
+      "cupcake": 0.3,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#8C5A3C": 1,
@@ -2345,7 +2383,8 @@
     "idealBase": {
       "iced_drink": 1,
       "smoothie_bowl": 0.6,
-      "latte": 0.3
+      "latte": 0.3,
+      "coffee_mug": 0.28
     },
     "idealColors": {
       "#6C87D1": 1,
@@ -2384,7 +2423,8 @@
     "idealBase": {
       "cupcake": 1,
       "toast": 0.8,
-      "latte": 0.6
+      "latte": 0.6,
+      "coffee_mug": 0.57
     },
     "idealColors": {
       "#D8BC94": 1,
@@ -2418,12 +2458,13 @@
     "offeredBases": [
       "iced_drink",
       "latte",
-      "cupcake"
+      "coffee_mug"
     ],
     "idealBase": {
       "iced_drink": 1,
       "latte": 0.8,
-      "cupcake": 0.4
+      "cupcake": 0.4,
+      "coffee_mug": 0.76
     },
     "idealColors": {
       "#4A3429": 1,
@@ -2497,7 +2538,8 @@
     "idealBase": {
       "smoothie_bowl": 1,
       "latte": 0.8,
-      "toast": 0.5
+      "toast": 0.5,
+      "coffee_mug": 0.76
     },
     "idealColors": {
       "#FFFDF7": 1,
@@ -2532,7 +2574,8 @@
     "idealBase": {
       "cupcake": 1,
       "latte": 0.7,
-      "toast": 0.3
+      "toast": 0.3,
+      "coffee_mug": 0.66
     },
     "idealColors": {
       "#C9506B": 1,
@@ -2600,13 +2643,14 @@
     "tier": 3,
     "offeredBases": [
       "latte",
-      "cupcake",
+      "coffee_mug",
       "smoothie_bowl"
     ],
     "idealBase": {
       "latte": 1,
       "smoothie_bowl": 0.6,
-      "cupcake": 0.5
+      "cupcake": 0.5,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#FFFDF7": 1,
@@ -2645,7 +2689,8 @@
     "idealBase": {
       "toast": 1,
       "latte": 0.8,
-      "iced_drink": 0.2
+      "iced_drink": 0.2,
+      "coffee_mug": 0.76
     },
     "idealColors": {
       "#E58E4B": 1,
@@ -2674,13 +2719,14 @@
     "tier": 3,
     "offeredBases": [
       "smoothie_bowl",
-      "iced_drink",
+      "coffee_mug",
       "latte"
     ],
     "idealBase": {
       "smoothie_bowl": 0.8,
       "iced_drink": 0.7,
-      "latte": 1
+      "latte": 1,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#EAB94D": 1,
@@ -2719,7 +2765,8 @@
     "idealBase": {
       "latte": 1,
       "cupcake": 0.7,
-      "toast": 0.5
+      "toast": 0.5,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#D8BC94": 1,
@@ -2758,7 +2805,8 @@
     "idealBase": {
       "smoothie_bowl": 1,
       "latte": 0.7,
-      "toast": 0.4
+      "toast": 0.4,
+      "coffee_mug": 0.66
     },
     "idealColors": {
       "#6C87D1": 1,
@@ -2797,7 +2845,8 @@
     "idealBase": {
       "iced_drink": 1,
       "smoothie_bowl": 0.7,
-      "latte": 0.5
+      "latte": 0.5,
+      "coffee_mug": 0.48
     },
     "idealColors": {
       "#E58E4B": 1,
@@ -2832,7 +2881,8 @@
     "idealBase": {
       "cupcake": 1,
       "iced_drink": 0.7,
-      "latte": 0.5
+      "latte": 0.5,
+      "coffee_mug": 0.48
     },
     "idealColors": {
       "#6C87D1": 1,
@@ -2862,12 +2912,13 @@
     "offeredBases": [
       "latte",
       "cupcake",
-      "smoothie_bowl"
+      "coffee_mug"
     ],
     "idealBase": {
       "latte": 1,
       "cupcake": 0.6,
-      "smoothie_bowl": 0.4
+      "smoothie_bowl": 0.4,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#FFFDF7": 1,
@@ -2937,7 +2988,8 @@
     "idealBase": {
       "latte": 1,
       "iced_drink": 0.7,
-      "cupcake": 0.5
+      "cupcake": 0.5,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#6C87D1": 1,
@@ -2972,7 +3024,8 @@
     "idealBase": {
       "cupcake": 1,
       "iced_drink": 0.7,
-      "latte": 0.5
+      "latte": 0.5,
+      "coffee_mug": 0.48
     },
     "idealColors": {
       "#C9506B": 1,
@@ -3005,11 +3058,12 @@
     "tier": 4,
     "offeredBases": [
       "latte",
-      "iced_drink"
+      "coffee_mug"
     ],
     "idealBase": {
       "latte": 1,
-      "iced_drink": 0.3
+      "iced_drink": 0.3,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#FFFDF7": 1,
@@ -3043,7 +3097,8 @@
     "idealBase": {
       "latte": 1,
       "smoothie_bowl": 0.5,
-      "cupcake": 0.3
+      "cupcake": 0.3,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#FFFDF7": 1,
@@ -3077,7 +3132,8 @@
     "idealBase": {
       "toast": 1,
       "cupcake": 0.6,
-      "latte": 0.4
+      "latte": 0.4,
+      "coffee_mug": 0.38
     },
     "idealColors": {
       "#D8BC94": 1,
@@ -3105,13 +3161,14 @@
     "tier": 4,
     "offeredBases": [
       "latte",
-      "iced_drink",
+      "coffee_mug",
       "cupcake"
     ],
     "idealBase": {
       "latte": 1,
       "iced_drink": 0.4,
-      "cupcake": 0.4
+      "cupcake": 0.4,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#FFFDF7": 1,
@@ -3143,7 +3200,8 @@
     ],
     "idealBase": {
       "toast": 1,
-      "latte": 0.7
+      "latte": 0.7,
+      "coffee_mug": 0.66
     },
     "idealColors": {
       "#4A3429": 1,
@@ -3177,7 +3235,8 @@
     "idealBase": {
       "cupcake": 0.5,
       "latte": 1,
-      "iced_drink": 0.4
+      "iced_drink": 0.4,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#EAB94D": 1,
@@ -3211,7 +3270,8 @@
     "idealBase": {
       "smoothie_bowl": 1,
       "latte": 0.7,
-      "cupcake": 0.5
+      "cupcake": 0.5,
+      "coffee_mug": 0.66
     },
     "idealColors": {
       "#D8BC94": 1,
@@ -3245,7 +3305,8 @@
     "idealBase": {
       "smoothie_bowl": 1,
       "toast": 0.6,
-      "latte": 0.4
+      "latte": 0.4,
+      "coffee_mug": 0.38
     },
     "idealColors": {
       "#FFFDF7": 1,
@@ -3277,7 +3338,8 @@
     ],
     "idealBase": {
       "iced_drink": 1,
-      "latte": 0.5
+      "latte": 0.5,
+      "coffee_mug": 0.48
     },
     "idealColors": {
       "#6C87D1": 1,
@@ -3311,7 +3373,8 @@
     "idealBase": {
       "iced_drink": 1,
       "latte": 0.6,
-      "cupcake": 0.3
+      "cupcake": 0.3,
+      "coffee_mug": 0.57
     },
     "idealColors": {
       "#4A3429": 1,
@@ -3345,7 +3408,8 @@
     "idealBase": {
       "iced_drink": 1,
       "latte": 0.7,
-      "smoothie_bowl": 0.4
+      "smoothie_bowl": 0.4,
+      "coffee_mug": 0.66
     },
     "idealColors": {
       "#FFFDF7": 1,
@@ -3379,7 +3443,8 @@
     "idealBase": {
       "toast": 1,
       "latte": 0.7,
-      "cupcake": 0.2
+      "cupcake": 0.2,
+      "coffee_mug": 0.66
     },
     "idealColors": {
       "#8C5A3C": 1,
@@ -3407,11 +3472,12 @@
     "tier": 4,
     "offeredBases": [
       "latte",
-      "smoothie_bowl"
+      "coffee_mug"
     ],
     "idealBase": {
       "latte": 1,
-      "smoothie_bowl": 0.5
+      "smoothie_bowl": 0.5,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#FFFDF7": 1,
@@ -3579,7 +3645,8 @@
     "idealBase": {
       "cupcake": 1,
       "latte": 0.7,
-      "iced_drink": 0.4
+      "iced_drink": 0.4,
+      "coffee_mug": 0.66
     },
     "idealColors": {
       "#FFFDF7": 0.9,
@@ -3613,7 +3680,8 @@
     "idealBase": {
       "latte": 0.6,
       "cupcake": 1,
-      "smoothie_bowl": 0.4
+      "smoothie_bowl": 0.4,
+      "coffee_mug": 0.57
     },
     "idealColors": {
       "#EAB94D": 1,
@@ -3647,7 +3715,8 @@
     "idealBase": {
       "latte": 1,
       "cupcake": 0.7,
-      "toast": 0.4
+      "toast": 0.4,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#EFA9B8": 1,
@@ -3681,7 +3750,8 @@
     "idealBase": {
       "iced_drink": 1,
       "cupcake": 0.6,
-      "latte": 0.5
+      "latte": 0.5,
+      "coffee_mug": 0.48
     },
     "idealColors": {
       "#FFFDF7": 1,
@@ -3715,7 +3785,8 @@
     "idealBase": {
       "latte": 0.6,
       "smoothie_bowl": 1,
-      "iced_drink": 0.5
+      "iced_drink": 0.5,
+      "coffee_mug": 0.57
     },
     "idealColors": {
       "#6C87D1": 1,
@@ -3749,7 +3820,8 @@
     "idealBase": {
       "toast": 1,
       "latte": 0.6,
-      "smoothie_bowl": 0.5
+      "smoothie_bowl": 0.5,
+      "coffee_mug": 0.57
     },
     "idealColors": {
       "#FFFDF7": 1,
@@ -3783,7 +3855,8 @@
     "idealBase": {
       "cupcake": 1,
       "iced_drink": 0.5,
-      "latte": 0.5
+      "latte": 0.5,
+      "coffee_mug": 0.48
     },
     "idealColors": {
       "#EAB94D": 1,
@@ -3811,11 +3884,12 @@
     "tier": 4,
     "offeredBases": [
       "latte",
-      "cupcake"
+      "coffee_mug"
     ],
     "idealBase": {
       "latte": 1,
-      "cupcake": 0.6
+      "cupcake": 0.6,
+      "coffee_mug": 0.95
     },
     "idealColors": {
       "#EFA9B8": 1,
@@ -3834,6 +3908,439 @@
       [
         "foam_art",
         "heart"
+      ]
+    ]
+  },
+  {
+    "id": "t3_026",
+    "text": "Make me a dessert that feels like the first day of spring.",
+    "tier": 3,
+    "offeredBases": [
+      "cupcake",
+      "smoothie_bowl",
+      "toast"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "smoothie_bowl": 0.9,
+      "toast": 0.5
+    },
+    "idealColors": {
+      "#EFA9B8": 1,
+      "#7BA05B": 0.9,
+      "#FFFDF7": 0.6
+    },
+    "idealToppings": {
+      "edible_flower": 1,
+      "butterfly": 0.9,
+      "rose_petal": 0.8,
+      "sun": 0.7,
+      "lavender_sprig": 0.6,
+      "mint_leaf": 0.5,
+      "sugar_pearl": 0.4
+    },
+    "bonusCombos": [
+      [
+        "edible_flower",
+        "butterfly"
+      ],
+      [
+        "rose_petal",
+        "sun"
+      ]
+    ]
+  },
+  {
+    "id": "t3_027",
+    "text": "I want to taste a campfire story — spooky but cozy.",
+    "tier": 3,
+    "offeredBases": [
+      "latte",
+      "coffee_mug",
+      "cupcake"
+    ],
+    "idealBase": {
+      "latte": 0.9,
+      "coffee_mug": 1,
+      "cupcake": 0.6
+    },
+    "idealColors": {
+      "#4A3429": 1,
+      "#E58E4B": 0.9,
+      "#8C5A3C": 0.7
+    },
+    "idealToppings": {
+      "flame": 1,
+      "marshmallow": 0.9,
+      "moon": 0.8,
+      "graham_cracker": 0.7,
+      "chocolate_drizzle": 0.6,
+      "star": 0.5,
+      "cinnamon": 0.4
+    },
+    "bonusCombos": [
+      [
+        "flame",
+        "marshmallow"
+      ],
+      [
+        "moon",
+        "star"
+      ]
+    ]
+  },
+  {
+    "id": "t3_028",
+    "text": "Serve me a love letter that never got sent.",
+    "tier": 3,
+    "offeredBases": [
+      "latte",
+      "cupcake",
+      "toast"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "cupcake": 0.8,
+      "toast": 0.5,
+      "coffee_mug": 0.9
+    },
+    "idealColors": {
+      "#EFA9B8": 1,
+      "#FFFDF7": 0.8,
+      "#C9506B": 0.6
+    },
+    "idealToppings": {
+      "paper_plane": 1,
+      "heart": 0.9,
+      "rose_petal": 0.8,
+      "feather": 0.7,
+      "teardrop": 0.6,
+      "sugar_pearl": 0.4,
+      "foam_art": 0.4
+    },
+    "bonusCombos": [
+      [
+        "paper_plane",
+        "heart"
+      ],
+      [
+        "rose_petal",
+        "teardrop"
+      ]
+    ]
+  },
+  {
+    "id": "t3_029",
+    "text": "A snowed-in morning where nobody has to go anywhere.",
+    "tier": 3,
+    "offeredBases": [
+      "latte",
+      "coffee_mug",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "coffee_mug": 0.95,
+      "smoothie_bowl": 0.5
+    },
+    "idealColors": {
+      "#FFFDF7": 1,
+      "#6C87D1": 0.8,
+      "#D8BC94": 0.6
+    },
+    "idealToppings": {
+      "snowflake": 1,
+      "marshmallow": 0.9,
+      "cloud": 0.8,
+      "whipped_cream": 0.7,
+      "cinnamon": 0.5,
+      "coconut_flakes": 0.5,
+      "foam_art": 0.4
+    },
+    "bonusCombos": [
+      [
+        "snowflake",
+        "marshmallow"
+      ],
+      [
+        "cloud",
+        "whipped_cream"
+      ]
+    ]
+  },
+  {
+    "id": "t3_030",
+    "text": "Make me the moment a puzzle finally clicks together.",
+    "tier": 3,
+    "offeredBases": [
+      "cupcake",
+      "toast",
+      "iced_drink"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "toast": 0.7,
+      "iced_drink": 0.5
+    },
+    "idealColors": {
+      "#7BA05B": 1,
+      "#EAB94D": 0.8,
+      "#6C87D1": 0.6
+    },
+    "idealToppings": {
+      "puzzle_piece": 1,
+      "lightning": 0.9,
+      "sparkle": 0.8,
+      "star": 0.6,
+      "sprinkles": 0.6,
+      "pistachios": 0.5,
+      "sugar_pearl": 0.4
+    },
+    "bonusCombos": [
+      [
+        "puzzle_piece",
+        "lightning"
+      ],
+      [
+        "sparkle",
+        "star"
+      ]
+    ]
+  },
+  {
+    "id": "t3_031",
+    "text": "Something that tastes the way a garden smells after rain.",
+    "tier": 3,
+    "offeredBases": [
+      "smoothie_bowl",
+      "iced_drink",
+      "toast"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "iced_drink": 0.8,
+      "toast": 0.6
+    },
+    "idealColors": {
+      "#7BA05B": 1,
+      "#6C87D1": 0.8,
+      "#EFA9B8": 0.5
+    },
+    "idealToppings": {
+      "teardrop": 1,
+      "lavender_sprig": 0.9,
+      "mint_leaf": 0.8,
+      "rose_petal": 0.6,
+      "microgreens": 0.6,
+      "edible_flower": 0.5,
+      "kiwi_slice": 0.4
+    },
+    "bonusCombos": [
+      [
+        "teardrop",
+        "lavender_sprig"
+      ],
+      [
+        "mint_leaf",
+        "rose_petal"
+      ]
+    ]
+  },
+  {
+    "id": "t4_026",
+    "text": "What does hope look like at 2am? Put it in a cup.",
+    "tier": 4,
+    "offeredBases": [
+      "latte",
+      "coffee_mug"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "coffee_mug": 0.95,
+      "iced_drink": 0.4
+    },
+    "idealColors": {
+      "#4A3429": 1,
+      "#EAB94D": 0.8,
+      "#6C87D1": 0.5
+    },
+    "idealToppings": {
+      "constellation": 1,
+      "moon": 0.9,
+      "flame": 0.7,
+      "sparkle": 0.6,
+      "foam_art": 0.4,
+      "honey": 0.3
+    },
+    "bonusCombos": [
+      [
+        "constellation",
+        "moon"
+      ]
+    ]
+  },
+  {
+    "id": "t4_027",
+    "text": "Serve me the exact feeling of leaving on a one-way trip.",
+    "tier": 4,
+    "offeredBases": [
+      "iced_drink",
+      "toast"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "toast": 0.9,
+      "smoothie_bowl": 0.4
+    },
+    "idealColors": {
+      "#6C87D1": 1,
+      "#FFFDF7": 0.7,
+      "#EAB94D": 0.5
+    },
+    "idealToppings": {
+      "paper_plane": 1,
+      "feather": 0.9,
+      "cloud": 0.8,
+      "wave": 0.5,
+      "teardrop": 0.4,
+      "sparkle": 0.3
+    },
+    "bonusCombos": [
+      [
+        "paper_plane",
+        "cloud"
+      ]
+    ]
+  },
+  {
+    "id": "t4_028",
+    "text": "I dreamed in color last night. Recreate the dream, not the colors.",
+    "tier": 4,
+    "offeredBases": [
+      "smoothie_bowl",
+      "cupcake"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "cupcake": 0.9,
+      "iced_drink": 0.4
+    },
+    "idealColors": {
+      "#EFA9B8": 1,
+      "#6C87D1": 0.8,
+      "#EAB94D": 0.6
+    },
+    "idealToppings": {
+      "rainbow": 1,
+      "cloud": 0.9,
+      "spiral": 0.7,
+      "butterfly": 0.5,
+      "sparkle": 0.4,
+      "moon": 0.3
+    },
+    "bonusCombos": [
+      [
+        "rainbow",
+        "cloud"
+      ]
+    ]
+  },
+  {
+    "id": "t4_029",
+    "text": "Make anger, but the kind you let go of.",
+    "tier": 4,
+    "offeredBases": [
+      "cupcake",
+      "coffee_mug"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "coffee_mug": 0.9,
+      "toast": 0.4
+    },
+    "idealColors": {
+      "#C9506B": 1,
+      "#E58E4B": 0.8,
+      "#FFFDF7": 0.5
+    },
+    "idealToppings": {
+      "flame": 1,
+      "chili_flakes": 0.9,
+      "feather": 0.8,
+      "zigzag": 0.5,
+      "teardrop": 0.4,
+      "snowflake": 0.3
+    },
+    "bonusCombos": [
+      [
+        "flame",
+        "feather"
+      ]
+    ]
+  },
+  {
+    "id": "t4_030",
+    "text": "The last five minutes of a perfect party. Bittersweet, please.",
+    "tier": 4,
+    "offeredBases": [
+      "cupcake",
+      "iced_drink"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "iced_drink": 0.9,
+      "latte": 0.4
+    },
+    "idealColors": {
+      "#EAB94D": 1,
+      "#EFA9B8": 0.8,
+      "#4A3429": 0.5
+    },
+    "idealToppings": {
+      "sprinkles": 1,
+      "teardrop": 0.9,
+      "star": 0.7,
+      "umbrella_pick": 0.5,
+      "music_note": 0.4,
+      "sugar_pearl": 0.3
+    },
+    "bonusCombos": [
+      [
+        "sprinkles",
+        "teardrop"
+      ]
+    ]
+  },
+  {
+    "id": "t4_031",
+    "text": "Winter is ending and it does not know it yet.",
+    "tier": 4,
+    "offeredBases": [
+      "latte",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "smoothie_bowl": 0.9,
+      "coffee_mug": 0.9
+    },
+    "idealColors": {
+      "#FFFDF7": 1,
+      "#7BA05B": 0.8,
+      "#6C87D1": 0.6
+    },
+    "idealToppings": {
+      "snowflake": 1,
+      "edible_flower": 0.9,
+      "sun": 0.8,
+      "mint_leaf": 0.4,
+      "sparkle": 0.4,
+      "lavender_sprig": 0.3
+    },
+    "bonusCombos": [
+      [
+        "snowflake",
+        "edible_flower"
       ]
     ]
   }

@@ -27,7 +27,10 @@
       "Read(//private/tmp/**)",
       "Bash(npx -y playwright screenshot --viewport-size=1280,800 --wait-for-timeout=1500 \"http://localhost:5174/\" /tmp/title-screen.png)",
       "Bash(sed -n '1340,1370p' client/css/styles.css)",
-      "Bash(sed -n '125,160p' client/index.html)"
+      "Bash(sed -n '125,160p' client/index.html)",
+      "Bash(rm -rf svg_preview)",
+      "Bash(mkdir svg_preview)",
+      "Bash(qlmanage -t -s 160 -o svg_preview /Users/81035493/GitHub/galileo-game-jam/client/assets/toppings/__TRACKED_VAR__.svg)"
     ]
   }
 }

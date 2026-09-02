@@ -1,15 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
-  <!-- Latte: cup, foam, liquid, sleeve -->
+  <!-- Latte: cup, foam, liquid, sleeve (+ decor layer) -->
+  <ellipse cx="150" cy="288" rx="86" ry="9" fill="#3A2418" opacity="0.12"/>
   <g id="cup">
-    <path d="M85 100 Q83 105 78 280 Q78 290 150 290 Q222 290 222 280 L217 100 Z" fill="#FFFFFF" stroke="#4A3429" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M85 100 Q83 105 78 280 Q78 290 150 290 Q222 290 222 280 L217 100 Z" fill="#FBF3E4" stroke="#3A2418" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M82 250 Q82 262 150 263 Q218 262 218 250" fill="none" stroke="#3A2418" stroke-width="1.5" opacity="0.25"/>
   </g>
   <g id="sleeve">
-    <path d="M92 170 Q90 172 88 220 L212 220 Q210 172 208 170 Z" fill="#FFFFFF" stroke="#4A3429" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M92 170 Q90 172 88 220 L212 220 Q210 172 208 170 Z" fill="#C9A876" stroke="#3A2418" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M91 182 L209 182" fill="none" stroke="#3A2418" stroke-width="1.5" opacity="0.35"/>
+    <path d="M90 208 L210 208" fill="none" stroke="#3A2418" stroke-width="1.5" opacity="0.35"/>
+    <path d="M118 190 Q126 186 134 190 Q142 194 150 190 Q158 186 166 190 Q174 194 182 190" fill="none" stroke="#3A2418" stroke-width="1.8" opacity="0.45" stroke-linecap="round"/>
   </g>
   <g id="liquid">
-    <path d="M90 130 Q89 135 86 240 Q86 250 150 250 Q214 250 214 240 L211 130 Z" fill="#FFFFFF" stroke="#4A3429" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M90 130 Q89 135 86 240 Q86 250 150 250 Q214 250 214 240 L211 130 Z" fill="#B07C4F" stroke="#3A2418" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
   <g id="foam">
-    <path d="M88 100 Q88 95 92 90 Q110 75 150 72 Q190 75 208 90 Q212 95 212 100 L211 130 Q180 135 150 133 Q120 135 90 130 Z" fill="#FFFFFF" stroke="#4A3429" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M88 100 Q88 95 92 90 Q110 75 150 72 Q190 75 208 90 Q212 95 212 100 L211 130 Q180 135 150 133 Q120 135 90 130 Z" fill="#F7E8CF" stroke="#3A2418" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M104 108 Q112 102 122 107 Q132 112 142 106" fill="none" stroke="#3A2418" stroke-width="1.6" opacity="0.3" stroke-linecap="round"/>
+    <path d="M158 110 Q168 104 178 109 Q186 113 194 108" fill="none" stroke="#3A2418" stroke-width="1.6" opacity="0.3" stroke-linecap="round"/>
+  </g>
+  <g pointer-events="none" opacity="0.55">
+    <path d="M124 58 Q118 44 126 32 Q132 22 126 12" fill="none" stroke="#3A2418" stroke-width="2.5" stroke-linecap="round" opacity="0.35"/>
+    <path d="M150 54 Q144 42 152 30 Q158 20 152 8" fill="none" stroke="#3A2418" stroke-width="2.5" stroke-linecap="round" opacity="0.45"/>
+    <path d="M176 58 Q170 44 178 32 Q184 22 178 12" fill="none" stroke="#3A2418" stroke-width="2.5" stroke-linecap="round" opacity="0.35"/>
+    <path d="M97 118 Q95 160 93 230" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.35"/>
   </g>
 </svg>

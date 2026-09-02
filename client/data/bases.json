@@ -11,6 +11,17 @@
     ]
   },
   {
+    "id": "coffee_mug",
+    "name": "Hot Coffee",
+    "file": "assets/bases/coffee_mug.svg",
+    "sections": [
+      { "id": "mug", "label": "Mug", "defaultFill": "#D97B76" },
+      { "id": "handle", "label": "Handle", "defaultFill": "#C9645F" },
+      { "id": "liquid", "label": "Liquid", "defaultFill": "#6B4226" },
+      { "id": "foam", "label": "Foam", "defaultFill": "#F0D9BE" }
+    ]
+  },
+  {
     "id": "iced_drink",
     "name": "Iced Drink",
     "file": "assets/bases/iced_drink.svg",

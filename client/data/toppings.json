@@ -48,6 +48,14 @@
   { "id": "chocolate_curl", "name": "Chocolate Curl", "category": "decorative", "tags": ["elegant", "sweet", "artistic"], "svgFile": "assets/toppings/chocolate_curl.svg" },
   { "id": "umbrella_pick", "name": "Umbrella Pick", "category": "decorative", "tags": ["tropical", "fun", "colorful"], "svgFile": "assets/toppings/umbrella_pick.svg" },
 
+  { "id": "rose_petal", "name": "Rose Petal", "category": "decorative", "tags": ["elegant", "floral", "romantic"], "svgFile": "assets/toppings/rose_petal.svg" },
+  { "id": "lavender_sprig", "name": "Lavender Sprig", "category": "decorative", "tags": ["elegant", "floral", "calm"], "svgFile": "assets/toppings/lavender_sprig.svg" },
+  { "id": "pretzel", "name": "Pretzel", "category": "decorative", "tags": ["crunchy", "fun", "classic"], "svgFile": "assets/toppings/pretzel.svg" },
+
+  { "id": "pistachios", "name": "Pistachios", "category": "dry_toppings", "tags": ["nutty", "green", "elegant"], "svgFile": "assets/toppings/pistachios.svg" },
+  { "id": "pomegranate_seeds", "name": "Pomegranate Seeds", "category": "fruits", "tags": ["tart", "red", "luxurious"], "svgFile": "assets/toppings/pomegranate_seeds.svg" },
+  { "id": "chili_flakes", "name": "Chili Flakes", "category": "savory", "tags": ["spicy", "warm", "bold"], "svgFile": "assets/toppings/chili_flakes.svg" },
+
   { "id": "avocado_slice", "name": "Avocado Slice", "category": "savory", "tags": ["savory", "green", "creamy"], "svgFile": "assets/toppings/avocado_slice.svg" },
   { "id": "bacon_bits", "name": "Bacon Bits", "category": "savory", "tags": ["savory", "crunchy", "warm"], "svgFile": "assets/toppings/bacon_bits.svg" },
   { "id": "everything_seasoning", "name": "Everything Seasoning", "category": "savory", "tags": ["savory", "crunchy", "spicy"], "svgFile": "assets/toppings/everything_seasoning.svg" },
@@ -70,5 +78,13 @@
   { "id": "sparkle", "name": "Sparkle", "category": "abstract", "tags": ["whimsical", "bright", "dreamy"], "svgFile": "assets/toppings/sparkle.svg" },
   { "id": "zigzag", "name": "Zigzag", "category": "abstract", "tags": ["whimsical", "artistic", "fun"], "svgFile": "assets/toppings/zigzag.svg" },
   { "id": "swirl", "name": "Swirl", "category": "abstract", "tags": ["whimsical", "artistic", "colorful"], "svgFile": "assets/toppings/swirl.svg" },
-  { "id": "teardrop", "name": "Teardrop", "category": "abstract", "tags": ["whimsical", "dreamy", "cool"], "svgFile": "assets/toppings/teardrop.svg" }
+  { "id": "teardrop", "name": "Teardrop", "category": "abstract", "tags": ["whimsical", "dreamy", "cool"], "svgFile": "assets/toppings/teardrop.svg" },
+  { "id": "rainbow", "name": "Rainbow", "category": "abstract", "tags": ["whimsical", "colorful", "bright"], "svgFile": "assets/toppings/rainbow.svg" },
+  { "id": "sun", "name": "Sun", "category": "abstract", "tags": ["whimsical", "bright", "summer"], "svgFile": "assets/toppings/sun.svg" },
+  { "id": "snowflake", "name": "Snowflake", "category": "abstract", "tags": ["whimsical", "cool", "winter"], "svgFile": "assets/toppings/snowflake.svg" },
+  { "id": "flame", "name": "Flame", "category": "abstract", "tags": ["whimsical", "warm", "bold"], "svgFile": "assets/toppings/flame.svg" },
+  { "id": "feather", "name": "Feather", "category": "abstract", "tags": ["whimsical", "dreamy", "elegant"], "svgFile": "assets/toppings/feather.svg" },
+  { "id": "paper_plane", "name": "Paper Plane", "category": "abstract", "tags": ["whimsical", "dreamy", "fun"], "svgFile": "assets/toppings/paper_plane.svg" },
+  { "id": "constellation", "name": "Constellation", "category": "abstract", "tags": ["whimsical", "dreamy", "elegant"], "svgFile": "assets/toppings/constellation.svg" },
+  { "id": "puzzle_piece", "name": "Puzzle Piece", "category": "abstract", "tags": ["whimsical", "fun", "artistic"], "svgFile": "assets/toppings/puzzle_piece.svg" }
 ]

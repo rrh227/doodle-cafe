@@ -1,12 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
-  <!-- Toast: bread, spread, toppings_area -->
+  <!-- Toast: bread, spread, toppings_area (+ decor layer) -->
+  <ellipse cx="150" cy="284" rx="105" ry="8" fill="#3A2418" opacity="0.12"/>
   <g id="bread">
-    <path d="M60 90 Q58 85 65 70 Q80 50 150 48 Q220 50 235 70 Q242 85 240 90 L245 270 Q245 280 150 280 Q55 280 55 270 Z" fill="#FFFFFF" stroke="#4A3429" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M60 90 Q58 85 65 70 Q80 50 150 48 Q220 50 235 70 Q242 85 240 90 L245 270 Q245 280 150 280 Q55 280 55 270 Z" fill="#E3B778" stroke="#3A2418" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
   <g id="spread">
-    <path d="M70 90 Q68 85 75 73 Q88 58 150 56 Q212 58 225 73 Q232 85 230 90 L233 265 Q233 272 150 272 Q67 272 67 265 Z" fill="#FFFFFF" stroke="#4A3429" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M70 90 Q68 85 75 73 Q88 58 150 56 Q212 58 225 73 Q232 85 230 90 L233 265 Q233 272 150 272 Q67 272 67 265 Z" fill="#F6DFA8" stroke="#3A2418" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M92 100 Q100 94 110 99" fill="none" stroke="#3A2418" stroke-width="1.5" opacity="0.2" stroke-linecap="round"/>
+    <path d="M182 118 Q190 112 200 117" fill="none" stroke="#3A2418" stroke-width="1.5" opacity="0.2" stroke-linecap="round"/>
+    <path d="M110 235 Q118 229 128 234" fill="none" stroke="#3A2418" stroke-width="1.5" opacity="0.2" stroke-linecap="round"/>
+    <path d="M190 220 Q198 214 208 219" fill="none" stroke="#3A2418" stroke-width="1.5" opacity="0.2" stroke-linecap="round"/>
   </g>
   <g id="toppings_area">
     <rect x="90" y="110" width="120" height="130" rx="8" fill="none" stroke="none"/>
+  </g>
+  <g pointer-events="none">
+    <path d="M66 82 Q64 76 71 65 Q85 47 150 45" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" opacity="0.35"/>
   </g>
 </svg>

@@ -12,18 +12,61 @@
 <body>
   <div id="game-container">
 
-    <!-- Title Screen -->
+    <!-- Title Screen: morning cafe entrance -->
     <div id="screen-title" class="screen active">
-      <div class="title-cup">
-        <span class="steam s1"></span>
-        <span class="steam s2"></span>
-        <span class="steam s3"></span>
-        <div class="cup-body"></div>
-        <div class="cup-handle"></div>
+      <div class="entrance-scene" aria-hidden="true">
+        <div class="ent-sky">
+          <span class="ent-sun"></span>
+          <span class="ent-cloud c1"></span>
+          <span class="ent-cloud c2"></span>
+          <span class="ent-cloud c3"></span>
+        </div>
+        <div class="ent-facade"></div>
+        <div class="ent-signboard"></div>
+        <div class="ent-awning"></div>
+        <div class="ent-window win-left">
+          <span class="win-glass"></span>
+          <span class="win-bar-h"></span>
+          <span class="win-bar-v"></span>
+          <span class="win-flower f1"></span>
+          <span class="win-flower f2"></span>
+          <span class="win-flower f3"></span>
+          <span class="win-box"></span>
+        </div>
+        <div class="ent-window win-right">
+          <span class="win-glass"></span>
+          <span class="win-bar-h"></span>
+          <span class="win-bar-v"></span>
+          <span class="win-flower f1"></span>
+          <span class="win-flower f2"></span>
+          <span class="win-flower f3"></span>
+          <span class="win-box"></span>
+        </div>
+        <div class="ent-door">
+          <span class="door-glass"></span>
+          <span class="door-handle"></span>
+        </div>
+        <div class="ent-plant plant-left">
+          <span class="ep-leaf el1"></span>
+          <span class="ep-leaf el2"></span>
+          <span class="ep-leaf el3"></span>
+          <span class="ep-pot"></span>
+        </div>
+        <div class="ent-plant plant-right">
+          <span class="ep-leaf el1"></span>
+          <span class="ep-leaf el2"></span>
+          <span class="ep-leaf el3"></span>
+          <span class="ep-pot"></span>
+        </div>
+        <div class="ent-sidewalk"></div>
       </div>
       <h1 class="game-title">Doodle Cafe</h1>
       <p class="subtitle">Decorate orders. Impress customers. Keep the cafe open.</p>
-      <button id="btn-start" class="btn-primary">Open the Cafe</button>
+      <button id="btn-start" class="btn-primary btn-woodsign">
+        <span class="sign-rope rope-l" aria-hidden="true"></span>
+        <span class="sign-rope rope-r" aria-hidden="true"></span>
+        Open the Cafe
+      </button>
     </div>
 
     <!-- Game Screen -->
@@ -34,21 +77,19 @@
         <div class="scene-wall"></div>
         <div class="scene-window">
           <div class="window-pane">
-            <span class="moon"></span>
-            <span class="city-block cb1"></span>
-            <span class="city-block cb2"></span>
-            <span class="city-block cb3"></span>
-            <span class="city-block cb4"></span>
-            <span class="rain-drop rd1"></span>
-            <span class="rain-drop rd2"></span>
-            <span class="rain-drop rd3"></span>
-            <span class="rain-drop rd4"></span>
-            <span class="rain-drop rd5"></span>
-            <span class="rain-drop rd6"></span>
+            <span class="sun"></span>
+            <span class="cloud cloud1"></span>
+            <span class="cloud cloud2"></span>
+            <span class="hill hill1"></span>
+            <span class="hill hill2"></span>
+            <span class="window-tree"></span>
           </div>
           <span class="window-bar-h"></span>
           <span class="window-bar-v"></span>
+          <span class="window-sill"></span>
+          <span class="sill-pot"></span>
         </div>
+        <div class="sunbeam"></div>
         <div class="scene-shelf">
           <span class="shelf-board"></span>
           <span class="jar jar1"></span>
@@ -58,17 +99,29 @@
           <span class="jar jar3"></span>
           <span class="plant"></span>
         </div>
-        <div class="hang-lamp lamp1">
-          <span class="lamp-cord"></span>
-          <span class="lamp-shade"></span>
-          <span class="lamp-bulb"></span>
-          <span class="lamp-glow"></span>
+        <div class="hang-plant hplant1">
+          <span class="plant-rope"></span>
+          <span class="plant-basket"></span>
+          <span class="plant-leaves"></span>
+          <span class="plant-vine v1"></span>
+          <span class="plant-vine v2"></span>
+          <span class="plant-vine v3"></span>
         </div>
-        <div class="hang-lamp lamp2">
-          <span class="lamp-cord"></span>
-          <span class="lamp-shade"></span>
-          <span class="lamp-bulb"></span>
-          <span class="lamp-glow"></span>
+        <div class="hang-plant hplant2">
+          <span class="plant-rope"></span>
+          <span class="plant-basket"></span>
+          <span class="plant-leaves"></span>
+          <span class="plant-vine v1"></span>
+          <span class="plant-vine v2"></span>
+          <span class="plant-vine v3"></span>
+        </div>
+        <div class="floor-plant">
+          <span class="fp-pot"></span>
+          <span class="fp-leaf l1"></span>
+          <span class="fp-leaf l2"></span>
+          <span class="fp-leaf l3"></span>
+          <span class="fp-leaf l4"></span>
+          <span class="fp-leaf l5"></span>
         </div>
         <div class="scene-counter">
           <span class="counter-top"></span>
@@ -144,15 +197,68 @@
       </div>
     </div>
 
-    <!-- Game Over Screen -->
+    <!-- Game Over Screen: same entrance at dusk -->
     <div id="screen-gameover" class="screen">
+      <div class="entrance-scene dusk" aria-hidden="true">
+        <div class="ent-sky">
+          <span class="ent-sun"></span>
+          <span class="ent-star st1"></span>
+          <span class="ent-star st2"></span>
+          <span class="ent-star st3"></span>
+          <span class="ent-star st4"></span>
+          <span class="ent-cloud c1"></span>
+          <span class="ent-cloud c2"></span>
+        </div>
+        <div class="ent-facade"></div>
+        <div class="ent-signboard"></div>
+        <div class="ent-awning"></div>
+        <div class="ent-window win-left">
+          <span class="win-glass"></span>
+          <span class="win-bar-h"></span>
+          <span class="win-bar-v"></span>
+          <span class="win-flower f1"></span>
+          <span class="win-flower f2"></span>
+          <span class="win-flower f3"></span>
+          <span class="win-box"></span>
+        </div>
+        <div class="ent-window win-right">
+          <span class="win-glass"></span>
+          <span class="win-bar-h"></span>
+          <span class="win-bar-v"></span>
+          <span class="win-flower f1"></span>
+          <span class="win-flower f2"></span>
+          <span class="win-flower f3"></span>
+          <span class="win-box"></span>
+        </div>
+        <div class="ent-door">
+          <span class="door-glass"></span>
+          <span class="door-handle"></span>
+        </div>
+        <div class="ent-plant plant-left">
+          <span class="ep-leaf el1"></span>
+          <span class="ep-leaf el2"></span>
+          <span class="ep-leaf el3"></span>
+          <span class="ep-pot"></span>
+        </div>
+        <div class="ent-plant plant-right">
+          <span class="ep-leaf el1"></span>
+          <span class="ep-leaf el2"></span>
+          <span class="ep-leaf el3"></span>
+          <span class="ep-pot"></span>
+        </div>
+        <div class="ent-sidewalk"></div>
+      </div>
       <h2 class="gameover-title">Cafe Closed!</h2>
       <div id="final-stats">
         <p>Final Score: <span id="final-score">0</span></p>
         <p>Orders Served: <span id="final-orders">0</span></p>
         <p>Best Rating: <span id="final-best">0</span> stars</p>
       </div>
-      <button id="btn-replay" class="btn-primary">Play Again</button>
+      <button id="btn-replay" class="btn-primary btn-woodsign">
+        <span class="sign-rope rope-l" aria-hidden="true"></span>
+        <span class="sign-rope rope-r" aria-hidden="true"></span>
+        Play Again
+      </button>
     </div>
 
   </div>
