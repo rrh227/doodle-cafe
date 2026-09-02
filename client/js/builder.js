@@ -4,6 +4,10 @@ const workspaceContentEl = document.getElementById('workspace-content');
 const toppingCounterEl = document.getElementById('topping-counter');
 
 const MAX_TOPPING_TYPES = 8;
+const MIN_SCALE = 0.5;
+const MAX_SCALE = 2.2;
+const SCALE_STEP = 1.1;
+const ROTATE_STEP_DEG = 12;
 
 let placedToppings = [];
 let workspaceLocked = false;
@@ -80,7 +84,7 @@ function placeTopping(topping, x, y) {
   el.draggable = false;
   el.addEventListener('animationend', () => el.classList.remove('pop-in'), { once: true });
 
-  const entry = { id: topping.id, x, y, el };
+  const entry = { id: topping.id, x, y, scale: 1, rotation: 0, el };
   placedToppings.push(entry);
   updateCounter();
   playPop();
@@ -90,6 +94,20 @@ function placeTopping(topping, x, y) {
     e.preventDefault();
     startRepositionDrag(entry, e);
   });
+
+  el.addEventListener('wheel', (e) => {
+    if (workspaceLocked) return;
+    e.preventDefault();
+    const delta = e.deltaY !== 0 ? e.deltaY : e.deltaX;
+    const dir = delta < 0 ? 1 : -1;
+    if (e.shiftKey) {
+      entry.rotation = (entry.rotation + dir * ROTATE_STEP_DEG + 360) % 360;
+    } else {
+      const next = dir > 0 ? entry.scale * SCALE_STEP : entry.scale / SCALE_STEP;
+      entry.scale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, next));
+    }
+    applyTransform(entry);
+  }, { passive: false });
 
   el.addEventListener('contextmenu', (e) => {
     e.preventDefault();
@@ -136,6 +154,10 @@ function startRepositionDrag(entry, e) {
 
   document.addEventListener('mousemove', onMove);
   document.addEventListener('mouseup', onUp);
+}
+
+function applyTransform(entry) {
+  entry.el.style.transform = `rotate(${entry.rotation}deg) scale(${entry.scale})`;
 }
 
 function removeTopping(entry) {

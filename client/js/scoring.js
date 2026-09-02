@@ -1,3 +1,5 @@
+import { getToppingsData } from './toppings.js';
+
 export function scoreOrder(prompt, selectedBase, placedToppings, sectionColors, patienceFraction = 0) {
   const breakdown = [];
 
@@ -6,28 +8,58 @@ export function scoreOrder(prompt, selectedBase, placedToppings, sectionColors, 
   const basePoints = Math.round(baseWeight * 20);
   breakdown.push({ label: 'Base choice', points: basePoints });
 
-  // 2. Color score (0-35) — averaged over ALL base sections, so uncolored
-  // sections drag the score down (prevents one-swatch full credit).
+  // 2. Color score (0-35) — theme coverage. Each prompt lists ideal theme
+  // colors; the player earns each color's weight by using something close to
+  // it anywhere on the plate. Full credit means covering the whole theme
+  // palette, regardless of how many sections were painted. Coverage is
+  // squared so hitting one theme color of three pays far less than a third
+  // of the points — full-palette plates are what the customer imagined.
   const chosenColors = Object.values(sectionColors);
-  const totalSections = selectedBase ? Math.max(selectedBase.sections.length, chosenColors.length) : chosenColors.length;
+  const themeEntries = Object.entries(prompt.idealColors);
   let colorPoints = 0;
-  if (chosenColors.length > 0 && totalSections > 0) {
+  let themeColorsHit = 0;
+  if (chosenColors.length > 0 && themeEntries.length > 0) {
+    let earned = 0;
     let totalWeight = 0;
-    for (const color of chosenColors) {
-      totalWeight += matchColorWeight(color, prompt.idealColors);
+    for (const [idealHex, weight] of themeEntries) {
+      totalWeight += weight;
+      let bestQuality = 0;
+      for (const color of chosenColors) {
+        bestQuality = Math.max(bestQuality, colorMatchQuality(color, idealHex));
+      }
+      earned += weight * bestQuality;
+      if (bestQuality > 0) themeColorsHit++;
     }
-    colorPoints = Math.round((totalWeight / totalSections) * 35);
+    const coverage = earned / totalWeight;
+    colorPoints = Math.round(coverage * coverage * 35);
   }
-  breakdown.push({ label: `Colors (${chosenColors.length}/${totalSections} sections)`, points: colorPoints });
+  breakdown.push({ label: `Theme colors (${themeColorsHit}/${themeEntries.length} matched)`, points: colorPoints });
 
-  // 3. Topping score (0-35) — each unique ideal topping adds weight × 10
+  // 3. Topping score (0-35) — theme fit over count. Every placed type gets a
+  // theme affinity: its explicit idealToppings weight, or a derived partial
+  // score when it shares a category or tags (color/flavor/mood, e.g. "red",
+  // "creamy") with the prompt's ideal toppings. Fit (avg affinity, 0-25)
+  // dominates; variety (distinct on-theme types, 0-10) is the minor term, so
+  // a few well-chosen toppings beat a pile of loosely related ones.
   const placedIds = new Set(placedToppings.map(p => p.id));
-  let toppingSum = 0;
-  for (const id of placedIds) {
-    toppingSum += (prompt.idealToppings[id] || 0) * 10;
+  const affinities = new Map(
+    [...placedIds].map(id => [id, themeAffinity(id, prompt)])
+  );
+
+  let fitPoints = 0;
+  if (placedIds.size > 0) {
+    let affinitySum = 0;
+    for (const a of affinities.values()) affinitySum += a;
+    fitPoints = Math.round((affinitySum / placedIds.size) * 25);
   }
-  const toppingPoints = Math.min(35, Math.round(toppingSum));
-  breakdown.push({ label: `Toppings (${placedIds.size} kinds)`, points: toppingPoints });
+  breakdown.push({ label: 'Topping theme fit', points: fitPoints });
+
+  const onThemeCount = [...affinities.values()].filter(a => a >= 0.3).length;
+  const varietyPoints = Math.round(Math.min(4, onThemeCount) * 2.5);
+  if (placedIds.size > 0) {
+    breakdown.push({ label: `Topping variety (${onThemeCount} on-theme)`, points: varietyPoints });
+  }
+  const toppingPoints = fitPoints + varietyPoints;
 
   // 4. Combo bonus (0-10)
   let comboPoints = 0;
@@ -45,7 +77,7 @@ export function scoreOrder(prompt, selectedBase, placedToppings, sectionColors, 
 
   // Clutter penalty: off-theme topping types cost points, with a small
   // grace allowance so a couple of experimental picks aren't punished.
-  const irrelevantCount = [...placedIds].filter(id => !(prompt.idealToppings[id] > 0)).length;
+  const irrelevantCount = [...affinities.values()].filter(a => a < 0.3).length;
   const clutterPenalty = Math.max(0, irrelevantCount - 2) * 2;
   if (clutterPenalty > 0) {
     breakdown.push({ label: `Off-theme toppings (×${irrelevantCount - 2})`, points: -clutterPenalty });
@@ -72,25 +104,47 @@ export function scoreOrder(prompt, selectedBase, placedToppings, sectionColors, 
   return { points, stars, breakdown };
 }
 
-function matchColorWeight(hex, idealColors) {
-  const rgb = hexToRgb(hex);
-  if (!rgb) return 0;
+// How well a topping fits the prompt's theme, 0-1. Explicitly ideal toppings
+// use their listed weight. Anything else earns derived partial credit by
+// resembling the ideal set: sharing tags (color/flavor/mood words like "red"
+// or "creamy") counts most, sharing a category counts a little. Derived
+// affinity is capped below the weakest explicit pick so curated lists stay
+// the gold standard.
+function themeAffinity(toppingId, prompt) {
+  const explicit = prompt.idealToppings[toppingId];
+  if (explicit > 0) return explicit;
 
+  const catalog = getToppingsData();
+  const topping = catalog.find(t => t.id === toppingId);
+  if (!topping) return 0;
+
+  const idealIds = Object.keys(prompt.idealToppings);
   let best = 0;
-  for (const [idealHex, weight] of Object.entries(idealColors)) {
-    const ideal = hexToRgb(idealHex);
+  for (const id of idealIds) {
+    const ideal = catalog.find(t => t.id === id);
     if (!ideal) continue;
-    const dist = Math.sqrt(
-      (rgb.r - ideal.r) ** 2 + (rgb.g - ideal.g) ** 2 + (rgb.b - ideal.b) ** 2
-    );
-    // Full credit for close matches, partial credit up to a moderate distance
-    if (dist <= 40) {
-      best = Math.max(best, weight);
-    } else if (dist <= 120) {
-      best = Math.max(best, weight * (1 - (dist - 40) / 80) * 0.7);
-    }
+
+    const sharedTags = topping.tags.filter(tag => ideal.tags.includes(tag)).length;
+    const sameCategory = topping.category === ideal.category ? 1 : 0;
+    // 2+ shared tags ≈ same palette/mood; category alone is weak evidence.
+    const similarity = Math.min(1, sharedTags / 2) * 0.35 + sameCategory * 0.1;
+    best = Math.max(best, similarity * (prompt.idealToppings[id] || 0));
   }
-  return best;
+  return Math.min(best, 0.45);
+}
+
+// 1 for a close match, tapering partial credit up to a moderate distance.
+function colorMatchQuality(hex, idealHex) {
+  const rgb = hexToRgb(hex);
+  const ideal = hexToRgb(idealHex);
+  if (!rgb || !ideal) return 0;
+
+  const dist = Math.sqrt(
+    (rgb.r - ideal.r) ** 2 + (rgb.g - ideal.g) ** 2 + (rgb.b - ideal.b) ** 2
+  );
+  if (dist <= 40) return 1;
+  if (dist <= 120) return (1 - (dist - 40) / 80) * 0.7;
+  return 0;
 }
 
 function hexToRgb(hex) {
