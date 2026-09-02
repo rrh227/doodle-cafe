@@ -9,7 +9,10 @@ import {
   spawnCustomer, showReaction, exitCustomer,
   startPatience, pausePatience, stopPatience, getPatienceFraction, resetCustomers,
 } from './customers.js';
-import { initSounds, playServeBell, playGoodScore, playBadScore, playDoorBell } from './sounds.js';
+import {
+  initSounds, playServeBell, playGoodScore, playBadScore, playDoorBell,
+  playDoorOpen, startMusic, stopMusic, calmMusic,
+} from './sounds.js';
 
 const promptTextEl = document.getElementById('prompt-text');
 const orderNumberEl = document.getElementById('order-number');
@@ -30,12 +33,12 @@ const speechBubbleEl = document.getElementById('speech-bubble');
 const hudScoreEl = document.getElementById('hud-score');
 const streakIndicatorEl = document.getElementById('streak-indicator');
 
-// Balance-tested (stories/06-content-creation/04-balance-testing.md):
-// from a fresh 3.5 start, three 1-star or five 2-star orders end the run —
-// heavier failures drain reputation faster than mild ones. Novice runs
-// average ~8 orders.
+// Balance-tested via simulation (500 runs/archetype): from a fresh 3.5 start,
+// four 1-star or eight 2-star orders end the run. 4-star (+0.10) no longer
+// fully offsets a 3-star (-0.15), so mid-skill runs wind down (median ~55
+// orders) instead of lasting forever. Novice runs average ~6 orders.
 const REPUTATION_START = 3.5;
-const STAR_REP_DELTA = { 5: 0.25, 4: 0.15, 3: -0.15, 2: -0.35, 1: -0.6 };
+const STAR_REP_DELTA = { 5: 0.25, 4: 0.1, 3: -0.15, 2: -0.2, 1: -0.4 };
 const GAME_OVER_THRESHOLD = 2.0;
 
 let currentOrder = null;
@@ -49,6 +52,7 @@ let scoreAnimId = null;
 let streak = 0;
 
 document.getElementById('btn-start').addEventListener('click', () => {
+  playDoorOpen();
   setState('playing');
 });
 
@@ -87,9 +91,11 @@ onState('playing', {
     resetOrders();
     updateHUD();
     showToppingCatalog(startDragFromCatalog);
+    startMusic();
     startNewOrder();
   },
   onExit() {
+    stopMusic();
     hideScoreOverlay();
     resetWorkspace();
     hideToppingCatalog();
@@ -127,6 +133,7 @@ function serveOrder(timedOut) {
   if (!currentOrder) return;
 
   pausePatience();
+  calmMusic();
   setWorkspaceLocked(true);
   btnServe.disabled = true;
 
@@ -135,10 +142,9 @@ function serveOrder(timedOut) {
     result = { points: 0, stars: 1, breakdown: [{ label: 'Customer left!', points: 0 }] };
     reaction = "Forget it, I don't have all day!";
   } else {
-    const base = getSelectedBase();
     result = scoreOrder(
       currentOrder.prompt,
-      base ? base.id : null,
+      getSelectedBase(),
       getPlacedToppings(),
       getSectionColors(),
       getPatienceFraction()

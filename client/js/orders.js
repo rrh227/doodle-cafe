@@ -28,9 +28,12 @@ export function nextOrder() {
   };
 }
 
+// After order 15 patience shrinks 2s per 3 orders (max -20s), so long runs
+// get a gradually rising time pressure instead of an abrupt cliff.
 function getPatienceSeconds(tier, order) {
   const base = TIER_PATIENCE[tier] || 80;
-  return order > 30 ? base - 10 : base;
+  const decay = Math.min(20, Math.max(0, Math.floor((order - 15) / 3) * 2));
+  return base - decay;
 }
 
 function pickTier(order) {

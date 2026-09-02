@@ -1,4 +1,5 @@
 import { getSelectedBase, getWorkspaceSvgDoc } from './bases.js';
+import { playPaint } from './sounds.js';
 
 // Warm, slightly desaturated paint pots (Coffee Talk / Lemon Cake tones).
 // Hexes must stay in sync with idealColors in prompts.json.
@@ -119,6 +120,7 @@ function applyColor(sectionId, color) {
     }
   }
 
+  if (sectionColors[sectionId] !== color) playPaint();
   sectionColors[sectionId] = color;
 }
 

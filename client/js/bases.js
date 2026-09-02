@@ -1,4 +1,5 @@
 import { bindSections } from './coloring.js';
+import { playBaseSelect } from './sounds.js';
 
 let basesData = [];
 let selectedBaseId = null;
@@ -50,6 +51,7 @@ export function selectBase(baseId) {
   if (!base) return;
 
   selectedBaseId = baseId;
+  playBaseSelect();
 
   const options = baseOptionsEl.querySelectorAll('.base-option');
   for (const opt of options) {

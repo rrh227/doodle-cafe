@@ -18,7 +18,16 @@
       "Bash(curl -s http://localhost:5174/)",
       "Bash(curl -s http://localhost:5174/assets/toppings/cherry.svg)",
       "Bash(cp client/js/scoring.js /tmp/scoring.mjs)",
-      "Bash(rm /tmp/scoring.mjs)"
+      "Bash(rm /tmp/scoring.mjs)",
+      "Bash(python3.12 analyze_doodle_cafe.py)",
+      "Bash(python analyze_doodle_cafe.py)",
+      "Bash(/usr/bin/python3 analyze_doodle_cafe.py)",
+      "Bash(/usr/bin/python3 analyze2.py)",
+      "Bash(/usr/bin/python3 analyze3.py)",
+      "Read(//private/tmp/**)",
+      "Bash(npx -y playwright screenshot --viewport-size=1280,800 --wait-for-timeout=1500 \"http://localhost:5174/\" /tmp/title-screen.png)",
+      "Bash(sed -n '1340,1370p' client/css/styles.css)",
+      "Bash(sed -n '125,160p' client/index.html)"
     ]
   }
 }

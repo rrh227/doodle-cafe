@@ -250,6 +250,10 @@
       [
         "caramel_drizzle",
         "whipped_cream"
+      ],
+      [
+        "foam_art",
+        "cinnamon"
       ]
     ]
   },
@@ -826,6 +830,10 @@
       [
         "mint_leaf",
         "lemon_slice"
+      ],
+      [
+        "kiwi_slice",
+        "honey"
       ]
     ]
   },
@@ -862,6 +870,10 @@
       [
         "matcha_drizzle",
         "foam_art"
+      ],
+      [
+        "whipped_cream",
+        "honey"
       ]
     ]
   },
@@ -938,6 +950,10 @@
       [
         "bacon_bits",
         "egg_slice"
+      ],
+      [
+        "avocado_slice",
+        "microgreens"
       ]
     ]
   },
@@ -1016,6 +1032,10 @@
       [
         "lemon_slice",
         "mint_leaf"
+      ],
+      [
+        "orange_slice",
+        "umbrella_pick"
       ]
     ]
   },

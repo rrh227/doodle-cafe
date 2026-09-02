@@ -1,3 +1,5 @@
+import { setMusicUrgency } from './sounds.js';
+
 const customerSlot = document.getElementById('customer-slot');
 const patienceFill = document.getElementById('patience-fill');
 
@@ -96,6 +98,7 @@ export function stopPatience() {
 function renderPatience() {
   const fraction = getPatienceFraction();
   patienceFill.style.width = `${fraction * 100}%`;
+  setMusicUrgency(fraction);
   if (fraction > 0.5) {
     patienceFill.style.backgroundColor = 'var(--sage)';
   } else if (fraction > 0.25) {

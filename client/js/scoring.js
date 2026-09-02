@@ -1,30 +1,32 @@
-export function scoreOrder(prompt, selectedBaseId, placedToppings, sectionColors, patienceFraction = 0) {
+export function scoreOrder(prompt, selectedBase, placedToppings, sectionColors, patienceFraction = 0) {
   const breakdown = [];
 
   // 1. Base score (0-20)
-  const baseWeight = selectedBaseId ? (prompt.idealBase[selectedBaseId] || 0) : 0;
+  const baseWeight = selectedBase ? (prompt.idealBase[selectedBase.id] || 0) : 0;
   const basePoints = Math.round(baseWeight * 20);
   breakdown.push({ label: 'Base choice', points: basePoints });
 
-  // 2. Color score (0-30) — average match weight of colored sections
+  // 2. Color score (0-35) — averaged over ALL base sections, so uncolored
+  // sections drag the score down (prevents one-swatch full credit).
   const chosenColors = Object.values(sectionColors);
+  const totalSections = selectedBase ? Math.max(selectedBase.sections.length, chosenColors.length) : chosenColors.length;
   let colorPoints = 0;
-  if (chosenColors.length > 0) {
+  if (chosenColors.length > 0 && totalSections > 0) {
     let totalWeight = 0;
     for (const color of chosenColors) {
       totalWeight += matchColorWeight(color, prompt.idealColors);
     }
-    colorPoints = Math.round((totalWeight / chosenColors.length) * 30);
+    colorPoints = Math.round((totalWeight / totalSections) * 35);
   }
-  breakdown.push({ label: `Colors (${chosenColors.length} sections)`, points: colorPoints });
+  breakdown.push({ label: `Colors (${chosenColors.length}/${totalSections} sections)`, points: colorPoints });
 
-  // 3. Topping score (0-40) — each unique ideal topping adds weight × 10
+  // 3. Topping score (0-35) — each unique ideal topping adds weight × 10
   const placedIds = new Set(placedToppings.map(p => p.id));
   let toppingSum = 0;
   for (const id of placedIds) {
     toppingSum += (prompt.idealToppings[id] || 0) * 10;
   }
-  const toppingPoints = Math.min(40, Math.round(toppingSum));
+  const toppingPoints = Math.min(35, Math.round(toppingSum));
   breakdown.push({ label: `Toppings (${placedIds.size} kinds)`, points: toppingPoints });
 
   // 4. Combo bonus (0-10)
@@ -58,10 +60,12 @@ export function scoreOrder(prompt, selectedBaseId, placedToppings, sectionColors
   }
   points = Math.min(100, points + patienceBonus);
 
+  // 4-star requires >=70 so a plate with zero coloring (max ~69 with the
+  // 20+35+10 non-color axes) tops out at 3 stars.
   let stars;
-  if (points >= 80) stars = 5;
-  else if (points >= 60) stars = 4;
-  else if (points >= 40) stars = 3;
+  if (points >= 85) stars = 5;
+  else if (points >= 70) stars = 4;
+  else if (points >= 50) stars = 3;
   else if (points >= 20) stars = 2;
   else stars = 1;
 
