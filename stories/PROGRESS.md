@@ -17,16 +17,16 @@
 | 04 | Scoring Engine | done | 3/3 |
 | 05 | Game Loop | done | 5/5 |
 | 06 | Content Creation | done | 4/4 |
-| 07 | Visual Polish | not started | 0/4 |
+| 07 | Visual Polish | done | 4/4 |
 | 08 | Deployment | not started | 0/2 |
 
-**Total: 23/29 tasks complete**
+**Total: 27/29 tasks complete**
 
 ---
 
-## Current Phase: 2 — Content & Polish
+## Current Phase: 3 — Ship It
 
-### Next Task: `stories/07-visual-polish/`
+### Next Task: `stories/08-deployment/`
 
 ---
 

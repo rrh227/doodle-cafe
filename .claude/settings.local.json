@@ -14,7 +14,11 @@
       "Bash(curl -s http://localhost:5173/data/toppings.json)",
       "Bash(curl -s http://localhost:5173/assets/toppings/cherry.svg)",
       "Bash(pkill -f \"vite --port\")",
-      "Bash(python3 *)"
+      "Bash(python3 *)",
+      "Bash(curl -s http://localhost:5174/)",
+      "Bash(curl -s http://localhost:5174/assets/toppings/cherry.svg)",
+      "Bash(cp client/js/scoring.js /tmp/scoring.mjs)",
+      "Bash(rm /tmp/scoring.mjs)"
     ]
   }
 }

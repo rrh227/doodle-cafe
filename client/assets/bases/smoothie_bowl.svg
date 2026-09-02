@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
   <!-- Smoothie Bowl: bowl, base_fill, surface -->
   <g id="bowl">
-    <path d="M45 140 Q40 145 50 240 Q55 275 150 278 Q245 275 250 240 Q260 145 255 140 Q250 130 245 128 L55 128 Q50 130 45 140 Z" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M45 140 Q40 145 50 240 Q55 275 150 278 Q245 275 250 240 Q260 145 255 140 Q250 130 245 128 L55 128 Q50 130 45 140 Z" fill="#FFFFFF" stroke="#4A3429" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
   <g id="base_fill">
-    <path d="M58 145 Q55 150 62 235 Q66 260 150 262 Q234 260 238 235 Q245 150 242 145 Z" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M58 145 Q55 150 62 235 Q66 260 150 262 Q234 260 238 235 Q245 150 242 145 Z" fill="#FFFFFF" stroke="#4A3429" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
   <g id="surface">
-    <path d="M58 145 Q58 130 70 125 Q100 115 150 113 Q200 115 230 125 Q242 130 242 145 Q220 150 190 148 Q160 152 130 148 Q100 150 58 145 Z" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M58 145 Q58 130 70 125 Q100 115 150 113 Q200 115 230 125 Q242 130 242 145 Q220 150 190 148 Q160 152 130 148 Q100 150 58 145 Z" fill="#FFFFFF" stroke="#4A3429" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 </svg>

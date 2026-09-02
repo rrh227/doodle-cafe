@@ -1,7 +1,7 @@
 const customerSlot = document.getElementById('customer-slot');
 const patienceFill = document.getElementById('patience-fill');
 
-const VARIANT_COUNT = 6;
+const VARIANT_COUNT = 8;
 
 const MOODS = { 5: 'ecstatic', 4: 'happy', 3: 'neutral', 2: 'disappointed', 1: 'angry' };
 const EMOTES = { 5: '♥ ♥', 4: '♪', 3: '…', 2: '?', 1: '✱!' };
@@ -17,15 +17,17 @@ export function spawnCustomer() {
   customerEl.className = `customer variant-${variant}`;
   customerEl.dataset.mood = 'neutral';
   customerEl.innerHTML = `
-    <div class="customer-emote"></div>
-    <div class="customer-head">
-      <div class="customer-hair"></div>
-      <div class="customer-face">
-        <span class="customer-eyes"></span>
-        <span class="customer-mouth"></span>
+    <div class="customer-inner">
+      <div class="customer-emote"></div>
+      <div class="customer-head">
+        <div class="customer-hair"></div>
+        <div class="customer-face">
+          <span class="customer-eyes"></span>
+          <span class="customer-mouth"></span>
+        </div>
       </div>
+      <div class="customer-body"></div>
     </div>
-    <div class="customer-body"></div>
   `;
   customerSlot.appendChild(customerEl);
 }
@@ -97,9 +99,9 @@ function renderPatience() {
   if (fraction > 0.5) {
     patienceFill.style.backgroundColor = 'var(--sage)';
   } else if (fraction > 0.25) {
-    patienceFill.style.backgroundColor = '#FFD700';
+    patienceFill.style.backgroundColor = 'var(--honey)';
   } else {
-    patienceFill.style.backgroundColor = '#dc143c';
+    patienceFill.style.backgroundColor = 'var(--berry)';
   }
 }
 

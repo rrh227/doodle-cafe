@@ -1,8 +1,10 @@
 import { getSelectedBase, getWorkspaceSvgDoc } from './bases.js';
 
+// Warm, slightly desaturated paint pots (Coffee Talk / Lemon Cake tones).
+// Hexes must stay in sync with idealColors in prompts.json.
 const COLORS = [
-  '#000000', '#FFFFFF', '#8B4513', '#D2B48C', '#FFB6C1',
-  '#DC143C', '#FF8C00', '#FFD700', '#228B22', '#4169E1',
+  '#4A3429', '#FFFDF7', '#8C5A3C', '#D8BC94', '#EFA9B8',
+  '#C9506B', '#E58E4B', '#EAB94D', '#7BA05B', '#6C87D1',
 ];
 
 const colorPaletteEl = document.getElementById('color-palette');
@@ -18,9 +20,6 @@ export function initColorPalette() {
     const swatch = document.createElement('button');
     swatch.className = 'color-swatch';
     swatch.style.backgroundColor = color;
-    if (color === '#FFFFFF') {
-      swatch.style.border = '2px solid #3B2F2F';
-    }
     swatch.dataset.color = color;
     swatch.addEventListener('click', () => pickColor(color));
     colorPaletteEl.appendChild(swatch);
@@ -30,7 +29,7 @@ export function initColorPalette() {
   picker.type = 'color';
   picker.id = 'color-picker';
   picker.className = 'color-picker';
-  picker.value = '#FF8C00';
+  picker.value = '#E58E4B';
   picker.addEventListener('input', () => {
     pickColor(picker.value);
     picker.classList.add('active');

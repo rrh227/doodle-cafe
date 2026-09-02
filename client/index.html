@@ -14,15 +14,22 @@
 
     <!-- Title Screen -->
     <div id="screen-title" class="screen active">
+      <div class="title-cup">
+        <span class="steam s1"></span>
+        <span class="steam s2"></span>
+        <span class="steam s3"></span>
+        <div class="cup-body"></div>
+        <div class="cup-handle"></div>
+      </div>
       <h1 class="game-title">Doodle Cafe</h1>
       <p class="subtitle">Decorate orders. Impress customers. Keep the cafe open.</p>
-      <button id="btn-start" class="btn-primary">Start</button>
+      <button id="btn-start" class="btn-primary">Open the Cafe</button>
     </div>
 
     <!-- Game Screen -->
     <div id="screen-game" class="screen">
       <div id="hud">
-        <div id="hud-score">Score: <span id="score-value">0</span></div>
+        <div id="hud-score">Score: <span id="score-value">0</span><span id="streak-indicator" class="hidden"></span></div>
         <div id="hud-reputation">
           <span id="reputation-label">Rating:</span>
           <div id="reputation-meter">
@@ -37,6 +44,7 @@
           </div>
         </div>
         <div id="hud-order">Order #<span id="order-number">1</span></div>
+        <button id="btn-mute" title="Toggle sound">🔇 Sound off</button>
       </div>
 
       <div id="customer-area">
@@ -73,7 +81,7 @@
         <button id="btn-serve" class="btn-primary" disabled>Serve</button>
       </div>
 
-      <button id="btn-end-game" class="btn-primary" style="background-color: #f0a0a0; font-size: 0.9rem; padding: 0.2rem 0.8rem; position: absolute; bottom: 4px; right: 4px;">End Game (debug)</button>
+      <button id="btn-end-game" class="btn-primary btn-small" style="background-color: #E8A5A5; position: absolute; bottom: 4px; right: 4px;">End Game (debug)</button>
 
       <!-- Score Feedback Overlay -->
       <div id="score-overlay" class="overlay hidden">

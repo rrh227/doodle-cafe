@@ -9,6 +9,7 @@ import {
   spawnCustomer, showReaction, exitCustomer,
   startPatience, pausePatience, stopPatience, getPatienceFraction, resetCustomers,
 } from './customers.js';
+import { initSounds, playServeBell, playGoodScore, playBadScore, playDoorBell } from './sounds.js';
 
 const promptTextEl = document.getElementById('prompt-text');
 const orderNumberEl = document.getElementById('order-number');
@@ -26,6 +27,8 @@ const finalScoreEl = document.getElementById('final-score');
 const finalOrdersEl = document.getElementById('final-orders');
 const finalBestEl = document.getElementById('final-best');
 const speechBubbleEl = document.getElementById('speech-bubble');
+const hudScoreEl = document.getElementById('hud-score');
+const streakIndicatorEl = document.getElementById('streak-indicator');
 
 // Balance-tested (stories/06-content-creation/04-balance-testing.md):
 // from a fresh 3.5 start, three 1-star or five 2-star orders end the run —
@@ -43,6 +46,7 @@ let ordersServed = 0;
 let bestRating = 0;
 let reputation = REPUTATION_START;
 let scoreAnimId = null;
+let streak = 0;
 
 document.getElementById('btn-start').addEventListener('click', () => {
   setState('playing');
@@ -77,6 +81,8 @@ onState('playing', {
     displayedScore = 0;
     ordersServed = 0;
     bestRating = 0;
+    streak = 0;
+    updateStreakIndicator();
     reputation = REPUTATION_START;
     resetOrders();
     updateHUD();
@@ -112,6 +118,7 @@ function startNewOrder() {
   currentTier = Math.max(currentTier, currentOrder.tier);
 
   spawnCustomer();
+  playDoorBell();
   startPatience(currentOrder.patienceSeconds, () => serveOrder(true));
   showBaseOptions(prompt.offeredBases);
 }
@@ -145,12 +152,19 @@ function serveOrder(timedOut) {
   ordersServed++;
   if (result.stars > bestRating) bestRating = result.stars;
 
+  streak = result.stars >= 4 ? streak + 1 : 0;
+  updateStreakIndicator();
+  if (result.points > 0) showScorePopup(result.points);
+
   reputation = Math.max(0, Math.min(5,
     reputation + STAR_REP_DELTA[result.stars]
   ));
 
   updateHUD();
   showReaction(result.stars);
+  if (!timedOut) playServeBell();
+  if (result.stars >= 4) playGoodScore();
+  else if (result.stars <= 2) playBadScore();
   showScoreOverlay(result, reaction);
 }
 
@@ -170,10 +184,25 @@ function updateHUD() {
   if (reputation >= 4) {
     reputationFillEl.style.backgroundColor = 'var(--sage)';
   } else if (reputation >= 2.5) {
-    reputationFillEl.style.backgroundColor = '#FFD700';
+    reputationFillEl.style.backgroundColor = 'var(--honey)';
   } else {
-    reputationFillEl.style.backgroundColor = '#dc143c';
+    reputationFillEl.style.backgroundColor = 'var(--berry)';
   }
+}
+
+function updateStreakIndicator() {
+  const glowing = streak >= 3;
+  hudScoreEl.classList.toggle('streak-glow', glowing);
+  streakIndicatorEl.classList.toggle('hidden', !glowing);
+  if (glowing) streakIndicatorEl.textContent = `✦ ${streak} streak!`;
+}
+
+function showScorePopup(points) {
+  const popup = document.createElement('span');
+  popup.className = 'score-popup';
+  popup.textContent = `+${points}`;
+  hudScoreEl.appendChild(popup);
+  popup.addEventListener('animationend', () => popup.remove(), { once: true });
 }
 
 function animateScoreTo(target) {
@@ -213,7 +242,9 @@ function showScoreOverlay(result, reaction) {
   for (const row of result.breakdown) {
     const div = document.createElement('div');
     div.className = 'breakdown-row';
-    div.innerHTML = `<span>${row.label}</span><span class="pts">+${row.points}</span>`;
+    const sign = row.points < 0 ? '' : '+';
+    div.className += row.points < 0 ? ' penalty' : '';
+    div.innerHTML = `<span>${row.label}</span><span class="pts">${sign}${row.points}</span>`;
     scoreBreakdownEl.appendChild(div);
   }
 
@@ -229,6 +260,7 @@ function hideScoreOverlay() {
 async function init() {
   await Promise.all([loadBases(), loadToppings(), loadPrompts()]);
   initColorPalette();
+  initSounds();
   setState('menu');
 }
 

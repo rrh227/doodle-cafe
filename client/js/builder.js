@@ -1,7 +1,9 @@
+import { playPop } from './sounds.js';
+
 const workspaceContentEl = document.getElementById('workspace-content');
 const toppingCounterEl = document.getElementById('topping-counter');
 
-const MAX_TOPPINGS = 8;
+const MAX_TOPPING_TYPES = 8;
 
 let placedToppings = [];
 let workspaceLocked = false;
@@ -22,13 +24,22 @@ export function resetBuilder() {
   updateCounter();
 }
 
+function placedTypeCount() {
+  return new Set(placedToppings.map(p => p.id)).size;
+}
+
+function canPlaceType(id) {
+  return placedToppings.some(p => p.id === id) || placedTypeCount() < MAX_TOPPING_TYPES;
+}
+
 function updateCounter() {
-  toppingCounterEl.textContent = `${placedToppings.length}/${MAX_TOPPINGS} toppings`;
-  toppingCounterEl.classList.toggle('at-limit', placedToppings.length >= MAX_TOPPINGS);
+  const types = placedTypeCount();
+  toppingCounterEl.textContent = `${types}/${MAX_TOPPING_TYPES} topping types`;
+  toppingCounterEl.classList.toggle('at-limit', types >= MAX_TOPPING_TYPES);
 }
 
 export function startDragFromCatalog(topping, e) {
-  if (workspaceLocked || placedToppings.length >= MAX_TOPPINGS) return;
+  if (workspaceLocked || !canPlaceType(topping.id)) return;
   blockWorkspacePointerEvents();
 
   const clone = document.createElement('img');
@@ -63,14 +74,16 @@ function placeTopping(topping, x, y) {
 
   const el = document.createElement('img');
   el.src = topping.svgFile;
-  el.className = 'placed-topping';
+  el.className = 'placed-topping pop-in';
   el.style.left = (x - 30) + 'px';
   el.style.top = (y - 30) + 'px';
   el.draggable = false;
+  el.addEventListener('animationend', () => el.classList.remove('pop-in'), { once: true });
 
   const entry = { id: topping.id, x, y, el };
   placedToppings.push(entry);
   updateCounter();
+  playPop();
 
   el.addEventListener('mousedown', (e) => {
     if (e.button !== 0 || workspaceLocked) return;

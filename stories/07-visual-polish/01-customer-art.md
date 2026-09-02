@@ -1,6 +1,6 @@
 ---
 title: Design Customer Characters
-status: todo
+status: done
 story: 07-visual-polish
 depends_on: [05-game-loop/02-customer-system]
 ---
@@ -19,8 +19,14 @@ Create 8 distinct customer character designs using CSS/SVG. Simple, charming, ex
 - Cohesive with the "doodle cafe" aesthetic
 
 ## Acceptance Criteria
-- [ ] 8 visually distinct characters
-- [ ] Built with CSS/SVG (no raster images)
-- [ ] Expressions change based on score rating
-- [ ] Idle and entrance/exit animations work
-- [ ] Characters look cohesive as a set
+- [x] 8 visually distinct characters
+- [x] Built with CSS/SVG (no raster images)
+- [x] Expressions change based on score rating
+- [x] Idle and entrance/exit animations work
+- [x] Characters look cohesive as a set
+
+> Note (2026-09-02): 8 CSS-art variants in styles.css — distinct hair,
+> skin tones, outfits, and accessories (round glasses, beanie, flat cap,
+> top-bun, curly hair). Bounce-in entrance (spring cubic-bezier), idle
+> sway on an inner wrapper so it composes with enter/leave animations,
+> angry storm-out. Moods driven by `data-mood` from scoring stars.

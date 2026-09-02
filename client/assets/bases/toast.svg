@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
   <!-- Toast: bread, spread, toppings_area -->
   <g id="bread">
-    <path d="M60 90 Q58 85 65 70 Q80 50 150 48 Q220 50 235 70 Q242 85 240 90 L245 270 Q245 280 150 280 Q55 280 55 270 Z" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M60 90 Q58 85 65 70 Q80 50 150 48 Q220 50 235 70 Q242 85 240 90 L245 270 Q245 280 150 280 Q55 280 55 270 Z" fill="#FFFFFF" stroke="#4A3429" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
   <g id="spread">
-    <path d="M70 90 Q68 85 75 73 Q88 58 150 56 Q212 58 225 73 Q232 85 230 90 L233 265 Q233 272 150 272 Q67 272 67 265 Z" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M70 90 Q68 85 75 73 Q88 58 150 56 Q212 58 225 73 Q232 85 230 90 L233 265 Q233 272 150 272 Q67 272 67 265 Z" fill="#FFFFFF" stroke="#4A3429" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
   <g id="toppings_area">
     <rect x="90" y="110" width="120" height="130" rx="8" fill="none" stroke="none"/>

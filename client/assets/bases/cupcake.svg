@@ -1,23 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
   <!-- Cupcake: wrapper, cake, frosting, topper -->
   <g id="wrapper">
-    <path d="M95 175 L85 280 Q85 288 150 288 Q215 288 215 280 L205 175 Z" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M95 195 L88 250" fill="none" stroke="#3B2F2F" stroke-width="1.5" stroke-linecap="round"/>
-    <path d="M110 180 L105 265" fill="none" stroke="#3B2F2F" stroke-width="1.5" stroke-linecap="round"/>
-    <path d="M130 177 L127 275" fill="none" stroke="#3B2F2F" stroke-width="1.5" stroke-linecap="round"/>
-    <path d="M150 176 L150 280" fill="none" stroke="#3B2F2F" stroke-width="1.5" stroke-linecap="round"/>
-    <path d="M170 177 L173 275" fill="none" stroke="#3B2F2F" stroke-width="1.5" stroke-linecap="round"/>
-    <path d="M190 180 L195 265" fill="none" stroke="#3B2F2F" stroke-width="1.5" stroke-linecap="round"/>
-    <path d="M205 195 L212 250" fill="none" stroke="#3B2F2F" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M95 175 L85 280 Q85 288 150 288 Q215 288 215 280 L205 175 Z" fill="#FFFFFF" stroke="#4A3429" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M95 195 L88 250" fill="none" stroke="#4A3429" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M110 180 L105 265" fill="none" stroke="#4A3429" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M130 177 L127 275" fill="none" stroke="#4A3429" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M150 176 L150 280" fill="none" stroke="#4A3429" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M170 177 L173 275" fill="none" stroke="#4A3429" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M190 180 L195 265" fill="none" stroke="#4A3429" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M205 195 L212 250" fill="none" stroke="#4A3429" stroke-width="1.5" stroke-linecap="round"/>
   </g>
   <g id="cake">
-    <path d="M90 175 Q90 150 100 140 Q120 125 150 123 Q180 125 200 140 Q210 150 210 175 Z" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M90 175 Q90 150 100 140 Q120 125 150 123 Q180 125 200 140 Q210 150 210 175 Z" fill="#FFFFFF" stroke="#4A3429" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
   <g id="frosting">
-    <path d="M90 145 Q85 130 95 115 Q105 100 120 95 Q130 80 150 75 Q170 80 180 95 Q195 100 205 115 Q215 130 210 145 Q200 140 190 142 Q175 135 150 137 Q125 135 110 142 Q100 140 90 145 Z" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M90 145 Q85 130 95 115 Q105 100 120 95 Q130 80 150 75 Q170 80 180 95 Q195 100 205 115 Q215 130 210 145 Q200 140 190 142 Q175 135 150 137 Q125 135 110 142 Q100 140 90 145 Z" fill="#FFFFFF" stroke="#4A3429" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
   <g id="topper">
-    <circle cx="150" cy="60" r="12" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="2.5"/>
-    <path d="M150 48 Q152 35 148 30" fill="none" stroke="#3B2F2F" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="150" cy="60" r="12" fill="#FFFFFF" stroke="#4A3429" stroke-width="2.5"/>
+    <path d="M150 48 Q152 35 148 30" fill="none" stroke="#4A3429" stroke-width="2.5" stroke-linecap="round"/>
   </g>
 </svg>

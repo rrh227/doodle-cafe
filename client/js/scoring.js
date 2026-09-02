@@ -41,7 +41,15 @@ export function scoreOrder(prompt, selectedBaseId, placedToppings, sectionColors
     breakdown.push({ label: `Combo bonus (×${combosHit})`, points: comboPoints });
   }
 
-  let points = basePoints + colorPoints + toppingPoints + comboPoints;
+  // Clutter penalty: off-theme topping types cost points, with a small
+  // grace allowance so a couple of experimental picks aren't punished.
+  const irrelevantCount = [...placedIds].filter(id => !(prompt.idealToppings[id] > 0)).length;
+  const clutterPenalty = Math.max(0, irrelevantCount - 2) * 2;
+  if (clutterPenalty > 0) {
+    breakdown.push({ label: `Off-theme toppings (×${irrelevantCount - 2})`, points: -clutterPenalty });
+  }
+
+  let points = Math.max(0, basePoints + colorPoints + toppingPoints + comboPoints - clutterPenalty);
 
   // Patience bonus: up to +10% of earned points for serving quickly
   const patienceBonus = Math.round(points * 0.1 * patienceFraction);

@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
   <!-- Iced Drink: glass, liquid, ice, straw -->
   <g id="glass">
-    <path d="M95 60 Q93 65 85 270 Q85 280 150 280 Q215 280 215 270 L207 65 Q205 60 200 58 L100 58 Q95 58 95 60 Z" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M95 60 Q93 65 85 270 Q85 280 150 280 Q215 280 215 270 L207 65 Q205 60 200 58 L100 58 Q95 58 95 60 Z" fill="#FFFFFF" stroke="#4A3429" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
   <g id="liquid">
-    <path d="M93 90 Q91 95 87 260 Q87 270 150 270 Q213 270 213 260 L209 95 Q208 90 207 90 Z" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M93 90 Q91 95 87 260 Q87 270 150 270 Q213 270 213 260 L209 95 Q208 90 207 90 Z" fill="#FFFFFF" stroke="#4A3429" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
   <g id="ice">
-    <rect x="110" y="110" width="30" height="25" rx="4" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="2" transform="rotate(-5 125 122)"/>
-    <rect x="155" y="130" width="28" height="23" rx="4" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="2" transform="rotate(8 169 141)"/>
-    <rect x="120" y="165" width="32" height="26" rx="4" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="2" transform="rotate(-3 136 178)"/>
-    <rect x="160" y="185" width="26" height="22" rx="4" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="2" transform="rotate(5 173 196)"/>
+    <rect x="110" y="110" width="30" height="25" rx="4" fill="#FFFFFF" stroke="#4A3429" stroke-width="2" transform="rotate(-5 125 122)"/>
+    <rect x="155" y="130" width="28" height="23" rx="4" fill="#FFFFFF" stroke="#4A3429" stroke-width="2" transform="rotate(8 169 141)"/>
+    <rect x="120" y="165" width="32" height="26" rx="4" fill="#FFFFFF" stroke="#4A3429" stroke-width="2" transform="rotate(-3 136 178)"/>
+    <rect x="160" y="185" width="26" height="22" rx="4" fill="#FFFFFF" stroke="#4A3429" stroke-width="2" transform="rotate(5 173 196)"/>
   </g>
   <g id="straw">
-    <rect x="168" y="20" width="8" height="250" rx="4" fill="#FFFFFF" stroke="#3B2F2F" stroke-width="2" transform="rotate(3 172 145)"/>
+    <rect x="168" y="20" width="8" height="250" rx="4" fill="#FFFFFF" stroke="#4A3429" stroke-width="2" transform="rotate(3 172 145)"/>
   </g>
 </svg>

@@ -1,106 +1,3820 @@
 [
-  { "id": "t1_001", "text": "Hi! Can I get a chocolate latte with whipped cream?", "tier": 1, "offeredBases": ["latte", "iced_drink", "cupcake"], "idealBase": { "latte": 1.0, "iced_drink": 0.5, "cupcake": 0.3 }, "idealColors": { "#8B4513": 1.0, "#D2B48C": 0.8, "#FFFFFF": 0.6 }, "idealToppings": { "chocolate_drizzle": 1.0, "whipped_cream": 1.0, "chocolate_chips": 0.9, "cocoa_powder": 0.9, "chocolate_curl": 0.8, "marshmallow": 0.7, "foam_art": 0.7, "caramel_drizzle": 0.6, "oreo_crumble": 0.6, "cinnamon": 0.6, "wafer_stick": 0.6, "graham_cracker": 0.6 }, "bonusCombos": [["chocolate_drizzle", "whipped_cream"], ["cocoa_powder", "foam_art"]] },
-  { "id": "t1_002", "text": "I'd love a fruity cupcake, please!", "tier": 1, "offeredBases": ["cupcake", "toast", "latte"], "idealBase": { "cupcake": 1.0, "toast": 0.4, "latte": 0.2 }, "idealColors": { "#FFB6C1": 1.0, "#DC143C": 0.8, "#FFD700": 0.7, "#FF8C00": 0.7 }, "idealToppings": { "strawberry": 1.0, "cherry": 1.0, "blueberry": 0.9, "raspberry": 0.9, "peach_slice": 0.8, "mango_chunk": 0.8, "kiwi_slice": 0.7, "orange_slice": 0.7, "berry_compote": 0.7, "strawberry_sauce": 0.7, "banana_slice": 0.6, "lemon_slice": 0.6 }, "bonusCombos": [["strawberry", "blueberry"], ["cherry", "strawberry_sauce"]] },
-  { "id": "t1_003", "text": "A classic breakfast toast with eggs, please!", "tier": 1, "offeredBases": ["toast", "smoothie_bowl", "cupcake"], "idealBase": { "toast": 1.0, "smoothie_bowl": 0.4, "cupcake": 0.1 }, "idealColors": { "#D2B48C": 1.0, "#8B4513": 0.8, "#FFD700": 0.7 }, "idealToppings": { "egg_slice": 1.0, "bacon_bits": 1.0, "avocado_slice": 0.8, "cream_cheese": 0.8, "everything_seasoning": 0.8, "microgreens": 0.7, "smoked_salmon": 0.7, "honey": 0.6, "peanut_butter": 0.6, "granola": 0.6 }, "bonusCombos": [["egg_slice", "bacon_bits"], ["avocado_slice", "everything_seasoning"]] },
-  { "id": "t1_004", "text": "One berry smoothie bowl, extra berries!", "tier": 1, "offeredBases": ["smoothie_bowl", "iced_drink", "toast"], "idealBase": { "smoothie_bowl": 1.0, "iced_drink": 0.5, "toast": 0.3 }, "idealColors": { "#DC143C": 1.0, "#FFB6C1": 0.8, "#4169E1": 0.7 }, "idealToppings": { "blueberry": 1.0, "strawberry": 1.0, "raspberry": 1.0, "berry_compote": 0.9, "granola": 0.8, "yogurt_dollop": 0.8, "strawberry_sauce": 0.7, "cherry": 0.7, "coconut_flakes": 0.6, "banana_slice": 0.6, "honey": 0.6 }, "bonusCombos": [["blueberry", "raspberry"], ["granola", "yogurt_dollop"]] },
-  { "id": "t1_005", "text": "Something icy and citrusy to cool me down!", "tier": 1, "offeredBases": ["iced_drink", "latte", "smoothie_bowl"], "idealBase": { "iced_drink": 1.0, "smoothie_bowl": 0.6, "latte": 0.2 }, "idealColors": { "#FFD700": 1.0, "#FF8C00": 0.9, "#FFFFFF": 0.6 }, "idealToppings": { "lemon_slice": 1.0, "orange_slice": 1.0, "mint_leaf": 0.8, "kiwi_slice": 0.7, "mango_chunk": 0.7, "umbrella_pick": 0.7, "strawberry": 0.6, "cherry": 0.6, "ice_cream_scoop": 0.6, "wave": 0.6 }, "bonusCombos": [["lemon_slice", "mint_leaf"], ["orange_slice", "umbrella_pick"]] },
-  { "id": "t1_006", "text": "Could you make me a caramel latte? Extra drizzle!", "tier": 1, "offeredBases": ["latte", "cupcake", "iced_drink"], "idealBase": { "latte": 1.0, "iced_drink": 0.5, "cupcake": 0.4 }, "idealColors": { "#8B4513": 1.0, "#D2B48C": 1.0, "#FFD700": 0.6 }, "idealToppings": { "caramel_drizzle": 1.0, "whipped_cream": 0.9, "foam_art": 0.8, "cinnamon": 0.7, "chocolate_drizzle": 0.7, "chocolate_curl": 0.6, "marshmallow": 0.6, "cocoa_powder": 0.6, "almonds": 0.6, "graham_cracker": 0.6 }, "bonusCombos": [["caramel_drizzle", "whipped_cream"]] },
-  { "id": "t1_007", "text": "A strawberry cupcake would make my day!", "tier": 1, "offeredBases": ["cupcake", "smoothie_bowl", "latte"], "idealBase": { "cupcake": 1.0, "smoothie_bowl": 0.4, "latte": 0.2 }, "idealColors": { "#FFB6C1": 1.0, "#DC143C": 0.9, "#FFFFFF": 0.7 }, "idealToppings": { "strawberry": 1.0, "strawberry_sauce": 1.0, "whipped_cream": 0.8, "sprinkles": 0.7, "heart": 0.7, "cherry": 0.7, "sugar_pearl": 0.6, "raspberry": 0.6, "mascarpone": 0.6, "berry_compote": 0.6 }, "bonusCombos": [["strawberry", "strawberry_sauce"], ["whipped_cream", "sprinkles"]] },
-  { "id": "t1_008", "text": "Avocado toast, the greener the better!", "tier": 1, "offeredBases": ["toast", "smoothie_bowl", "iced_drink"], "idealBase": { "toast": 1.0, "smoothie_bowl": 0.4, "iced_drink": 0.1 }, "idealColors": { "#228B22": 1.0, "#D2B48C": 0.8, "#FFD700": 0.5 }, "idealToppings": { "avocado_slice": 1.0, "microgreens": 0.9, "everything_seasoning": 0.9, "egg_slice": 0.8, "cream_cheese": 0.7, "smoked_salmon": 0.7, "mint_leaf": 0.6, "bacon_bits": 0.6 }, "bonusCombos": [["avocado_slice", "microgreens"], ["egg_slice", "everything_seasoning"]] },
-  { "id": "t1_009", "text": "A tropical smoothie bowl, like a mini vacation!", "tier": 1, "offeredBases": ["smoothie_bowl", "iced_drink", "cupcake"], "idealBase": { "smoothie_bowl": 1.0, "iced_drink": 0.7, "cupcake": 0.2 }, "idealColors": { "#FFD700": 1.0, "#FF8C00": 0.9, "#228B22": 0.7 }, "idealToppings": { "mango_chunk": 1.0, "banana_slice": 0.9, "kiwi_slice": 0.9, "coconut_flakes": 0.9, "umbrella_pick": 0.8, "orange_slice": 0.7, "granola": 0.6, "honey": 0.6, "yogurt_dollop": 0.6, "wave": 0.6 }, "bonusCombos": [["mango_chunk", "coconut_flakes"], ["kiwi_slice", "banana_slice"]] },
-  { "id": "t1_010", "text": "Something sweet and icy with a cherry on top!", "tier": 1, "offeredBases": ["iced_drink", "cupcake", "toast"], "idealBase": { "iced_drink": 1.0, "cupcake": 0.6, "toast": 0.1 }, "idealColors": { "#DC143C": 1.0, "#FFB6C1": 0.8, "#FFFFFF": 0.6 }, "idealToppings": { "cherry": 1.0, "whipped_cream": 0.9, "strawberry_sauce": 0.8, "ice_cream_scoop": 0.8, "sprinkles": 0.7, "strawberry": 0.7, "umbrella_pick": 0.6, "sugar_pearl": 0.6, "heart": 0.6, "wafer_stick": 0.6 }, "bonusCombos": [["cherry", "whipped_cream"], ["ice_cream_scoop", "strawberry_sauce"]] },
-  { "id": "t1_011", "text": "A honey latte sounds perfect right now.", "tier": 1, "offeredBases": ["latte", "toast", "smoothie_bowl"], "idealBase": { "latte": 1.0, "toast": 0.5, "smoothie_bowl": 0.3 }, "idealColors": { "#FFD700": 1.0, "#D2B48C": 0.9, "#8B4513": 0.7 }, "idealToppings": { "honey": 1.0, "foam_art": 0.9, "cinnamon": 0.8, "whipped_cream": 0.7, "almonds": 0.7, "maple_syrup": 0.6, "marshmallow": 0.6, "walnuts": 0.6, "granola": 0.6, "sugar_pearl": 0.6 }, "bonusCombos": [["honey", "cinnamon"], ["foam_art", "whipped_cream"]] },
-  { "id": "t1_012", "text": "Chocolate cupcake with rainbow sprinkles, please!", "tier": 1, "offeredBases": ["cupcake", "latte", "smoothie_bowl"], "idealBase": { "cupcake": 1.0, "latte": 0.4, "smoothie_bowl": 0.2 }, "idealColors": { "#8B4513": 1.0, "#FFB6C1": 0.7, "#FFD700": 0.6 }, "idealToppings": { "sprinkles": 1.0, "chocolate_drizzle": 1.0, "chocolate_chips": 0.9, "chocolate_curl": 0.8, "whipped_cream": 0.7, "cherry": 0.7, "cocoa_powder": 0.7, "oreo_crumble": 0.7, "star_cookie": 0.6, "sugar_pearl": 0.6 }, "bonusCombos": [["sprinkles", "chocolate_drizzle"], ["chocolate_chips", "whipped_cream"]] },
-  { "id": "t1_013", "text": "Peanut butter banana toast — my favorite combo!", "tier": 1, "offeredBases": ["toast", "cupcake", "smoothie_bowl"], "idealBase": { "toast": 1.0, "smoothie_bowl": 0.5, "cupcake": 0.2 }, "idealColors": { "#D2B48C": 1.0, "#8B4513": 0.8, "#FFD700": 0.7 }, "idealToppings": { "peanut_butter": 1.0, "banana_slice": 1.0, "honey": 0.9, "granola": 0.7, "chocolate_chips": 0.7, "chocolate_drizzle": 0.6, "walnuts": 0.6, "cinnamon": 0.6, "coconut_flakes": 0.6 }, "bonusCombos": [["peanut_butter", "banana_slice"], ["honey", "granola"]] },
-  { "id": "t1_014", "text": "A crunchy granola bowl to start my morning!", "tier": 1, "offeredBases": ["smoothie_bowl", "toast", "latte"], "idealBase": { "smoothie_bowl": 1.0, "toast": 0.6, "latte": 0.2 }, "idealColors": { "#D2B48C": 1.0, "#8B4513": 0.8, "#FFFFFF": 0.6 }, "idealToppings": { "granola": 1.0, "yogurt_dollop": 0.9, "honey": 0.9, "blueberry": 0.8, "banana_slice": 0.8, "almonds": 0.7, "walnuts": 0.7, "strawberry": 0.7, "coconut_flakes": 0.6, "peach_slice": 0.6 }, "bonusCombos": [["granola", "yogurt_dollop"], ["honey", "blueberry"]] },
-  { "id": "t1_015", "text": "An iced berry drink, nice and refreshing!", "tier": 1, "offeredBases": ["iced_drink", "smoothie_bowl", "latte"], "idealBase": { "iced_drink": 1.0, "smoothie_bowl": 0.6, "latte": 0.2 }, "idealColors": { "#DC143C": 1.0, "#4169E1": 0.8, "#FFB6C1": 0.7 }, "idealToppings": { "strawberry": 1.0, "blueberry": 1.0, "raspberry": 0.9, "berry_compote": 0.8, "mint_leaf": 0.7, "cherry": 0.7, "lemon_slice": 0.6, "strawberry_sauce": 0.6, "umbrella_pick": 0.6, "ice_cream_scoop": 0.6 }, "bonusCombos": [["strawberry", "mint_leaf"], ["blueberry", "raspberry"]] },
-  { "id": "t1_016", "text": "A cinnamon latte with a pretty foam design?", "tier": 1, "offeredBases": ["latte", "cupcake", "toast"], "idealBase": { "latte": 1.0, "cupcake": 0.4, "toast": 0.2 }, "idealColors": { "#8B4513": 1.0, "#D2B48C": 0.9, "#FFFFFF": 0.7 }, "idealToppings": { "cinnamon": 1.0, "foam_art": 1.0, "whipped_cream": 0.8, "honey": 0.7, "cocoa_powder": 0.7, "caramel_drizzle": 0.7, "maple_syrup": 0.6, "marshmallow": 0.6, "swirl": 0.6 }, "bonusCombos": [["cinnamon", "foam_art"], ["whipped_cream", "caramel_drizzle"]] },
-  { "id": "t1_017", "text": "It's my birthday! Make me the most festive cupcake ever!", "tier": 1, "offeredBases": ["cupcake", "iced_drink", "smoothie_bowl"], "idealBase": { "cupcake": 1.0, "iced_drink": 0.4, "smoothie_bowl": 0.2 }, "idealColors": { "#FFB6C1": 1.0, "#FFD700": 0.9, "#4169E1": 0.7 }, "idealToppings": { "sprinkles": 1.0, "star_cookie": 0.9, "whipped_cream": 0.8, "cherry": 0.8, "sugar_pearl": 0.8, "star": 0.7, "heart": 0.7, "bow": 0.7, "sparkle": 0.7, "candy_cane": 0.6 }, "bonusCombos": [["sprinkles", "star_cookie"], ["cherry", "whipped_cream"]] },
-  { "id": "t1_018", "text": "Smoked salmon toast, fancy brunch style!", "tier": 1, "offeredBases": ["toast", "cupcake", "iced_drink"], "idealBase": { "toast": 1.0, "cupcake": 0.1, "iced_drink": 0.1 }, "idealColors": { "#D2B48C": 1.0, "#FFB6C1": 0.9, "#228B22": 0.7 }, "idealToppings": { "smoked_salmon": 1.0, "cream_cheese": 1.0, "microgreens": 0.9, "everything_seasoning": 0.8, "avocado_slice": 0.7, "lemon_slice": 0.7, "egg_slice": 0.6, "mint_leaf": 0.6 }, "bonusCombos": [["smoked_salmon", "cream_cheese"], ["microgreens", "lemon_slice"]] },
-  { "id": "t1_019", "text": "A chocolate smoothie bowl — dessert for breakfast!", "tier": 1, "offeredBases": ["smoothie_bowl", "cupcake", "latte"], "idealBase": { "smoothie_bowl": 1.0, "cupcake": 0.5, "latte": 0.4 }, "idealColors": { "#8B4513": 1.0, "#D2B48C": 0.8, "#FFFFFF": 0.6 }, "idealToppings": { "chocolate_chips": 1.0, "cocoa_powder": 0.9, "chocolate_drizzle": 0.9, "banana_slice": 0.8, "granola": 0.8, "peanut_butter": 0.7, "coconut_flakes": 0.7, "oreo_crumble": 0.7, "chocolate_curl": 0.6, "walnuts": 0.6 }, "bonusCombos": [["chocolate_chips", "banana_slice"], ["cocoa_powder", "granola"]] },
-  { "id": "t1_020", "text": "Something minty and fresh over ice, please!", "tier": 1, "offeredBases": ["iced_drink", "latte", "cupcake"], "idealBase": { "iced_drink": 1.0, "latte": 0.4, "cupcake": 0.2 }, "idealColors": { "#228B22": 1.0, "#FFFFFF": 0.8, "#4169E1": 0.6 }, "idealToppings": { "mint_leaf": 1.0, "lemon_slice": 0.9, "kiwi_slice": 0.8, "matcha_drizzle": 0.7, "microgreens": 0.6, "wave": 0.6, "teardrop": 0.6, "honey": 0.6 }, "bonusCombos": [["mint_leaf", "lemon_slice"]] },
-  { "id": "t1_021", "text": "One matcha latte with beautiful foam art!", "tier": 1, "offeredBases": ["latte", "iced_drink", "smoothie_bowl"], "idealBase": { "latte": 1.0, "iced_drink": 0.6, "smoothie_bowl": 0.4 }, "idealColors": { "#228B22": 1.0, "#FFFFFF": 0.8, "#D2B48C": 0.6 }, "idealToppings": { "matcha_drizzle": 1.0, "foam_art": 1.0, "whipped_cream": 0.7, "mint_leaf": 0.7, "honey": 0.7, "mascarpone": 0.6, "sugar_pearl": 0.6, "swirl": 0.6 }, "bonusCombos": [["matcha_drizzle", "foam_art"]] },
-  { "id": "t1_022", "text": "A nutty cupcake with lots of crunch!", "tier": 1, "offeredBases": ["cupcake", "toast", "smoothie_bowl"], "idealBase": { "cupcake": 1.0, "toast": 0.6, "smoothie_bowl": 0.5 }, "idealColors": { "#8B4513": 1.0, "#D2B48C": 1.0, "#FFD700": 0.5 }, "idealToppings": { "almonds": 1.0, "walnuts": 1.0, "peanut_butter": 0.9, "granola": 0.8, "caramel_drizzle": 0.7, "honey": 0.7, "chocolate_chips": 0.6, "graham_cracker": 0.6, "wafer_stick": 0.6 }, "bonusCombos": [["almonds", "walnuts"], ["peanut_butter", "caramel_drizzle"]] },
-  { "id": "t1_023", "text": "The full works: bacon and egg on toast!", "tier": 1, "offeredBases": ["toast", "latte", "iced_drink"], "idealBase": { "toast": 1.0, "latte": 0.2, "iced_drink": 0.1 }, "idealColors": { "#D2B48C": 1.0, "#8B4513": 0.8, "#DC143C": 0.6 }, "idealToppings": { "bacon_bits": 1.0, "egg_slice": 1.0, "everything_seasoning": 0.8, "avocado_slice": 0.7, "microgreens": 0.7, "cream_cheese": 0.6, "smoked_salmon": 0.6 }, "bonusCombos": [["bacon_bits", "egg_slice"]] },
-  { "id": "t1_024", "text": "A peaches-and-cream smoothie bowl, please!", "tier": 1, "offeredBases": ["smoothie_bowl", "cupcake", "iced_drink"], "idealBase": { "smoothie_bowl": 1.0, "iced_drink": 0.5, "cupcake": 0.4 }, "idealColors": { "#FF8C00": 1.0, "#FFB6C1": 0.8, "#FFFFFF": 0.8 }, "idealToppings": { "peach_slice": 1.0, "yogurt_dollop": 0.9, "whipped_cream": 0.8, "honey": 0.8, "mascarpone": 0.7, "granola": 0.7, "mango_chunk": 0.6, "coconut_flakes": 0.6, "banana_slice": 0.6 }, "bonusCombos": [["peach_slice", "yogurt_dollop"], ["honey", "granola"]] },
-  { "id": "t1_025", "text": "Fresh lemonade vibes — something bright and tangy!", "tier": 1, "offeredBases": ["iced_drink", "cupcake", "toast"], "idealBase": { "iced_drink": 1.0, "cupcake": 0.4, "toast": 0.1 }, "idealColors": { "#FFD700": 1.0, "#FFFFFF": 0.8, "#228B22": 0.5 }, "idealToppings": { "lemon_slice": 1.0, "mint_leaf": 0.9, "orange_slice": 0.8, "honey": 0.7, "umbrella_pick": 0.7, "strawberry": 0.6, "kiwi_slice": 0.6, "sparkle": 0.6, "sugar_pearl": 0.6 }, "bonusCombos": [["lemon_slice", "mint_leaf"]] },
-  { "id": "t1_026", "text": "A toasty marshmallow mocha, extra cozy!", "tier": 1, "offeredBases": ["latte", "smoothie_bowl", "cupcake"], "idealBase": { "latte": 1.0, "cupcake": 0.5, "smoothie_bowl": 0.2 }, "idealColors": { "#8B4513": 1.0, "#FFFFFF": 0.8, "#D2B48C": 0.8 }, "idealToppings": { "marshmallow": 1.0, "chocolate_drizzle": 1.0, "cocoa_powder": 0.9, "whipped_cream": 0.8, "chocolate_chips": 0.7, "graham_cracker": 0.7, "cinnamon": 0.6, "chocolate_curl": 0.6, "caramel_drizzle": 0.6 }, "bonusCombos": [["marshmallow", "chocolate_drizzle"], ["graham_cracker", "cocoa_powder"]] },
-
-  { "id": "t2_001", "text": "Something that reminds me of a beach vacation!", "tier": 2, "offeredBases": ["iced_drink", "smoothie_bowl", "latte"], "idealBase": { "iced_drink": 1.0, "smoothie_bowl": 0.8, "latte": 0.2 }, "idealColors": { "#4169E1": 1.0, "#FFD700": 0.9, "#FFFFFF": 0.7 }, "idealToppings": { "umbrella_pick": 1.0, "wave": 0.9, "coconut_flakes": 0.9, "mango_chunk": 0.8, "orange_slice": 0.7, "lemon_slice": 0.7, "banana_slice": 0.6, "kiwi_slice": 0.6 }, "bonusCombos": [["umbrella_pick", "wave"], ["coconut_flakes", "mango_chunk"]] },
-  { "id": "t2_002", "text": "A drink fit for a princess, please!", "tier": 2, "offeredBases": ["iced_drink", "latte", "cupcake"], "idealBase": { "iced_drink": 0.8, "latte": 1.0, "cupcake": 0.6 }, "idealColors": { "#FFB6C1": 1.0, "#FFD700": 0.9, "#FFFFFF": 0.7 }, "idealToppings": { "crown": 1.0, "sugar_pearl": 0.9, "gold_leaf": 0.9, "edible_flower": 0.8, "heart": 0.7, "sparkle": 0.7, "diamond": 0.7, "bow": 0.6 }, "bonusCombos": [["crown", "sugar_pearl"], ["gold_leaf", "diamond"]] },
-  { "id": "t2_003", "text": "Make it look like a little garden!", "tier": 2, "offeredBases": ["toast", "smoothie_bowl", "cupcake"], "idealBase": { "smoothie_bowl": 1.0, "toast": 0.8, "cupcake": 0.5 }, "idealColors": { "#228B22": 1.0, "#FFB6C1": 0.8, "#8B4513": 0.7 }, "idealToppings": { "edible_flower": 1.0, "mint_leaf": 0.9, "microgreens": 0.9, "butterfly": 0.8, "kiwi_slice": 0.7, "strawberry": 0.6, "matcha_drizzle": 0.6, "avocado_slice": 0.6 }, "bonusCombos": [["edible_flower", "butterfly"], ["mint_leaf", "microgreens"]] },
-  { "id": "t2_004", "text": "Something warm that reminds me of autumn.", "tier": 2, "offeredBases": ["latte", "toast", "cupcake"], "idealBase": { "toast": 1.0, "latte": 0.8, "cupcake": 0.5 }, "idealColors": { "#8B4513": 1.0, "#FF8C00": 0.9, "#DC143C": 0.6 }, "idealToppings": { "cinnamon": 1.0, "maple_syrup": 1.0, "walnuts": 0.8, "caramel_drizzle": 0.8, "whipped_cream": 0.7, "cocoa_powder": 0.6, "granola": 0.6, "honey": 0.6 }, "bonusCombos": [["cinnamon", "maple_syrup"], ["caramel_drizzle", "walnuts"]] },
-  { "id": "t2_005", "text": "I want a winter wonderland in a cup!", "tier": 2, "offeredBases": ["latte", "iced_drink", "cupcake"], "idealBase": { "iced_drink": 1.0, "latte": 0.8, "cupcake": 0.5 }, "idealColors": { "#FFFFFF": 1.0, "#4169E1": 0.9, "#D2B48C": 0.4 }, "idealToppings": { "candy_cane": 1.0, "marshmallow": 0.9, "whipped_cream": 0.8, "sparkle": 0.8, "star": 0.7, "coconut_flakes": 0.7, "sugar_pearl": 0.6, "cloud": 0.6 }, "bonusCombos": [["candy_cane", "marshmallow"], ["sparkle", "star"]] },
-  { "id": "t2_006", "text": "Something romantic for my anniversary dinner!", "tier": 2, "offeredBases": ["cupcake", "latte", "iced_drink"], "idealBase": { "cupcake": 1.0, "latte": 0.7, "iced_drink": 0.4 }, "idealColors": { "#DC143C": 1.0, "#FFB6C1": 0.9, "#FFFFFF": 0.6 }, "idealToppings": { "heart": 1.0, "strawberry": 0.9, "chocolate_drizzle": 0.8, "edible_flower": 0.8, "cherry": 0.7, "chocolate_curl": 0.7, "sugar_pearl": 0.6, "mascarpone": 0.6 }, "bonusCombos": [["heart", "strawberry"], ["chocolate_drizzle", "cherry"]] },
-  { "id": "t2_007", "text": "Make me something that feels like a walk in the forest.", "tier": 2, "offeredBases": ["latte", "smoothie_bowl", "toast"], "idealBase": { "smoothie_bowl": 1.0, "latte": 0.8, "toast": 0.6 }, "idealColors": { "#228B22": 1.0, "#8B4513": 0.9, "#D2B48C": 0.6 }, "idealToppings": { "matcha_drizzle": 1.0, "mint_leaf": 0.9, "walnuts": 0.8, "granola": 0.8, "microgreens": 0.7, "blueberry": 0.6, "almonds": 0.6, "honey": 0.6 }, "bonusCombos": [["matcha_drizzle", "mint_leaf"], ["walnuts", "granola"]] },
-  { "id": "t2_008", "text": "Something that looks like a sunrise!", "tier": 2, "offeredBases": ["smoothie_bowl", "iced_drink", "cupcake"], "idealBase": { "smoothie_bowl": 1.0, "iced_drink": 0.8, "cupcake": 0.4 }, "idealColors": { "#FF8C00": 1.0, "#FFD700": 1.0, "#FFB6C1": 0.7 }, "idealToppings": { "orange_slice": 1.0, "mango_chunk": 0.9, "peach_slice": 0.9, "honey": 0.7, "star": 0.6, "sparkle": 0.6, "lemon_slice": 0.6, "swirl": 0.5 }, "bonusCombos": [["orange_slice", "mango_chunk"], ["peach_slice", "honey"]] },
-  { "id": "t2_009", "text": "I'm off to the circus — make something as fun as that!", "tier": 2, "offeredBases": ["cupcake", "iced_drink", "smoothie_bowl"], "idealBase": { "cupcake": 1.0, "iced_drink": 0.7, "smoothie_bowl": 0.4 }, "idealColors": { "#DC143C": 1.0, "#FFD700": 0.9, "#4169E1": 0.8 }, "idealToppings": { "sprinkles": 1.0, "candy_cane": 0.8, "star": 0.8, "zigzag": 0.8, "star_cookie": 0.7, "lightning": 0.7, "bow": 0.6, "cherry": 0.6 }, "bonusCombos": [["sprinkles", "star"], ["zigzag", "lightning"]] },
-  { "id": "t2_010", "text": "Something dainty for an afternoon tea party.", "tier": 2, "offeredBases": ["cupcake", "latte", "toast"], "idealBase": { "cupcake": 1.0, "latte": 0.8, "toast": 0.5 }, "idealColors": { "#FFB6C1": 1.0, "#FFFFFF": 0.9, "#FFD700": 0.6 }, "idealToppings": { "edible_flower": 1.0, "sugar_pearl": 0.9, "mascarpone": 0.8, "raspberry": 0.7, "honey": 0.7, "bow": 0.7, "mint_leaf": 0.6, "chocolate_curl": 0.6 }, "bonusCombos": [["edible_flower", "sugar_pearl"], ["raspberry", "mascarpone"]] },
-  { "id": "t2_011", "text": "Give me the deep blue ocean in a glass!", "tier": 2, "offeredBases": ["iced_drink", "smoothie_bowl", "latte"], "idealBase": { "iced_drink": 1.0, "smoothie_bowl": 0.7, "latte": 0.2 }, "idealColors": { "#4169E1": 1.0, "#FFFFFF": 0.8, "#228B22": 0.4 }, "idealToppings": { "wave": 1.0, "teardrop": 0.8, "blueberry": 0.8, "umbrella_pick": 0.7, "coconut_flakes": 0.6, "mint_leaf": 0.6, "sparkle": 0.5, "ice_cream_scoop": 0.5 }, "bonusCombos": [["wave", "blueberry"], ["teardrop", "umbrella_pick"]] },
-  { "id": "t2_012", "text": "Harvest festival season! Something to celebrate the crops.", "tier": 2, "offeredBases": ["toast", "smoothie_bowl", "latte"], "idealBase": { "toast": 1.0, "smoothie_bowl": 0.8, "latte": 0.6 }, "idealColors": { "#FF8C00": 1.0, "#8B4513": 0.9, "#FFD700": 0.8 }, "idealToppings": { "maple_syrup": 1.0, "walnuts": 0.9, "granola": 0.8, "cinnamon": 0.8, "honey": 0.7, "almonds": 0.7, "peach_slice": 0.6 }, "bonusCombos": [["maple_syrup", "walnuts"], ["cinnamon", "granola"]] },
-  { "id": "t2_013", "text": "A spring picnic on a plate, please!", "tier": 2, "offeredBases": ["toast", "cupcake", "smoothie_bowl"], "idealBase": { "toast": 0.8, "smoothie_bowl": 1.0, "cupcake": 0.6 }, "idealColors": { "#228B22": 1.0, "#FFB6C1": 0.9, "#FFD700": 0.7 }, "idealToppings": { "strawberry": 1.0, "edible_flower": 0.9, "mint_leaf": 0.8, "butterfly": 0.8, "honey": 0.7, "kiwi_slice": 0.6, "yogurt_dollop": 0.6, "blueberry": 0.6 }, "bonusCombos": [["strawberry", "edible_flower"], ["butterfly", "mint_leaf"]] },
-  { "id": "t2_014", "text": "Treat me like royalty — the fanciest thing you can make!", "tier": 2, "offeredBases": ["cupcake", "latte", "toast"], "idealBase": { "cupcake": 1.0, "latte": 0.8, "toast": 0.6 }, "idealColors": { "#FFD700": 1.0, "#FFFFFF": 0.8, "#8B4513": 0.5 }, "idealToppings": { "gold_leaf": 1.0, "crown": 1.0, "diamond": 0.8, "sugar_pearl": 0.8, "chocolate_curl": 0.7, "mascarpone": 0.7, "smoked_salmon": 0.6, "edible_flower": 0.6 }, "bonusCombos": [["gold_leaf", "crown"], ["diamond", "sugar_pearl"]] },
-  { "id": "t2_015", "text": "Movie night snacks! Something fun to munch on.", "tier": 2, "offeredBases": ["cupcake", "iced_drink", "toast"], "idealBase": { "cupcake": 1.0, "iced_drink": 0.7, "toast": 0.4 }, "idealColors": { "#DC143C": 0.9, "#FFD700": 1.0, "#8B4513": 0.6 }, "idealToppings": { "oreo_crumble": 1.0, "chocolate_chips": 0.9, "sprinkles": 0.8, "marshmallow": 0.8, "wafer_stick": 0.7, "star": 0.7, "caramel_drizzle": 0.7, "graham_cracker": 0.6 }, "bonusCombos": [["oreo_crumble", "chocolate_chips"], ["marshmallow", "caramel_drizzle"]] },
-  { "id": "t2_016", "text": "It's snowing outside! Something to match the weather.", "tier": 2, "offeredBases": ["latte", "cupcake", "smoothie_bowl"], "idealBase": { "latte": 1.0, "cupcake": 0.7, "smoothie_bowl": 0.4 }, "idealColors": { "#FFFFFF": 1.0, "#4169E1": 0.8, "#D2B48C": 0.5 }, "idealToppings": { "marshmallow": 1.0, "whipped_cream": 0.9, "coconut_flakes": 0.9, "sparkle": 0.7, "sugar_pearl": 0.7, "cloud": 0.7, "candy_cane": 0.6, "foam_art": 0.6 }, "bonusCombos": [["marshmallow", "whipped_cream"], ["coconut_flakes", "sparkle"]] },
-  { "id": "t2_017", "text": "Fresh from the farmers market — something wholesome!", "tier": 2, "offeredBases": ["toast", "smoothie_bowl", "iced_drink"], "idealBase": { "smoothie_bowl": 1.0, "toast": 0.9, "iced_drink": 0.4 }, "idealColors": { "#228B22": 1.0, "#DC143C": 0.8, "#D2B48C": 0.7 }, "idealToppings": { "granola": 1.0, "honey": 0.9, "yogurt_dollop": 0.8, "strawberry": 0.8, "microgreens": 0.7, "blueberry": 0.7, "avocado_slice": 0.6, "banana_slice": 0.6 }, "bonusCombos": [["granola", "honey"], ["strawberry", "yogurt_dollop"]] },
-  { "id": "t2_018", "text": "Make it look like a rainbow after the rain!", "tier": 2, "offeredBases": ["cupcake", "smoothie_bowl", "iced_drink"], "idealBase": { "smoothie_bowl": 1.0, "cupcake": 0.8, "iced_drink": 0.6 }, "idealColors": { "#DC143C": 0.9, "#FFD700": 1.0, "#4169E1": 0.9 }, "idealToppings": { "sprinkles": 1.0, "swirl": 0.9, "strawberry": 0.7, "orange_slice": 0.7, "blueberry": 0.7, "kiwi_slice": 0.7, "cloud": 0.7, "sparkle": 0.6 }, "bonusCombos": [["sprinkles", "cloud"], ["swirl", "sparkle"]] },
-  { "id": "t2_019", "text": "A starry night sky I can sip on.", "tier": 2, "offeredBases": ["iced_drink", "latte", "cupcake"], "idealBase": { "iced_drink": 1.0, "latte": 0.8, "cupcake": 0.5 }, "idealColors": { "#000000": 0.9, "#4169E1": 1.0, "#FFD700": 0.8 }, "idealToppings": { "star": 1.0, "moon": 1.0, "sparkle": 0.9, "blueberry": 0.6, "sugar_pearl": 0.6, "diamond": 0.5, "whipped_cream": 0.5, "cloud": 0.5 }, "bonusCombos": [["star", "moon"], ["sparkle", "sugar_pearl"]] },
-  { "id": "t2_020", "text": "Breakfast at a cozy countryside cottage!", "tier": 2, "offeredBases": ["toast", "latte", "smoothie_bowl"], "idealBase": { "toast": 1.0, "latte": 0.8, "smoothie_bowl": 0.6 }, "idealColors": { "#D2B48C": 1.0, "#FFD700": 0.8, "#8B4513": 0.8 }, "idealToppings": { "honey": 1.0, "egg_slice": 0.8, "yogurt_dollop": 0.7, "granola": 0.7, "cinnamon": 0.7, "maple_syrup": 0.7, "cream_cheese": 0.6, "peach_slice": 0.6 }, "bonusCombos": [["honey", "cinnamon"], ["egg_slice", "cream_cheese"]] },
-  { "id": "t2_021", "text": "Something electric — like a bolt of energy!", "tier": 2, "offeredBases": ["iced_drink", "cupcake", "smoothie_bowl"], "idealBase": { "iced_drink": 1.0, "cupcake": 0.6, "smoothie_bowl": 0.5 }, "idealColors": { "#FFD700": 1.0, "#4169E1": 0.8, "#FF8C00": 0.7 }, "idealToppings": { "lightning": 1.0, "zigzag": 0.9, "lemon_slice": 0.8, "star": 0.7, "orange_slice": 0.7, "sparkle": 0.6, "candy_cane": 0.4, "mint_leaf": 0.5 }, "bonusCombos": [["lightning", "zigzag"], ["lemon_slice", "star"]] },
-  { "id": "t2_022", "text": "Make me something as cute as a puppy!", "tier": 2, "offeredBases": ["cupcake", "smoothie_bowl", "latte"], "idealBase": { "cupcake": 1.0, "smoothie_bowl": 0.6, "latte": 0.6 }, "idealColors": { "#FFB6C1": 1.0, "#FFFFFF": 0.8, "#D2B48C": 0.7 }, "idealToppings": { "heart": 1.0, "bow": 1.0, "sprinkles": 0.8, "cloud": 0.7, "marshmallow": 0.7, "sugar_pearl": 0.6, "strawberry": 0.6, "butterfly": 0.6 }, "bonusCombos": [["heart", "bow"], ["cloud", "marshmallow"]] },
-  { "id": "t2_023", "text": "A zen moment, please. Calm and balanced.", "tier": 2, "offeredBases": ["latte", "smoothie_bowl", "toast"], "idealBase": { "smoothie_bowl": 1.0, "latte": 0.8, "toast": 0.4 }, "idealColors": { "#228B22": 1.0, "#FFFFFF": 0.9, "#D2B48C": 0.6 }, "idealToppings": { "matcha_drizzle": 1.0, "foam_art": 0.9, "mint_leaf": 0.8, "yogurt_dollop": 0.6, "edible_flower": 0.6, "swirl": 0.6, "honey": 0.6, "moon": 0.5 }, "bonusCombos": [["matcha_drizzle", "foam_art"], ["mint_leaf", "edible_flower"]] },
-  { "id": "t2_024", "text": "Pretend we're at a little cafe in Paris!", "tier": 2, "offeredBases": ["latte", "cupcake", "toast"], "idealBase": { "latte": 1.0, "cupcake": 0.8, "toast": 0.6 }, "idealColors": { "#8B4513": 1.0, "#FFFFFF": 0.9, "#FFB6C1": 0.7 }, "idealToppings": { "foam_art": 1.0, "chocolate_curl": 0.9, "mascarpone": 0.8, "edible_flower": 0.7, "raspberry": 0.7, "gold_leaf": 0.6, "sugar_pearl": 0.6, "chocolate_drizzle": 0.6 }, "bonusCombos": [["foam_art", "chocolate_curl"], ["raspberry", "mascarpone"]] },
-  { "id": "t2_025", "text": "Something spooky-sweet for a haunted evening!", "tier": 2, "offeredBases": ["cupcake", "iced_drink", "latte"], "idealBase": { "cupcake": 1.0, "iced_drink": 0.7, "latte": 0.5 }, "idealColors": { "#000000": 1.0, "#FF8C00": 0.9, "#8B4513": 0.5 }, "idealToppings": { "moon": 1.0, "oreo_crumble": 0.9, "chocolate_drizzle": 0.8, "star": 0.7, "marshmallow": 0.7, "teardrop": 0.6, "cocoa_powder": 0.6, "sparkle": 0.5 }, "bonusCombos": [["moon", "star"], ["oreo_crumble", "chocolate_drizzle"]] },
-
-  { "id": "t3_001", "text": "Something that captures the feeling of a rainy afternoon.", "tier": 3, "offeredBases": ["latte", "toast", "iced_drink"], "idealBase": { "latte": 1.0, "toast": 0.6, "iced_drink": 0.3 }, "idealColors": { "#4169E1": 1.0, "#D2B48C": 0.7, "#FFFFFF": 0.6 }, "idealToppings": { "teardrop": 1.0, "cloud": 1.0, "foam_art": 0.7, "cinnamon": 0.6, "cocoa_powder": 0.5, "marshmallow": 0.5, "moon": 0.4 }, "bonusCombos": [["teardrop", "cloud"]] },
-  { "id": "t3_002", "text": "If jazz were a food, what would it look like?", "tier": 3, "offeredBases": ["latte", "cupcake", "iced_drink"], "idealBase": { "latte": 1.0, "cupcake": 0.6, "iced_drink": 0.6 }, "idealColors": { "#000000": 1.0, "#FFD700": 0.9, "#8B4513": 0.6 }, "idealToppings": { "music_note": 1.0, "swirl": 0.8, "gold_leaf": 0.7, "zigzag": 0.6, "chocolate_curl": 0.6, "spiral": 0.5, "cocoa_powder": 0.4 }, "bonusCombos": [["music_note", "swirl"]] },
-  { "id": "t3_003", "text": "A dessert that belongs in a fairy tale.", "tier": 3, "offeredBases": ["cupcake", "smoothie_bowl", "latte"], "idealBase": { "cupcake": 1.0, "smoothie_bowl": 0.5, "latte": 0.4 }, "idealColors": { "#FFB6C1": 1.0, "#FFD700": 0.9, "#4169E1": 0.6 }, "idealToppings": { "sparkle": 1.0, "butterfly": 0.9, "edible_flower": 0.8, "crown": 0.7, "star": 0.6, "sugar_pearl": 0.6, "moon": 0.5, "diamond": 0.5 }, "bonusCombos": [["sparkle", "butterfly"], ["crown", "star"]] },
-  { "id": "t3_004", "text": "The feeling of a lazy Sunday morning, on a plate.", "tier": 3, "offeredBases": ["toast", "latte", "smoothie_bowl"], "idealBase": { "toast": 1.0, "latte": 0.8, "smoothie_bowl": 0.5 }, "idealColors": { "#D2B48C": 1.0, "#FFD700": 0.8, "#FFFFFF": 0.7 }, "idealToppings": { "honey": 1.0, "egg_slice": 0.8, "foam_art": 0.7, "yogurt_dollop": 0.6, "cloud": 0.6, "cinnamon": 0.5, "peach_slice": 0.5 }, "bonusCombos": [["honey", "cloud"]] },
-  { "id": "t3_005", "text": "A thunderstorm, but you're safe inside watching it.", "tier": 3, "offeredBases": ["latte", "iced_drink", "cupcake"], "idealBase": { "latte": 1.0, "iced_drink": 0.6, "cupcake": 0.3 }, "idealColors": { "#4169E1": 1.0, "#000000": 0.8, "#FFFFFF": 0.7 }, "idealToppings": { "lightning": 1.0, "cloud": 1.0, "teardrop": 0.8, "marshmallow": 0.6, "whipped_cream": 0.5, "zigzag": 0.5, "cocoa_powder": 0.4 }, "bonusCombos": [["lightning", "cloud"], ["teardrop", "marshmallow"]] },
-  { "id": "t3_006", "text": "Butterflies in your stomach — that first-crush feeling.", "tier": 3, "offeredBases": ["cupcake", "iced_drink", "smoothie_bowl"], "idealBase": { "cupcake": 1.0, "smoothie_bowl": 0.6, "iced_drink": 0.5 }, "idealColors": { "#FFB6C1": 1.0, "#DC143C": 0.8, "#FFD700": 0.6 }, "idealToppings": { "butterfly": 1.0, "heart": 1.0, "sparkle": 0.7, "strawberry": 0.6, "sugar_pearl": 0.5, "bow": 0.5, "edible_flower": 0.5 }, "bonusCombos": [["butterfly", "heart"]] },
-  { "id": "t3_007", "text": "An old library full of dusty books and quiet corners.", "tier": 3, "offeredBases": ["latte", "toast", "cupcake"], "idealBase": { "latte": 1.0, "toast": 0.7, "cupcake": 0.3 }, "idealColors": { "#8B4513": 1.0, "#D2B48C": 0.9, "#228B22": 0.5 }, "idealToppings": { "cocoa_powder": 1.0, "cinnamon": 0.8, "foam_art": 0.7, "walnuts": 0.6, "graham_cracker": 0.6, "moon": 0.5, "honey": 0.4 }, "bonusCombos": [["cocoa_powder", "cinnamon"]] },
-  { "id": "t3_008", "text": "A midnight swim under the moon.", "tier": 3, "offeredBases": ["iced_drink", "smoothie_bowl", "latte"], "idealBase": { "iced_drink": 1.0, "smoothie_bowl": 0.6, "latte": 0.3 }, "idealColors": { "#4169E1": 1.0, "#000000": 0.8, "#FFFFFF": 0.6 }, "idealToppings": { "moon": 1.0, "wave": 1.0, "star": 0.7, "teardrop": 0.6, "blueberry": 0.5, "sparkle": 0.5, "mint_leaf": 0.4 }, "bonusCombos": [["moon", "wave"], ["star", "sparkle"]] },
-  { "id": "t3_009", "text": "My grandmother's kitchen on baking day.", "tier": 3, "offeredBases": ["cupcake", "toast", "latte"], "idealBase": { "cupcake": 1.0, "toast": 0.8, "latte": 0.6 }, "idealColors": { "#D2B48C": 1.0, "#8B4513": 0.8, "#FFD700": 0.7 }, "idealToppings": { "cinnamon": 1.0, "graham_cracker": 0.9, "honey": 0.8, "walnuts": 0.7, "maple_syrup": 0.6, "whipped_cream": 0.5, "chocolate_chips": 0.5 }, "bonusCombos": [["cinnamon", "graham_cracker"], ["honey", "walnuts"]] },
-  { "id": "t3_010", "text": "The city at midnight — neon lights and quiet streets.", "tier": 3, "offeredBases": ["iced_drink", "latte", "cupcake"], "idealBase": { "iced_drink": 1.0, "latte": 0.8, "cupcake": 0.4 }, "idealColors": { "#000000": 1.0, "#FFD700": 0.8, "#DC143C": 0.7 }, "idealToppings": { "star": 1.0, "lightning": 0.8, "moon": 0.8, "gold_leaf": 0.6, "zigzag": 0.6, "sparkle": 0.5, "diamond": 0.4 }, "bonusCombos": [["star", "moon"]] },
-  { "id": "t3_011", "text": "A secret garden behind a locked gate.", "tier": 3, "offeredBases": ["smoothie_bowl", "cupcake", "iced_drink"], "idealBase": { "smoothie_bowl": 1.0, "cupcake": 0.7, "iced_drink": 0.4 }, "idealColors": { "#228B22": 1.0, "#FFB6C1": 0.8, "#4169E1": 0.5 }, "idealToppings": { "edible_flower": 1.0, "butterfly": 0.9, "mint_leaf": 0.8, "sparkle": 0.6, "matcha_drizzle": 0.6, "blueberry": 0.5, "microgreens": 0.5 }, "bonusCombos": [["edible_flower", "sparkle"], ["butterfly", "mint_leaf"]] },
-  { "id": "t3_012", "text": "Morning fog rolling over the hills.", "tier": 3, "offeredBases": ["latte", "smoothie_bowl", "toast"], "idealBase": { "smoothie_bowl": 1.0, "latte": 0.8, "toast": 0.5 }, "idealColors": { "#FFFFFF": 1.0, "#D2B48C": 0.7, "#4169E1": 0.6 }, "idealToppings": { "cloud": 1.0, "foam_art": 0.9, "whipped_cream": 0.8, "coconut_flakes": 0.6, "marshmallow": 0.6, "swirl": 0.5, "moon": 0.4 }, "bonusCombos": [["cloud", "foam_art"]] },
-  { "id": "t3_013", "text": "A love letter you never sent.", "tier": 3, "offeredBases": ["cupcake", "latte", "toast"], "idealBase": { "cupcake": 1.0, "latte": 0.7, "toast": 0.3 }, "idealColors": { "#DC143C": 1.0, "#FFB6C1": 0.9, "#FFFFFF": 0.7 }, "idealToppings": { "heart": 1.0, "teardrop": 0.9, "edible_flower": 0.7, "chocolate_drizzle": 0.6, "sugar_pearl": 0.5, "raspberry": 0.5, "bow": 0.4 }, "bonusCombos": [["heart", "teardrop"]] },
-  { "id": "t3_014", "text": "Childhood summers that seemed to last forever.", "tier": 3, "offeredBases": ["iced_drink", "smoothie_bowl", "cupcake"], "idealBase": { "iced_drink": 1.0, "smoothie_bowl": 0.8, "cupcake": 0.6 }, "idealColors": { "#FFD700": 1.0, "#FF8C00": 0.8, "#DC143C": 0.7 }, "idealToppings": { "ice_cream_scoop": 1.0, "sprinkles": 0.9, "cherry": 0.8, "strawberry": 0.7, "umbrella_pick": 0.6, "lemon_slice": 0.6, "star": 0.5 }, "bonusCombos": [["ice_cream_scoop", "sprinkles"], ["cherry", "strawberry"]] },
-  { "id": "t3_015", "text": "The gentlest lullaby, hummed softly.", "tier": 3, "offeredBases": ["latte", "cupcake", "smoothie_bowl"], "idealBase": { "latte": 1.0, "smoothie_bowl": 0.6, "cupcake": 0.5 }, "idealColors": { "#FFFFFF": 1.0, "#FFB6C1": 0.8, "#4169E1": 0.7 }, "idealToppings": { "music_note": 1.0, "moon": 0.9, "cloud": 0.8, "marshmallow": 0.6, "foam_art": 0.6, "star": 0.5, "whipped_cream": 0.5 }, "bonusCombos": [["music_note", "moon"], ["cloud", "star"]] },
-  { "id": "t3_016", "text": "Autumn wind chasing leaves down the street.", "tier": 3, "offeredBases": ["latte", "toast", "iced_drink"], "idealBase": { "toast": 1.0, "latte": 0.8, "iced_drink": 0.2 }, "idealColors": { "#FF8C00": 1.0, "#8B4513": 0.9, "#DC143C": 0.6 }, "idealToppings": { "swirl": 1.0, "cinnamon": 0.9, "maple_syrup": 0.8, "walnuts": 0.6, "zigzag": 0.5, "caramel_drizzle": 0.5, "spiral": 0.5 }, "bonusCombos": [["swirl", "cinnamon"]] },
-  { "id": "t3_017", "text": "Golden hour, when everything glows.", "tier": 3, "offeredBases": ["smoothie_bowl", "iced_drink", "latte"], "idealBase": { "smoothie_bowl": 0.8, "iced_drink": 0.7, "latte": 1.0 }, "idealColors": { "#FFD700": 1.0, "#FF8C00": 0.9, "#FFB6C1": 0.6 }, "idealToppings": { "gold_leaf": 1.0, "honey": 0.9, "sparkle": 0.8, "peach_slice": 0.6, "orange_slice": 0.6, "star": 0.5, "caramel_drizzle": 0.5 }, "bonusCombos": [["gold_leaf", "sparkle"], ["honey", "peach_slice"]] },
-  { "id": "t3_018", "text": "A warm hug from someone you missed.", "tier": 3, "offeredBases": ["latte", "cupcake", "toast"], "idealBase": { "latte": 1.0, "cupcake": 0.7, "toast": 0.5 }, "idealColors": { "#D2B48C": 1.0, "#FFB6C1": 0.8, "#8B4513": 0.7 }, "idealToppings": { "heart": 1.0, "whipped_cream": 0.8, "marshmallow": 0.8, "cinnamon": 0.7, "honey": 0.6, "cloud": 0.5, "foam_art": 0.5 }, "bonusCombos": [["heart", "marshmallow"], ["whipped_cream", "cinnamon"]] },
-  { "id": "t3_019", "text": "Distant mountains you promise to climb someday.", "tier": 3, "offeredBases": ["smoothie_bowl", "latte", "toast"], "idealBase": { "smoothie_bowl": 1.0, "latte": 0.7, "toast": 0.4 }, "idealColors": { "#4169E1": 1.0, "#FFFFFF": 0.9, "#228B22": 0.7 }, "idealToppings": { "coconut_flakes": 1.0, "blueberry": 0.8, "cloud": 0.8, "granola": 0.7, "mint_leaf": 0.5, "diamond": 0.5, "star": 0.4 }, "bonusCombos": [["coconut_flakes", "cloud"], ["blueberry", "granola"]] },
-  { "id": "t3_020", "text": "The bittersweet last day of vacation.", "tier": 3, "offeredBases": ["iced_drink", "smoothie_bowl", "latte"], "idealBase": { "iced_drink": 1.0, "smoothie_bowl": 0.7, "latte": 0.5 }, "idealColors": { "#FF8C00": 1.0, "#4169E1": 0.8, "#FFD700": 0.7 }, "idealToppings": { "umbrella_pick": 1.0, "teardrop": 0.9, "orange_slice": 0.7, "wave": 0.6, "cherry": 0.5, "mango_chunk": 0.5, "moon": 0.4 }, "bonusCombos": [["umbrella_pick", "teardrop"]] },
-  { "id": "t3_021", "text": "A wish whispered to a shooting star.", "tier": 3, "offeredBases": ["cupcake", "iced_drink", "latte"], "idealBase": { "cupcake": 1.0, "iced_drink": 0.7, "latte": 0.5 }, "idealColors": { "#4169E1": 1.0, "#FFD700": 0.9, "#000000": 0.6 }, "idealToppings": { "star": 1.0, "sparkle": 1.0, "moon": 0.7, "sugar_pearl": 0.6, "diamond": 0.5, "whipped_cream": 0.4, "cloud": 0.4 }, "bonusCombos": [["star", "sparkle"]] },
-  { "id": "t3_022", "text": "Quiet snowfall at dusk, when the world goes soft.", "tier": 3, "offeredBases": ["latte", "cupcake", "smoothie_bowl"], "idealBase": { "latte": 1.0, "cupcake": 0.6, "smoothie_bowl": 0.4 }, "idealColors": { "#FFFFFF": 1.0, "#4169E1": 0.8, "#FFB6C1": 0.5 }, "idealToppings": { "coconut_flakes": 1.0, "marshmallow": 0.9, "cloud": 0.7, "sparkle": 0.6, "foam_art": 0.6, "sugar_pearl": 0.5, "moon": 0.5 }, "bonusCombos": [["coconut_flakes", "marshmallow"]] },
-  { "id": "t3_023", "text": "The first brave flower after winter.", "tier": 3, "offeredBases": ["cupcake", "smoothie_bowl", "toast"], "idealBase": { "smoothie_bowl": 0.7, "cupcake": 1.0, "toast": 0.3 }, "idealColors": { "#FFB6C1": 1.0, "#228B22": 0.9, "#FFFFFF": 0.8 }, "idealToppings": { "edible_flower": 1.0, "mint_leaf": 0.8, "sparkle": 0.6, "butterfly": 0.6, "sugar_pearl": 0.5, "coconut_flakes": 0.5, "raspberry": 0.4 }, "bonusCombos": [["edible_flower", "mint_leaf"]] },
-  { "id": "t3_024", "text": "Deja vu — haven't I ordered this before?", "tier": 3, "offeredBases": ["latte", "iced_drink", "cupcake"], "idealBase": { "latte": 1.0, "iced_drink": 0.7, "cupcake": 0.5 }, "idealColors": { "#4169E1": 1.0, "#FFFFFF": 0.7, "#000000": 0.6 }, "idealToppings": { "spiral": 1.0, "swirl": 1.0, "moon": 0.6, "teardrop": 0.5, "foam_art": 0.5, "zigzag": 0.4, "star": 0.4 }, "bonusCombos": [["spiral", "swirl"]] },
-  { "id": "t3_025", "text": "Stage fright, right before the curtain rises.", "tier": 3, "offeredBases": ["iced_drink", "cupcake", "latte"], "idealBase": { "cupcake": 1.0, "iced_drink": 0.7, "latte": 0.5 }, "idealColors": { "#DC143C": 1.0, "#FFD700": 0.8, "#000000": 0.7 }, "idealToppings": { "lightning": 1.0, "zigzag": 0.8, "star": 0.8, "teardrop": 0.6, "music_note": 0.6, "sparkle": 0.5, "heart": 0.4 }, "bonusCombos": [["lightning", "star"], ["zigzag", "teardrop"]] },
-
-  { "id": "t4_001", "text": "The opposite of summer, in a cup.", "tier": 4, "offeredBases": ["latte", "iced_drink"], "idealBase": { "latte": 1.0, "iced_drink": 0.3 }, "idealColors": { "#FFFFFF": 1.0, "#4169E1": 0.9, "#000000": 0.5 }, "idealToppings": { "candy_cane": 1.0, "marshmallow": 0.9, "coconut_flakes": 0.8, "cloud": 0.4, "whipped_cream": 0.4, "moon": 0.3 }, "bonusCombos": [["candy_cane", "marshmallow"]] },
-  { "id": "t4_002", "text": "Make me something that sounds quiet.", "tier": 4, "offeredBases": ["latte", "cupcake", "smoothie_bowl"], "idealBase": { "latte": 1.0, "smoothie_bowl": 0.5, "cupcake": 0.3 }, "idealColors": { "#FFFFFF": 1.0, "#D2B48C": 0.7, "#4169E1": 0.5 }, "idealToppings": { "cloud": 1.0, "moon": 0.9, "foam_art": 0.8, "coconut_flakes": 0.4, "marshmallow": 0.4, "teardrop": 0.3 }, "bonusCombos": [["cloud", "moon"]] },
-  { "id": "t4_003", "text": "A snack that tastes like nostalgia looks.", "tier": 4, "offeredBases": ["toast", "cupcake", "latte"], "idealBase": { "toast": 1.0, "cupcake": 0.6, "latte": 0.4 }, "idealColors": { "#D2B48C": 1.0, "#FFD700": 0.8, "#8B4513": 0.6 }, "idealToppings": { "peanut_butter": 1.0, "graham_cracker": 0.9, "banana_slice": 0.8, "honey": 0.4, "sprinkles": 0.4, "cinnamon": 0.3 }, "bonusCombos": [["peanut_butter", "banana_slice"]] },
-  { "id": "t4_004", "text": "What color is a whisper? Make me that.", "tier": 4, "offeredBases": ["latte", "iced_drink", "cupcake"], "idealBase": { "latte": 1.0, "iced_drink": 0.4, "cupcake": 0.4 }, "idealColors": { "#FFFFFF": 1.0, "#FFB6C1": 0.7, "#D2B48C": 0.5 }, "idealToppings": { "foam_art": 1.0, "cloud": 0.9, "sugar_pearl": 0.8, "coconut_flakes": 0.4, "moon": 0.4, "sparkle": 0.3 }, "bonusCombos": [["foam_art", "cloud"]] },
-  { "id": "t4_005", "text": "Serve me what Monday morning feels like.", "tier": 4, "offeredBases": ["latte", "toast"], "idealBase": { "toast": 1.0, "latte": 0.7 }, "idealColors": { "#000000": 1.0, "#8B4513": 0.8, "#4169E1": 0.5 }, "idealToppings": { "cocoa_powder": 1.0, "teardrop": 0.9, "zigzag": 0.8, "egg_slice": 0.4, "cloud": 0.4, "lightning": 0.3 }, "bonusCombos": [["cocoa_powder", "teardrop"]] },
-  { "id": "t4_006", "text": "What does the sound of gold taste like?", "tier": 4, "offeredBases": ["latte", "cupcake", "iced_drink"], "idealBase": { "cupcake": 0.5, "latte": 1.0, "iced_drink": 0.4 }, "idealColors": { "#FFD700": 1.0, "#FFFFFF": 0.6, "#8B4513": 0.5 }, "idealToppings": { "gold_leaf": 1.0, "music_note": 1.0, "honey": 0.8, "sparkle": 0.4, "sugar_pearl": 0.3, "diamond": 0.3 }, "bonusCombos": [["gold_leaf", "music_note"]] },
-  { "id": "t4_007", "text": "A memory you can't quite place.", "tier": 4, "offeredBases": ["latte", "smoothie_bowl", "cupcake"], "idealBase": { "smoothie_bowl": 1.0, "latte": 0.7, "cupcake": 0.5 }, "idealColors": { "#D2B48C": 1.0, "#FFB6C1": 0.7, "#4169E1": 0.6 }, "idealToppings": { "spiral": 1.0, "cloud": 0.9, "cinnamon": 0.8, "moon": 0.4, "swirl": 0.4, "teardrop": 0.3 }, "bonusCombos": [["spiral", "cloud"]] },
-  { "id": "t4_008", "text": "What does the moon eat for breakfast?", "tier": 4, "offeredBases": ["smoothie_bowl", "toast", "latte"], "idealBase": { "smoothie_bowl": 1.0, "toast": 0.6, "latte": 0.4 }, "idealColors": { "#FFFFFF": 1.0, "#000000": 0.8, "#FFD700": 0.6 }, "idealToppings": { "star": 1.0, "yogurt_dollop": 0.9, "coconut_flakes": 0.8, "moon": 0.5, "sugar_pearl": 0.4, "sparkle": 0.3 }, "bonusCombos": [["star", "yogurt_dollop"]] },
-  { "id": "t4_009", "text": "Time standing perfectly still. Serve that.", "tier": 4, "offeredBases": ["iced_drink", "latte"], "idealBase": { "iced_drink": 1.0, "latte": 0.5 }, "idealColors": { "#4169E1": 1.0, "#FFFFFF": 0.9, "#000000": 0.4 }, "idealToppings": { "diamond": 1.0, "teardrop": 0.9, "sugar_pearl": 0.8, "moon": 0.4, "sparkle": 0.4, "wave": 0.3 }, "bonusCombos": [["diamond", "teardrop"]] },
-  { "id": "t4_010", "text": "The taste of a shadow on a sunny day.", "tier": 4, "offeredBases": ["iced_drink", "latte", "cupcake"], "idealBase": { "iced_drink": 1.0, "latte": 0.6, "cupcake": 0.3 }, "idealColors": { "#000000": 1.0, "#FFD700": 0.7, "#4169E1": 0.5 }, "idealToppings": { "oreo_crumble": 1.0, "cocoa_powder": 0.9, "moon": 0.8, "blueberry": 0.4, "chocolate_drizzle": 0.4, "star": 0.3 }, "bonusCombos": [["oreo_crumble", "moon"]] },
-  { "id": "t4_011", "text": "Something that feels like forgetting your own name.", "tier": 4, "offeredBases": ["latte", "iced_drink", "smoothie_bowl"], "idealBase": { "iced_drink": 1.0, "latte": 0.7, "smoothie_bowl": 0.4 }, "idealColors": { "#FFFFFF": 1.0, "#4169E1": 0.7, "#D2B48C": 0.5 }, "idealToppings": { "swirl": 1.0, "spiral": 0.9, "cloud": 0.8, "foam_art": 0.4, "teardrop": 0.4, "moon": 0.3 }, "bonusCombos": [["swirl", "spiral"]] },
-  { "id": "t4_012", "text": "An old book's smell, in food form.", "tier": 4, "offeredBases": ["toast", "latte", "cupcake"], "idealBase": { "toast": 1.0, "latte": 0.7, "cupcake": 0.2 }, "idealColors": { "#8B4513": 1.0, "#D2B48C": 0.9, "#FFD700": 0.4 }, "idealToppings": { "graham_cracker": 1.0, "cocoa_powder": 0.9, "cinnamon": 0.8, "walnuts": 0.4, "honey": 0.4, "coconut_flakes": 0.3 }, "bonusCombos": [["graham_cracker", "cocoa_powder"]] },
-  { "id": "t4_013", "text": "Show me what silence looks like.", "tier": 4, "offeredBases": ["latte", "smoothie_bowl"], "idealBase": { "latte": 1.0, "smoothie_bowl": 0.5 }, "idealColors": { "#FFFFFF": 1.0, "#4169E1": 0.6, "#000000": 0.5 }, "idealToppings": { "moon": 1.0, "foam_art": 0.9, "sugar_pearl": 0.8, "cloud": 0.5, "coconut_flakes": 0.4, "teardrop": 0.3 }, "bonusCombos": [["moon", "foam_art"]] },
-  { "id": "t4_014", "text": "A dream I had once but can't describe.", "tier": 4, "offeredBases": ["smoothie_bowl", "cupcake", "iced_drink"], "idealBase": { "smoothie_bowl": 1.0, "cupcake": 0.6, "iced_drink": 0.5 }, "idealColors": { "#FFB6C1": 1.0, "#4169E1": 0.9, "#FFFFFF": 0.7 }, "idealToppings": { "cloud": 1.0, "sparkle": 0.9, "spiral": 0.8, "moon": 0.5, "butterfly": 0.4, "star": 0.4 }, "bonusCombos": [["cloud", "sparkle"]] },
-  { "id": "t4_015", "text": "The exact opposite of a thunderstorm.", "tier": 4, "offeredBases": ["smoothie_bowl", "iced_drink", "cupcake"], "idealBase": { "smoothie_bowl": 1.0, "cupcake": 0.6, "iced_drink": 0.4 }, "idealColors": { "#FFD700": 1.0, "#FFB6C1": 0.8, "#228B22": 0.6 }, "idealToppings": { "edible_flower": 1.0, "honey": 0.9, "butterfly": 0.8, "star": 0.4, "peach_slice": 0.4, "sparkle": 0.3 }, "bonusCombos": [["edible_flower", "honey"]] },
-  { "id": "t4_016", "text": "What does luck taste like, do you think?", "tier": 4, "offeredBases": ["iced_drink", "cupcake", "toast"], "idealBase": { "iced_drink": 0.5, "cupcake": 1.0, "toast": 0.2 }, "idealColors": { "#228B22": 1.0, "#FFD700": 0.9, "#FFFFFF": 0.5 }, "idealToppings": { "mint_leaf": 1.0, "gold_leaf": 0.9, "star": 0.8, "sparkle": 0.4, "kiwi_slice": 0.4, "diamond": 0.3 }, "bonusCombos": [["mint_leaf", "gold_leaf"]] },
-  { "id": "t4_017", "text": "The ocean's best-kept secret.", "tier": 4, "offeredBases": ["iced_drink", "smoothie_bowl"], "idealBase": { "iced_drink": 1.0, "smoothie_bowl": 0.7 }, "idealColors": { "#4169E1": 1.0, "#228B22": 0.7, "#FFFFFF": 0.6 }, "idealToppings": { "diamond": 1.0, "wave": 0.9, "sugar_pearl": 0.8, "teardrop": 0.5, "blueberry": 0.4, "sparkle": 0.3 }, "bonusCombos": [["diamond", "wave"]] },
-  { "id": "t4_018", "text": "What does winter dream about?", "tier": 4, "offeredBases": ["latte", "cupcake", "iced_drink"], "idealBase": { "cupcake": 1.0, "latte": 0.7, "iced_drink": 0.4 }, "idealColors": { "#FFFFFF": 0.9, "#FFD700": 1.0, "#228B22": 0.6 }, "idealToppings": { "edible_flower": 1.0, "strawberry": 0.9, "sparkle": 0.8, "butterfly": 0.5, "honey": 0.4, "mint_leaf": 0.4 }, "bonusCombos": [["edible_flower", "strawberry"]] },
-  { "id": "t4_019", "text": "The first note of your favorite song.", "tier": 4, "offeredBases": ["latte", "cupcake", "smoothie_bowl"], "idealBase": { "latte": 0.6, "cupcake": 1.0, "smoothie_bowl": 0.4 }, "idealColors": { "#FFD700": 1.0, "#000000": 0.8, "#FFB6C1": 0.6 }, "idealToppings": { "music_note": 1.0, "star": 0.9, "sparkle": 0.8, "heart": 0.4, "gold_leaf": 0.4, "swirl": 0.3 }, "bonusCombos": [["music_note", "star"]] },
-  { "id": "t4_020", "text": "Something that tastes like slow dancing in the kitchen.", "tier": 4, "offeredBases": ["latte", "cupcake", "toast"], "idealBase": { "latte": 1.0, "cupcake": 0.7, "toast": 0.4 }, "idealColors": { "#FFB6C1": 1.0, "#8B4513": 0.8, "#FFD700": 0.6 }, "idealToppings": { "music_note": 1.0, "heart": 0.9, "swirl": 0.8, "chocolate_drizzle": 0.5, "foam_art": 0.4, "cinnamon": 0.4 }, "bonusCombos": [["music_note", "heart"]] },
-  { "id": "t4_021", "text": "The inside of a snow globe, right after you shake it.", "tier": 4, "offeredBases": ["iced_drink", "cupcake", "latte"], "idealBase": { "iced_drink": 1.0, "cupcake": 0.6, "latte": 0.5 }, "idealColors": { "#FFFFFF": 1.0, "#4169E1": 0.8, "#FFD700": 0.5 }, "idealToppings": { "coconut_flakes": 1.0, "sparkle": 0.9, "sugar_pearl": 0.8, "star": 0.5, "marshmallow": 0.4, "diamond": 0.3 }, "bonusCombos": [["coconut_flakes", "sparkle"]] },
-  { "id": "t4_022", "text": "What might a cloud regret?", "tier": 4, "offeredBases": ["smoothie_bowl", "latte", "iced_drink"], "idealBase": { "latte": 0.6, "smoothie_bowl": 1.0, "iced_drink": 0.5 }, "idealColors": { "#4169E1": 1.0, "#FFFFFF": 0.9, "#000000": 0.4 }, "idealToppings": { "teardrop": 1.0, "cloud": 0.9, "lightning": 0.8, "wave": 0.4, "moon": 0.4, "swirl": 0.3 }, "bonusCombos": [["teardrop", "cloud"]] },
-  { "id": "t4_023", "text": "Breakfast for a very polite ghost.", "tier": 4, "offeredBases": ["toast", "latte", "smoothie_bowl"], "idealBase": { "toast": 1.0, "latte": 0.6, "smoothie_bowl": 0.5 }, "idealColors": { "#FFFFFF": 1.0, "#000000": 0.6, "#D2B48C": 0.5 }, "idealToppings": { "cream_cheese": 1.0, "marshmallow": 0.9, "cloud": 0.8, "moon": 0.5, "sugar_pearl": 0.4, "coconut_flakes": 0.4 }, "bonusCombos": [["cream_cheese", "cloud"]] },
-  { "id": "t4_024", "text": "The feeling of finding money in an old coat pocket.", "tier": 4, "offeredBases": ["cupcake", "iced_drink", "latte"], "idealBase": { "cupcake": 1.0, "iced_drink": 0.5, "latte": 0.5 }, "idealColors": { "#FFD700": 1.0, "#228B22": 0.8, "#8B4513": 0.5 }, "idealToppings": { "gold_leaf": 1.0, "star": 0.9, "sprinkles": 0.8, "sparkle": 0.5, "diamond": 0.4, "crown": 0.4 }, "bonusCombos": [["gold_leaf", "star"]] },
-  { "id": "t4_025", "text": "A secret told between two teacups.", "tier": 4, "offeredBases": ["latte", "cupcake"], "idealBase": { "latte": 1.0, "cupcake": 0.6 }, "idealColors": { "#FFB6C1": 1.0, "#FFFFFF": 0.9, "#FFD700": 0.5 }, "idealToppings": { "foam_art": 1.0, "heart": 0.9, "sugar_pearl": 0.8, "edible_flower": 0.5, "moon": 0.4, "swirl": 0.3 }, "bonusCombos": [["foam_art", "heart"]] }
+  {
+    "id": "t1_001",
+    "text": "Hi! Can I get a chocolate latte with whipped cream?",
+    "tier": 1,
+    "offeredBases": [
+      "latte",
+      "iced_drink",
+      "cupcake"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "iced_drink": 0.5,
+      "cupcake": 0.3
+    },
+    "idealColors": {
+      "#8C5A3C": 1,
+      "#D8BC94": 0.8,
+      "#FFFDF7": 0.6
+    },
+    "idealToppings": {
+      "chocolate_drizzle": 1,
+      "whipped_cream": 1,
+      "chocolate_chips": 0.9,
+      "cocoa_powder": 0.9,
+      "chocolate_curl": 0.8,
+      "marshmallow": 0.7,
+      "foam_art": 0.7,
+      "caramel_drizzle": 0.6,
+      "oreo_crumble": 0.6,
+      "cinnamon": 0.6,
+      "wafer_stick": 0.6,
+      "graham_cracker": 0.6
+    },
+    "bonusCombos": [
+      [
+        "chocolate_drizzle",
+        "whipped_cream"
+      ],
+      [
+        "cocoa_powder",
+        "foam_art"
+      ]
+    ]
+  },
+  {
+    "id": "t1_002",
+    "text": "I'd love a fruity cupcake, please!",
+    "tier": 1,
+    "offeredBases": [
+      "cupcake",
+      "toast",
+      "latte"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "toast": 0.4,
+      "latte": 0.2
+    },
+    "idealColors": {
+      "#EFA9B8": 1,
+      "#C9506B": 0.8,
+      "#EAB94D": 0.7,
+      "#E58E4B": 0.7
+    },
+    "idealToppings": {
+      "strawberry": 1,
+      "cherry": 1,
+      "blueberry": 0.9,
+      "raspberry": 0.9,
+      "peach_slice": 0.8,
+      "mango_chunk": 0.8,
+      "kiwi_slice": 0.7,
+      "orange_slice": 0.7,
+      "berry_compote": 0.7,
+      "strawberry_sauce": 0.7,
+      "banana_slice": 0.6,
+      "lemon_slice": 0.6
+    },
+    "bonusCombos": [
+      [
+        "strawberry",
+        "blueberry"
+      ],
+      [
+        "cherry",
+        "strawberry_sauce"
+      ]
+    ]
+  },
+  {
+    "id": "t1_003",
+    "text": "A classic breakfast toast with eggs, please!",
+    "tier": 1,
+    "offeredBases": [
+      "toast",
+      "smoothie_bowl",
+      "cupcake"
+    ],
+    "idealBase": {
+      "toast": 1,
+      "smoothie_bowl": 0.4,
+      "cupcake": 0.1
+    },
+    "idealColors": {
+      "#D8BC94": 1,
+      "#8C5A3C": 0.8,
+      "#EAB94D": 0.7
+    },
+    "idealToppings": {
+      "egg_slice": 1,
+      "bacon_bits": 1,
+      "avocado_slice": 0.8,
+      "cream_cheese": 0.8,
+      "everything_seasoning": 0.8,
+      "microgreens": 0.7,
+      "smoked_salmon": 0.7,
+      "honey": 0.6,
+      "peanut_butter": 0.6,
+      "granola": 0.6
+    },
+    "bonusCombos": [
+      [
+        "egg_slice",
+        "bacon_bits"
+      ],
+      [
+        "avocado_slice",
+        "everything_seasoning"
+      ]
+    ]
+  },
+  {
+    "id": "t1_004",
+    "text": "One berry smoothie bowl, extra berries!",
+    "tier": 1,
+    "offeredBases": [
+      "smoothie_bowl",
+      "iced_drink",
+      "toast"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "iced_drink": 0.5,
+      "toast": 0.3
+    },
+    "idealColors": {
+      "#C9506B": 1,
+      "#EFA9B8": 0.8,
+      "#6C87D1": 0.7
+    },
+    "idealToppings": {
+      "blueberry": 1,
+      "strawberry": 1,
+      "raspberry": 1,
+      "berry_compote": 0.9,
+      "granola": 0.8,
+      "yogurt_dollop": 0.8,
+      "strawberry_sauce": 0.7,
+      "cherry": 0.7,
+      "coconut_flakes": 0.6,
+      "banana_slice": 0.6,
+      "honey": 0.6
+    },
+    "bonusCombos": [
+      [
+        "blueberry",
+        "raspberry"
+      ],
+      [
+        "granola",
+        "yogurt_dollop"
+      ]
+    ]
+  },
+  {
+    "id": "t1_005",
+    "text": "Something icy and citrusy to cool me down!",
+    "tier": 1,
+    "offeredBases": [
+      "iced_drink",
+      "latte",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "smoothie_bowl": 0.6,
+      "latte": 0.2
+    },
+    "idealColors": {
+      "#EAB94D": 1,
+      "#E58E4B": 0.9,
+      "#FFFDF7": 0.6
+    },
+    "idealToppings": {
+      "lemon_slice": 1,
+      "orange_slice": 1,
+      "mint_leaf": 0.8,
+      "kiwi_slice": 0.7,
+      "mango_chunk": 0.7,
+      "umbrella_pick": 0.7,
+      "strawberry": 0.6,
+      "cherry": 0.6,
+      "ice_cream_scoop": 0.6,
+      "wave": 0.6
+    },
+    "bonusCombos": [
+      [
+        "lemon_slice",
+        "mint_leaf"
+      ],
+      [
+        "orange_slice",
+        "umbrella_pick"
+      ]
+    ]
+  },
+  {
+    "id": "t1_006",
+    "text": "Could you make me a caramel latte? Extra drizzle!",
+    "tier": 1,
+    "offeredBases": [
+      "latte",
+      "cupcake",
+      "iced_drink"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "iced_drink": 0.5,
+      "cupcake": 0.4
+    },
+    "idealColors": {
+      "#8C5A3C": 1,
+      "#D8BC94": 1,
+      "#EAB94D": 0.6
+    },
+    "idealToppings": {
+      "caramel_drizzle": 1,
+      "whipped_cream": 0.9,
+      "foam_art": 0.8,
+      "cinnamon": 0.7,
+      "chocolate_drizzle": 0.7,
+      "chocolate_curl": 0.6,
+      "marshmallow": 0.6,
+      "cocoa_powder": 0.6,
+      "almonds": 0.6,
+      "graham_cracker": 0.6
+    },
+    "bonusCombos": [
+      [
+        "caramel_drizzle",
+        "whipped_cream"
+      ]
+    ]
+  },
+  {
+    "id": "t1_007",
+    "text": "A strawberry cupcake would make my day!",
+    "tier": 1,
+    "offeredBases": [
+      "cupcake",
+      "smoothie_bowl",
+      "latte"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "smoothie_bowl": 0.4,
+      "latte": 0.2
+    },
+    "idealColors": {
+      "#EFA9B8": 1,
+      "#C9506B": 0.9,
+      "#FFFDF7": 0.7
+    },
+    "idealToppings": {
+      "strawberry": 1,
+      "strawberry_sauce": 1,
+      "whipped_cream": 0.8,
+      "sprinkles": 0.7,
+      "heart": 0.7,
+      "cherry": 0.7,
+      "sugar_pearl": 0.6,
+      "raspberry": 0.6,
+      "mascarpone": 0.6,
+      "berry_compote": 0.6
+    },
+    "bonusCombos": [
+      [
+        "strawberry",
+        "strawberry_sauce"
+      ],
+      [
+        "whipped_cream",
+        "sprinkles"
+      ]
+    ]
+  },
+  {
+    "id": "t1_008",
+    "text": "Avocado toast, the greener the better!",
+    "tier": 1,
+    "offeredBases": [
+      "toast",
+      "smoothie_bowl",
+      "iced_drink"
+    ],
+    "idealBase": {
+      "toast": 1,
+      "smoothie_bowl": 0.4,
+      "iced_drink": 0.1
+    },
+    "idealColors": {
+      "#7BA05B": 1,
+      "#D8BC94": 0.8,
+      "#EAB94D": 0.5
+    },
+    "idealToppings": {
+      "avocado_slice": 1,
+      "microgreens": 0.9,
+      "everything_seasoning": 0.9,
+      "egg_slice": 0.8,
+      "cream_cheese": 0.7,
+      "smoked_salmon": 0.7,
+      "mint_leaf": 0.6,
+      "bacon_bits": 0.6
+    },
+    "bonusCombos": [
+      [
+        "avocado_slice",
+        "microgreens"
+      ],
+      [
+        "egg_slice",
+        "everything_seasoning"
+      ]
+    ]
+  },
+  {
+    "id": "t1_009",
+    "text": "A tropical smoothie bowl, like a mini vacation!",
+    "tier": 1,
+    "offeredBases": [
+      "smoothie_bowl",
+      "iced_drink",
+      "cupcake"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "iced_drink": 0.7,
+      "cupcake": 0.2
+    },
+    "idealColors": {
+      "#EAB94D": 1,
+      "#E58E4B": 0.9,
+      "#7BA05B": 0.7
+    },
+    "idealToppings": {
+      "mango_chunk": 1,
+      "banana_slice": 0.9,
+      "kiwi_slice": 0.9,
+      "coconut_flakes": 0.9,
+      "umbrella_pick": 0.8,
+      "orange_slice": 0.7,
+      "granola": 0.6,
+      "honey": 0.6,
+      "yogurt_dollop": 0.6,
+      "wave": 0.6
+    },
+    "bonusCombos": [
+      [
+        "mango_chunk",
+        "coconut_flakes"
+      ],
+      [
+        "kiwi_slice",
+        "banana_slice"
+      ]
+    ]
+  },
+  {
+    "id": "t1_010",
+    "text": "Something sweet and icy with a cherry on top!",
+    "tier": 1,
+    "offeredBases": [
+      "iced_drink",
+      "cupcake",
+      "toast"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "cupcake": 0.6,
+      "toast": 0.1
+    },
+    "idealColors": {
+      "#C9506B": 1,
+      "#EFA9B8": 0.8,
+      "#FFFDF7": 0.6
+    },
+    "idealToppings": {
+      "cherry": 1,
+      "whipped_cream": 0.9,
+      "strawberry_sauce": 0.8,
+      "ice_cream_scoop": 0.8,
+      "sprinkles": 0.7,
+      "strawberry": 0.7,
+      "umbrella_pick": 0.6,
+      "sugar_pearl": 0.6,
+      "heart": 0.6,
+      "wafer_stick": 0.6
+    },
+    "bonusCombos": [
+      [
+        "cherry",
+        "whipped_cream"
+      ],
+      [
+        "ice_cream_scoop",
+        "strawberry_sauce"
+      ]
+    ]
+  },
+  {
+    "id": "t1_011",
+    "text": "A honey latte sounds perfect right now.",
+    "tier": 1,
+    "offeredBases": [
+      "latte",
+      "toast",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "toast": 0.5,
+      "smoothie_bowl": 0.3
+    },
+    "idealColors": {
+      "#EAB94D": 1,
+      "#D8BC94": 0.9,
+      "#8C5A3C": 0.7
+    },
+    "idealToppings": {
+      "honey": 1,
+      "foam_art": 0.9,
+      "cinnamon": 0.8,
+      "whipped_cream": 0.7,
+      "almonds": 0.7,
+      "maple_syrup": 0.6,
+      "marshmallow": 0.6,
+      "walnuts": 0.6,
+      "granola": 0.6,
+      "sugar_pearl": 0.6
+    },
+    "bonusCombos": [
+      [
+        "honey",
+        "cinnamon"
+      ],
+      [
+        "foam_art",
+        "whipped_cream"
+      ]
+    ]
+  },
+  {
+    "id": "t1_012",
+    "text": "Chocolate cupcake with rainbow sprinkles, please!",
+    "tier": 1,
+    "offeredBases": [
+      "cupcake",
+      "latte",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "latte": 0.4,
+      "smoothie_bowl": 0.2
+    },
+    "idealColors": {
+      "#8C5A3C": 1,
+      "#EFA9B8": 0.7,
+      "#EAB94D": 0.6
+    },
+    "idealToppings": {
+      "sprinkles": 1,
+      "chocolate_drizzle": 1,
+      "chocolate_chips": 0.9,
+      "chocolate_curl": 0.8,
+      "whipped_cream": 0.7,
+      "cherry": 0.7,
+      "cocoa_powder": 0.7,
+      "oreo_crumble": 0.7,
+      "star_cookie": 0.6,
+      "sugar_pearl": 0.6
+    },
+    "bonusCombos": [
+      [
+        "sprinkles",
+        "chocolate_drizzle"
+      ],
+      [
+        "chocolate_chips",
+        "whipped_cream"
+      ]
+    ]
+  },
+  {
+    "id": "t1_013",
+    "text": "Peanut butter banana toast — my favorite combo!",
+    "tier": 1,
+    "offeredBases": [
+      "toast",
+      "cupcake",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "toast": 1,
+      "smoothie_bowl": 0.5,
+      "cupcake": 0.2
+    },
+    "idealColors": {
+      "#D8BC94": 1,
+      "#8C5A3C": 0.8,
+      "#EAB94D": 0.7
+    },
+    "idealToppings": {
+      "peanut_butter": 1,
+      "banana_slice": 1,
+      "honey": 0.9,
+      "granola": 0.7,
+      "chocolate_chips": 0.7,
+      "chocolate_drizzle": 0.6,
+      "walnuts": 0.6,
+      "cinnamon": 0.6,
+      "coconut_flakes": 0.6
+    },
+    "bonusCombos": [
+      [
+        "peanut_butter",
+        "banana_slice"
+      ],
+      [
+        "honey",
+        "granola"
+      ]
+    ]
+  },
+  {
+    "id": "t1_014",
+    "text": "A crunchy granola bowl to start my morning!",
+    "tier": 1,
+    "offeredBases": [
+      "smoothie_bowl",
+      "toast",
+      "latte"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "toast": 0.6,
+      "latte": 0.2
+    },
+    "idealColors": {
+      "#D8BC94": 1,
+      "#8C5A3C": 0.8,
+      "#FFFDF7": 0.6
+    },
+    "idealToppings": {
+      "granola": 1,
+      "yogurt_dollop": 0.9,
+      "honey": 0.9,
+      "blueberry": 0.8,
+      "banana_slice": 0.8,
+      "almonds": 0.7,
+      "walnuts": 0.7,
+      "strawberry": 0.7,
+      "coconut_flakes": 0.6,
+      "peach_slice": 0.6
+    },
+    "bonusCombos": [
+      [
+        "granola",
+        "yogurt_dollop"
+      ],
+      [
+        "honey",
+        "blueberry"
+      ]
+    ]
+  },
+  {
+    "id": "t1_015",
+    "text": "An iced berry drink, nice and refreshing!",
+    "tier": 1,
+    "offeredBases": [
+      "iced_drink",
+      "smoothie_bowl",
+      "latte"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "smoothie_bowl": 0.6,
+      "latte": 0.2
+    },
+    "idealColors": {
+      "#C9506B": 1,
+      "#6C87D1": 0.8,
+      "#EFA9B8": 0.7
+    },
+    "idealToppings": {
+      "strawberry": 1,
+      "blueberry": 1,
+      "raspberry": 0.9,
+      "berry_compote": 0.8,
+      "mint_leaf": 0.7,
+      "cherry": 0.7,
+      "lemon_slice": 0.6,
+      "strawberry_sauce": 0.6,
+      "umbrella_pick": 0.6,
+      "ice_cream_scoop": 0.6
+    },
+    "bonusCombos": [
+      [
+        "strawberry",
+        "mint_leaf"
+      ],
+      [
+        "blueberry",
+        "raspberry"
+      ]
+    ]
+  },
+  {
+    "id": "t1_016",
+    "text": "A cinnamon latte with a pretty foam design?",
+    "tier": 1,
+    "offeredBases": [
+      "latte",
+      "cupcake",
+      "toast"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "cupcake": 0.4,
+      "toast": 0.2
+    },
+    "idealColors": {
+      "#8C5A3C": 1,
+      "#D8BC94": 0.9,
+      "#FFFDF7": 0.7
+    },
+    "idealToppings": {
+      "cinnamon": 1,
+      "foam_art": 1,
+      "whipped_cream": 0.8,
+      "honey": 0.7,
+      "cocoa_powder": 0.7,
+      "caramel_drizzle": 0.7,
+      "maple_syrup": 0.6,
+      "marshmallow": 0.6,
+      "swirl": 0.6
+    },
+    "bonusCombos": [
+      [
+        "cinnamon",
+        "foam_art"
+      ],
+      [
+        "whipped_cream",
+        "caramel_drizzle"
+      ]
+    ]
+  },
+  {
+    "id": "t1_017",
+    "text": "It's my birthday! Make me the most festive cupcake ever!",
+    "tier": 1,
+    "offeredBases": [
+      "cupcake",
+      "iced_drink",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "iced_drink": 0.4,
+      "smoothie_bowl": 0.2
+    },
+    "idealColors": {
+      "#EFA9B8": 1,
+      "#EAB94D": 0.9,
+      "#6C87D1": 0.7
+    },
+    "idealToppings": {
+      "sprinkles": 1,
+      "star_cookie": 0.9,
+      "whipped_cream": 0.8,
+      "cherry": 0.8,
+      "sugar_pearl": 0.8,
+      "star": 0.7,
+      "heart": 0.7,
+      "bow": 0.7,
+      "sparkle": 0.7,
+      "candy_cane": 0.6
+    },
+    "bonusCombos": [
+      [
+        "sprinkles",
+        "star_cookie"
+      ],
+      [
+        "cherry",
+        "whipped_cream"
+      ]
+    ]
+  },
+  {
+    "id": "t1_018",
+    "text": "Smoked salmon toast, fancy brunch style!",
+    "tier": 1,
+    "offeredBases": [
+      "toast",
+      "cupcake",
+      "iced_drink"
+    ],
+    "idealBase": {
+      "toast": 1,
+      "cupcake": 0.1,
+      "iced_drink": 0.1
+    },
+    "idealColors": {
+      "#D8BC94": 1,
+      "#EFA9B8": 0.9,
+      "#7BA05B": 0.7
+    },
+    "idealToppings": {
+      "smoked_salmon": 1,
+      "cream_cheese": 1,
+      "microgreens": 0.9,
+      "everything_seasoning": 0.8,
+      "avocado_slice": 0.7,
+      "lemon_slice": 0.7,
+      "egg_slice": 0.6,
+      "mint_leaf": 0.6
+    },
+    "bonusCombos": [
+      [
+        "smoked_salmon",
+        "cream_cheese"
+      ],
+      [
+        "microgreens",
+        "lemon_slice"
+      ]
+    ]
+  },
+  {
+    "id": "t1_019",
+    "text": "A chocolate smoothie bowl — dessert for breakfast!",
+    "tier": 1,
+    "offeredBases": [
+      "smoothie_bowl",
+      "cupcake",
+      "latte"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "cupcake": 0.5,
+      "latte": 0.4
+    },
+    "idealColors": {
+      "#8C5A3C": 1,
+      "#D8BC94": 0.8,
+      "#FFFDF7": 0.6
+    },
+    "idealToppings": {
+      "chocolate_chips": 1,
+      "cocoa_powder": 0.9,
+      "chocolate_drizzle": 0.9,
+      "banana_slice": 0.8,
+      "granola": 0.8,
+      "peanut_butter": 0.7,
+      "coconut_flakes": 0.7,
+      "oreo_crumble": 0.7,
+      "chocolate_curl": 0.6,
+      "walnuts": 0.6
+    },
+    "bonusCombos": [
+      [
+        "chocolate_chips",
+        "banana_slice"
+      ],
+      [
+        "cocoa_powder",
+        "granola"
+      ]
+    ]
+  },
+  {
+    "id": "t1_020",
+    "text": "Something minty and fresh over ice, please!",
+    "tier": 1,
+    "offeredBases": [
+      "iced_drink",
+      "latte",
+      "cupcake"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "latte": 0.4,
+      "cupcake": 0.2
+    },
+    "idealColors": {
+      "#7BA05B": 1,
+      "#FFFDF7": 0.8,
+      "#6C87D1": 0.6
+    },
+    "idealToppings": {
+      "mint_leaf": 1,
+      "lemon_slice": 0.9,
+      "kiwi_slice": 0.8,
+      "matcha_drizzle": 0.7,
+      "microgreens": 0.6,
+      "wave": 0.6,
+      "teardrop": 0.6,
+      "honey": 0.6
+    },
+    "bonusCombos": [
+      [
+        "mint_leaf",
+        "lemon_slice"
+      ]
+    ]
+  },
+  {
+    "id": "t1_021",
+    "text": "One matcha latte with beautiful foam art!",
+    "tier": 1,
+    "offeredBases": [
+      "latte",
+      "iced_drink",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "iced_drink": 0.6,
+      "smoothie_bowl": 0.4
+    },
+    "idealColors": {
+      "#7BA05B": 1,
+      "#FFFDF7": 0.8,
+      "#D8BC94": 0.6
+    },
+    "idealToppings": {
+      "matcha_drizzle": 1,
+      "foam_art": 1,
+      "whipped_cream": 0.7,
+      "mint_leaf": 0.7,
+      "honey": 0.7,
+      "mascarpone": 0.6,
+      "sugar_pearl": 0.6,
+      "swirl": 0.6
+    },
+    "bonusCombos": [
+      [
+        "matcha_drizzle",
+        "foam_art"
+      ]
+    ]
+  },
+  {
+    "id": "t1_022",
+    "text": "A nutty cupcake with lots of crunch!",
+    "tier": 1,
+    "offeredBases": [
+      "cupcake",
+      "toast",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "toast": 0.6,
+      "smoothie_bowl": 0.5
+    },
+    "idealColors": {
+      "#8C5A3C": 1,
+      "#D8BC94": 1,
+      "#EAB94D": 0.5
+    },
+    "idealToppings": {
+      "almonds": 1,
+      "walnuts": 1,
+      "peanut_butter": 0.9,
+      "granola": 0.8,
+      "caramel_drizzle": 0.7,
+      "honey": 0.7,
+      "chocolate_chips": 0.6,
+      "graham_cracker": 0.6,
+      "wafer_stick": 0.6
+    },
+    "bonusCombos": [
+      [
+        "almonds",
+        "walnuts"
+      ],
+      [
+        "peanut_butter",
+        "caramel_drizzle"
+      ]
+    ]
+  },
+  {
+    "id": "t1_023",
+    "text": "The full works: bacon and egg on toast!",
+    "tier": 1,
+    "offeredBases": [
+      "toast",
+      "latte",
+      "iced_drink"
+    ],
+    "idealBase": {
+      "toast": 1,
+      "latte": 0.2,
+      "iced_drink": 0.1
+    },
+    "idealColors": {
+      "#D8BC94": 1,
+      "#8C5A3C": 0.8,
+      "#C9506B": 0.6
+    },
+    "idealToppings": {
+      "bacon_bits": 1,
+      "egg_slice": 1,
+      "everything_seasoning": 0.8,
+      "avocado_slice": 0.7,
+      "microgreens": 0.7,
+      "cream_cheese": 0.6,
+      "smoked_salmon": 0.6
+    },
+    "bonusCombos": [
+      [
+        "bacon_bits",
+        "egg_slice"
+      ]
+    ]
+  },
+  {
+    "id": "t1_024",
+    "text": "A peaches-and-cream smoothie bowl, please!",
+    "tier": 1,
+    "offeredBases": [
+      "smoothie_bowl",
+      "cupcake",
+      "iced_drink"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "iced_drink": 0.5,
+      "cupcake": 0.4
+    },
+    "idealColors": {
+      "#E58E4B": 1,
+      "#EFA9B8": 0.8,
+      "#FFFDF7": 0.8
+    },
+    "idealToppings": {
+      "peach_slice": 1,
+      "yogurt_dollop": 0.9,
+      "whipped_cream": 0.8,
+      "honey": 0.8,
+      "mascarpone": 0.7,
+      "granola": 0.7,
+      "mango_chunk": 0.6,
+      "coconut_flakes": 0.6,
+      "banana_slice": 0.6
+    },
+    "bonusCombos": [
+      [
+        "peach_slice",
+        "yogurt_dollop"
+      ],
+      [
+        "honey",
+        "granola"
+      ]
+    ]
+  },
+  {
+    "id": "t1_025",
+    "text": "Fresh lemonade vibes — something bright and tangy!",
+    "tier": 1,
+    "offeredBases": [
+      "iced_drink",
+      "cupcake",
+      "toast"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "cupcake": 0.4,
+      "toast": 0.1
+    },
+    "idealColors": {
+      "#EAB94D": 1,
+      "#FFFDF7": 0.8,
+      "#7BA05B": 0.5
+    },
+    "idealToppings": {
+      "lemon_slice": 1,
+      "mint_leaf": 0.9,
+      "orange_slice": 0.8,
+      "honey": 0.7,
+      "umbrella_pick": 0.7,
+      "strawberry": 0.6,
+      "kiwi_slice": 0.6,
+      "sparkle": 0.6,
+      "sugar_pearl": 0.6
+    },
+    "bonusCombos": [
+      [
+        "lemon_slice",
+        "mint_leaf"
+      ]
+    ]
+  },
+  {
+    "id": "t1_026",
+    "text": "A toasty marshmallow mocha, extra cozy!",
+    "tier": 1,
+    "offeredBases": [
+      "latte",
+      "smoothie_bowl",
+      "cupcake"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "cupcake": 0.5,
+      "smoothie_bowl": 0.2
+    },
+    "idealColors": {
+      "#8C5A3C": 1,
+      "#FFFDF7": 0.8,
+      "#D8BC94": 0.8
+    },
+    "idealToppings": {
+      "marshmallow": 1,
+      "chocolate_drizzle": 1,
+      "cocoa_powder": 0.9,
+      "whipped_cream": 0.8,
+      "chocolate_chips": 0.7,
+      "graham_cracker": 0.7,
+      "cinnamon": 0.6,
+      "chocolate_curl": 0.6,
+      "caramel_drizzle": 0.6
+    },
+    "bonusCombos": [
+      [
+        "marshmallow",
+        "chocolate_drizzle"
+      ],
+      [
+        "graham_cracker",
+        "cocoa_powder"
+      ]
+    ]
+  },
+  {
+    "id": "t2_001",
+    "text": "Something that reminds me of a beach vacation!",
+    "tier": 2,
+    "offeredBases": [
+      "iced_drink",
+      "smoothie_bowl",
+      "latte"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "smoothie_bowl": 0.8,
+      "latte": 0.2
+    },
+    "idealColors": {
+      "#6C87D1": 1,
+      "#EAB94D": 0.9,
+      "#FFFDF7": 0.7
+    },
+    "idealToppings": {
+      "umbrella_pick": 1,
+      "wave": 0.9,
+      "coconut_flakes": 0.9,
+      "mango_chunk": 0.8,
+      "orange_slice": 0.7,
+      "lemon_slice": 0.7,
+      "banana_slice": 0.6,
+      "kiwi_slice": 0.6
+    },
+    "bonusCombos": [
+      [
+        "umbrella_pick",
+        "wave"
+      ],
+      [
+        "coconut_flakes",
+        "mango_chunk"
+      ]
+    ]
+  },
+  {
+    "id": "t2_002",
+    "text": "A drink fit for a princess, please!",
+    "tier": 2,
+    "offeredBases": [
+      "iced_drink",
+      "latte",
+      "cupcake"
+    ],
+    "idealBase": {
+      "iced_drink": 0.8,
+      "latte": 1,
+      "cupcake": 0.6
+    },
+    "idealColors": {
+      "#EFA9B8": 1,
+      "#EAB94D": 0.9,
+      "#FFFDF7": 0.7
+    },
+    "idealToppings": {
+      "crown": 1,
+      "sugar_pearl": 0.9,
+      "gold_leaf": 0.9,
+      "edible_flower": 0.8,
+      "heart": 0.7,
+      "sparkle": 0.7,
+      "diamond": 0.7,
+      "bow": 0.6
+    },
+    "bonusCombos": [
+      [
+        "crown",
+        "sugar_pearl"
+      ],
+      [
+        "gold_leaf",
+        "diamond"
+      ]
+    ]
+  },
+  {
+    "id": "t2_003",
+    "text": "Make it look like a little garden!",
+    "tier": 2,
+    "offeredBases": [
+      "toast",
+      "smoothie_bowl",
+      "cupcake"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "toast": 0.8,
+      "cupcake": 0.5
+    },
+    "idealColors": {
+      "#7BA05B": 1,
+      "#EFA9B8": 0.8,
+      "#8C5A3C": 0.7
+    },
+    "idealToppings": {
+      "edible_flower": 1,
+      "mint_leaf": 0.9,
+      "microgreens": 0.9,
+      "butterfly": 0.8,
+      "kiwi_slice": 0.7,
+      "strawberry": 0.6,
+      "matcha_drizzle": 0.6,
+      "avocado_slice": 0.6
+    },
+    "bonusCombos": [
+      [
+        "edible_flower",
+        "butterfly"
+      ],
+      [
+        "mint_leaf",
+        "microgreens"
+      ]
+    ]
+  },
+  {
+    "id": "t2_004",
+    "text": "Something warm that reminds me of autumn.",
+    "tier": 2,
+    "offeredBases": [
+      "latte",
+      "toast",
+      "cupcake"
+    ],
+    "idealBase": {
+      "toast": 1,
+      "latte": 0.8,
+      "cupcake": 0.5
+    },
+    "idealColors": {
+      "#8C5A3C": 1,
+      "#E58E4B": 0.9,
+      "#C9506B": 0.6
+    },
+    "idealToppings": {
+      "cinnamon": 1,
+      "maple_syrup": 1,
+      "walnuts": 0.8,
+      "caramel_drizzle": 0.8,
+      "whipped_cream": 0.7,
+      "cocoa_powder": 0.6,
+      "granola": 0.6,
+      "honey": 0.6
+    },
+    "bonusCombos": [
+      [
+        "cinnamon",
+        "maple_syrup"
+      ],
+      [
+        "caramel_drizzle",
+        "walnuts"
+      ]
+    ]
+  },
+  {
+    "id": "t2_005",
+    "text": "I want a winter wonderland in a cup!",
+    "tier": 2,
+    "offeredBases": [
+      "latte",
+      "iced_drink",
+      "cupcake"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "latte": 0.8,
+      "cupcake": 0.5
+    },
+    "idealColors": {
+      "#FFFDF7": 1,
+      "#6C87D1": 0.9,
+      "#D8BC94": 0.4
+    },
+    "idealToppings": {
+      "candy_cane": 1,
+      "marshmallow": 0.9,
+      "whipped_cream": 0.8,
+      "sparkle": 0.8,
+      "star": 0.7,
+      "coconut_flakes": 0.7,
+      "sugar_pearl": 0.6,
+      "cloud": 0.6
+    },
+    "bonusCombos": [
+      [
+        "candy_cane",
+        "marshmallow"
+      ],
+      [
+        "sparkle",
+        "star"
+      ]
+    ]
+  },
+  {
+    "id": "t2_006",
+    "text": "Something romantic for my anniversary dinner!",
+    "tier": 2,
+    "offeredBases": [
+      "cupcake",
+      "latte",
+      "iced_drink"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "latte": 0.7,
+      "iced_drink": 0.4
+    },
+    "idealColors": {
+      "#C9506B": 1,
+      "#EFA9B8": 0.9,
+      "#FFFDF7": 0.6
+    },
+    "idealToppings": {
+      "heart": 1,
+      "strawberry": 0.9,
+      "chocolate_drizzle": 0.8,
+      "edible_flower": 0.8,
+      "cherry": 0.7,
+      "chocolate_curl": 0.7,
+      "sugar_pearl": 0.6,
+      "mascarpone": 0.6
+    },
+    "bonusCombos": [
+      [
+        "heart",
+        "strawberry"
+      ],
+      [
+        "chocolate_drizzle",
+        "cherry"
+      ]
+    ]
+  },
+  {
+    "id": "t2_007",
+    "text": "Make me something that feels like a walk in the forest.",
+    "tier": 2,
+    "offeredBases": [
+      "latte",
+      "smoothie_bowl",
+      "toast"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "latte": 0.8,
+      "toast": 0.6
+    },
+    "idealColors": {
+      "#7BA05B": 1,
+      "#8C5A3C": 0.9,
+      "#D8BC94": 0.6
+    },
+    "idealToppings": {
+      "matcha_drizzle": 1,
+      "mint_leaf": 0.9,
+      "walnuts": 0.8,
+      "granola": 0.8,
+      "microgreens": 0.7,
+      "blueberry": 0.6,
+      "almonds": 0.6,
+      "honey": 0.6
+    },
+    "bonusCombos": [
+      [
+        "matcha_drizzle",
+        "mint_leaf"
+      ],
+      [
+        "walnuts",
+        "granola"
+      ]
+    ]
+  },
+  {
+    "id": "t2_008",
+    "text": "Something that looks like a sunrise!",
+    "tier": 2,
+    "offeredBases": [
+      "smoothie_bowl",
+      "iced_drink",
+      "cupcake"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "iced_drink": 0.8,
+      "cupcake": 0.4
+    },
+    "idealColors": {
+      "#E58E4B": 1,
+      "#EAB94D": 1,
+      "#EFA9B8": 0.7
+    },
+    "idealToppings": {
+      "orange_slice": 1,
+      "mango_chunk": 0.9,
+      "peach_slice": 0.9,
+      "honey": 0.7,
+      "star": 0.6,
+      "sparkle": 0.6,
+      "lemon_slice": 0.6,
+      "swirl": 0.5
+    },
+    "bonusCombos": [
+      [
+        "orange_slice",
+        "mango_chunk"
+      ],
+      [
+        "peach_slice",
+        "honey"
+      ]
+    ]
+  },
+  {
+    "id": "t2_009",
+    "text": "I'm off to the circus — make something as fun as that!",
+    "tier": 2,
+    "offeredBases": [
+      "cupcake",
+      "iced_drink",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "iced_drink": 0.7,
+      "smoothie_bowl": 0.4
+    },
+    "idealColors": {
+      "#C9506B": 1,
+      "#EAB94D": 0.9,
+      "#6C87D1": 0.8
+    },
+    "idealToppings": {
+      "sprinkles": 1,
+      "candy_cane": 0.8,
+      "star": 0.8,
+      "zigzag": 0.8,
+      "star_cookie": 0.7,
+      "lightning": 0.7,
+      "bow": 0.6,
+      "cherry": 0.6
+    },
+    "bonusCombos": [
+      [
+        "sprinkles",
+        "star"
+      ],
+      [
+        "zigzag",
+        "lightning"
+      ]
+    ]
+  },
+  {
+    "id": "t2_010",
+    "text": "Something dainty for an afternoon tea party.",
+    "tier": 2,
+    "offeredBases": [
+      "cupcake",
+      "latte",
+      "toast"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "latte": 0.8,
+      "toast": 0.5
+    },
+    "idealColors": {
+      "#EFA9B8": 1,
+      "#FFFDF7": 0.9,
+      "#EAB94D": 0.6
+    },
+    "idealToppings": {
+      "edible_flower": 1,
+      "sugar_pearl": 0.9,
+      "mascarpone": 0.8,
+      "raspberry": 0.7,
+      "honey": 0.7,
+      "bow": 0.7,
+      "mint_leaf": 0.6,
+      "chocolate_curl": 0.6
+    },
+    "bonusCombos": [
+      [
+        "edible_flower",
+        "sugar_pearl"
+      ],
+      [
+        "raspberry",
+        "mascarpone"
+      ]
+    ]
+  },
+  {
+    "id": "t2_011",
+    "text": "Give me the deep blue ocean in a glass!",
+    "tier": 2,
+    "offeredBases": [
+      "iced_drink",
+      "smoothie_bowl",
+      "latte"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "smoothie_bowl": 0.7,
+      "latte": 0.2
+    },
+    "idealColors": {
+      "#6C87D1": 1,
+      "#FFFDF7": 0.8,
+      "#7BA05B": 0.4
+    },
+    "idealToppings": {
+      "wave": 1,
+      "teardrop": 0.8,
+      "blueberry": 0.8,
+      "umbrella_pick": 0.7,
+      "coconut_flakes": 0.6,
+      "mint_leaf": 0.6,
+      "sparkle": 0.5,
+      "ice_cream_scoop": 0.5
+    },
+    "bonusCombos": [
+      [
+        "wave",
+        "blueberry"
+      ],
+      [
+        "teardrop",
+        "umbrella_pick"
+      ]
+    ]
+  },
+  {
+    "id": "t2_012",
+    "text": "Harvest festival season! Something to celebrate the crops.",
+    "tier": 2,
+    "offeredBases": [
+      "toast",
+      "smoothie_bowl",
+      "latte"
+    ],
+    "idealBase": {
+      "toast": 1,
+      "smoothie_bowl": 0.8,
+      "latte": 0.6
+    },
+    "idealColors": {
+      "#E58E4B": 1,
+      "#8C5A3C": 0.9,
+      "#EAB94D": 0.8
+    },
+    "idealToppings": {
+      "maple_syrup": 1,
+      "walnuts": 0.9,
+      "granola": 0.8,
+      "cinnamon": 0.8,
+      "honey": 0.7,
+      "almonds": 0.7,
+      "peach_slice": 0.6
+    },
+    "bonusCombos": [
+      [
+        "maple_syrup",
+        "walnuts"
+      ],
+      [
+        "cinnamon",
+        "granola"
+      ]
+    ]
+  },
+  {
+    "id": "t2_013",
+    "text": "A spring picnic on a plate, please!",
+    "tier": 2,
+    "offeredBases": [
+      "toast",
+      "cupcake",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "toast": 0.8,
+      "smoothie_bowl": 1,
+      "cupcake": 0.6
+    },
+    "idealColors": {
+      "#7BA05B": 1,
+      "#EFA9B8": 0.9,
+      "#EAB94D": 0.7
+    },
+    "idealToppings": {
+      "strawberry": 1,
+      "edible_flower": 0.9,
+      "mint_leaf": 0.8,
+      "butterfly": 0.8,
+      "honey": 0.7,
+      "kiwi_slice": 0.6,
+      "yogurt_dollop": 0.6,
+      "blueberry": 0.6
+    },
+    "bonusCombos": [
+      [
+        "strawberry",
+        "edible_flower"
+      ],
+      [
+        "butterfly",
+        "mint_leaf"
+      ]
+    ]
+  },
+  {
+    "id": "t2_014",
+    "text": "Treat me like royalty — the fanciest thing you can make!",
+    "tier": 2,
+    "offeredBases": [
+      "cupcake",
+      "latte",
+      "toast"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "latte": 0.8,
+      "toast": 0.6
+    },
+    "idealColors": {
+      "#EAB94D": 1,
+      "#FFFDF7": 0.8,
+      "#8C5A3C": 0.5
+    },
+    "idealToppings": {
+      "gold_leaf": 1,
+      "crown": 1,
+      "diamond": 0.8,
+      "sugar_pearl": 0.8,
+      "chocolate_curl": 0.7,
+      "mascarpone": 0.7,
+      "smoked_salmon": 0.6,
+      "edible_flower": 0.6
+    },
+    "bonusCombos": [
+      [
+        "gold_leaf",
+        "crown"
+      ],
+      [
+        "diamond",
+        "sugar_pearl"
+      ]
+    ]
+  },
+  {
+    "id": "t2_015",
+    "text": "Movie night snacks! Something fun to munch on.",
+    "tier": 2,
+    "offeredBases": [
+      "cupcake",
+      "iced_drink",
+      "toast"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "iced_drink": 0.7,
+      "toast": 0.4
+    },
+    "idealColors": {
+      "#C9506B": 0.9,
+      "#EAB94D": 1,
+      "#8C5A3C": 0.6
+    },
+    "idealToppings": {
+      "oreo_crumble": 1,
+      "chocolate_chips": 0.9,
+      "sprinkles": 0.8,
+      "marshmallow": 0.8,
+      "wafer_stick": 0.7,
+      "star": 0.7,
+      "caramel_drizzle": 0.7,
+      "graham_cracker": 0.6
+    },
+    "bonusCombos": [
+      [
+        "oreo_crumble",
+        "chocolate_chips"
+      ],
+      [
+        "marshmallow",
+        "caramel_drizzle"
+      ]
+    ]
+  },
+  {
+    "id": "t2_016",
+    "text": "It's snowing outside! Something to match the weather.",
+    "tier": 2,
+    "offeredBases": [
+      "latte",
+      "cupcake",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "cupcake": 0.7,
+      "smoothie_bowl": 0.4
+    },
+    "idealColors": {
+      "#FFFDF7": 1,
+      "#6C87D1": 0.8,
+      "#D8BC94": 0.5
+    },
+    "idealToppings": {
+      "marshmallow": 1,
+      "whipped_cream": 0.9,
+      "coconut_flakes": 0.9,
+      "sparkle": 0.7,
+      "sugar_pearl": 0.7,
+      "cloud": 0.7,
+      "candy_cane": 0.6,
+      "foam_art": 0.6
+    },
+    "bonusCombos": [
+      [
+        "marshmallow",
+        "whipped_cream"
+      ],
+      [
+        "coconut_flakes",
+        "sparkle"
+      ]
+    ]
+  },
+  {
+    "id": "t2_017",
+    "text": "Fresh from the farmers market — something wholesome!",
+    "tier": 2,
+    "offeredBases": [
+      "toast",
+      "smoothie_bowl",
+      "iced_drink"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "toast": 0.9,
+      "iced_drink": 0.4
+    },
+    "idealColors": {
+      "#7BA05B": 1,
+      "#C9506B": 0.8,
+      "#D8BC94": 0.7
+    },
+    "idealToppings": {
+      "granola": 1,
+      "honey": 0.9,
+      "yogurt_dollop": 0.8,
+      "strawberry": 0.8,
+      "microgreens": 0.7,
+      "blueberry": 0.7,
+      "avocado_slice": 0.6,
+      "banana_slice": 0.6
+    },
+    "bonusCombos": [
+      [
+        "granola",
+        "honey"
+      ],
+      [
+        "strawberry",
+        "yogurt_dollop"
+      ]
+    ]
+  },
+  {
+    "id": "t2_018",
+    "text": "Make it look like a rainbow after the rain!",
+    "tier": 2,
+    "offeredBases": [
+      "cupcake",
+      "smoothie_bowl",
+      "iced_drink"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "cupcake": 0.8,
+      "iced_drink": 0.6
+    },
+    "idealColors": {
+      "#C9506B": 0.9,
+      "#EAB94D": 1,
+      "#6C87D1": 0.9
+    },
+    "idealToppings": {
+      "sprinkles": 1,
+      "swirl": 0.9,
+      "strawberry": 0.7,
+      "orange_slice": 0.7,
+      "blueberry": 0.7,
+      "kiwi_slice": 0.7,
+      "cloud": 0.7,
+      "sparkle": 0.6
+    },
+    "bonusCombos": [
+      [
+        "sprinkles",
+        "cloud"
+      ],
+      [
+        "swirl",
+        "sparkle"
+      ]
+    ]
+  },
+  {
+    "id": "t2_019",
+    "text": "A starry night sky I can sip on.",
+    "tier": 2,
+    "offeredBases": [
+      "iced_drink",
+      "latte",
+      "cupcake"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "latte": 0.8,
+      "cupcake": 0.5
+    },
+    "idealColors": {
+      "#4A3429": 0.9,
+      "#6C87D1": 1,
+      "#EAB94D": 0.8
+    },
+    "idealToppings": {
+      "star": 1,
+      "moon": 1,
+      "sparkle": 0.9,
+      "blueberry": 0.6,
+      "sugar_pearl": 0.6,
+      "diamond": 0.5,
+      "whipped_cream": 0.5,
+      "cloud": 0.5
+    },
+    "bonusCombos": [
+      [
+        "star",
+        "moon"
+      ],
+      [
+        "sparkle",
+        "sugar_pearl"
+      ]
+    ]
+  },
+  {
+    "id": "t2_020",
+    "text": "Breakfast at a cozy countryside cottage!",
+    "tier": 2,
+    "offeredBases": [
+      "toast",
+      "latte",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "toast": 1,
+      "latte": 0.8,
+      "smoothie_bowl": 0.6
+    },
+    "idealColors": {
+      "#D8BC94": 1,
+      "#EAB94D": 0.8,
+      "#8C5A3C": 0.8
+    },
+    "idealToppings": {
+      "honey": 1,
+      "egg_slice": 0.8,
+      "yogurt_dollop": 0.7,
+      "granola": 0.7,
+      "cinnamon": 0.7,
+      "maple_syrup": 0.7,
+      "cream_cheese": 0.6,
+      "peach_slice": 0.6
+    },
+    "bonusCombos": [
+      [
+        "honey",
+        "cinnamon"
+      ],
+      [
+        "egg_slice",
+        "cream_cheese"
+      ]
+    ]
+  },
+  {
+    "id": "t2_021",
+    "text": "Something electric — like a bolt of energy!",
+    "tier": 2,
+    "offeredBases": [
+      "iced_drink",
+      "cupcake",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "cupcake": 0.6,
+      "smoothie_bowl": 0.5
+    },
+    "idealColors": {
+      "#EAB94D": 1,
+      "#6C87D1": 0.8,
+      "#E58E4B": 0.7
+    },
+    "idealToppings": {
+      "lightning": 1,
+      "zigzag": 0.9,
+      "lemon_slice": 0.8,
+      "star": 0.7,
+      "orange_slice": 0.7,
+      "sparkle": 0.6,
+      "candy_cane": 0.4,
+      "mint_leaf": 0.5
+    },
+    "bonusCombos": [
+      [
+        "lightning",
+        "zigzag"
+      ],
+      [
+        "lemon_slice",
+        "star"
+      ]
+    ]
+  },
+  {
+    "id": "t2_022",
+    "text": "Make me something as cute as a puppy!",
+    "tier": 2,
+    "offeredBases": [
+      "cupcake",
+      "smoothie_bowl",
+      "latte"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "smoothie_bowl": 0.6,
+      "latte": 0.6
+    },
+    "idealColors": {
+      "#EFA9B8": 1,
+      "#FFFDF7": 0.8,
+      "#D8BC94": 0.7
+    },
+    "idealToppings": {
+      "heart": 1,
+      "bow": 1,
+      "sprinkles": 0.8,
+      "cloud": 0.7,
+      "marshmallow": 0.7,
+      "sugar_pearl": 0.6,
+      "strawberry": 0.6,
+      "butterfly": 0.6
+    },
+    "bonusCombos": [
+      [
+        "heart",
+        "bow"
+      ],
+      [
+        "cloud",
+        "marshmallow"
+      ]
+    ]
+  },
+  {
+    "id": "t2_023",
+    "text": "A zen moment, please. Calm and balanced.",
+    "tier": 2,
+    "offeredBases": [
+      "latte",
+      "smoothie_bowl",
+      "toast"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "latte": 0.8,
+      "toast": 0.4
+    },
+    "idealColors": {
+      "#7BA05B": 1,
+      "#FFFDF7": 0.9,
+      "#D8BC94": 0.6
+    },
+    "idealToppings": {
+      "matcha_drizzle": 1,
+      "foam_art": 0.9,
+      "mint_leaf": 0.8,
+      "yogurt_dollop": 0.6,
+      "edible_flower": 0.6,
+      "swirl": 0.6,
+      "honey": 0.6,
+      "moon": 0.5
+    },
+    "bonusCombos": [
+      [
+        "matcha_drizzle",
+        "foam_art"
+      ],
+      [
+        "mint_leaf",
+        "edible_flower"
+      ]
+    ]
+  },
+  {
+    "id": "t2_024",
+    "text": "Pretend we're at a little cafe in Paris!",
+    "tier": 2,
+    "offeredBases": [
+      "latte",
+      "cupcake",
+      "toast"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "cupcake": 0.8,
+      "toast": 0.6
+    },
+    "idealColors": {
+      "#8C5A3C": 1,
+      "#FFFDF7": 0.9,
+      "#EFA9B8": 0.7
+    },
+    "idealToppings": {
+      "foam_art": 1,
+      "chocolate_curl": 0.9,
+      "mascarpone": 0.8,
+      "edible_flower": 0.7,
+      "raspberry": 0.7,
+      "gold_leaf": 0.6,
+      "sugar_pearl": 0.6,
+      "chocolate_drizzle": 0.6
+    },
+    "bonusCombos": [
+      [
+        "foam_art",
+        "chocolate_curl"
+      ],
+      [
+        "raspberry",
+        "mascarpone"
+      ]
+    ]
+  },
+  {
+    "id": "t2_025",
+    "text": "Something spooky-sweet for a haunted evening!",
+    "tier": 2,
+    "offeredBases": [
+      "cupcake",
+      "iced_drink",
+      "latte"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "iced_drink": 0.7,
+      "latte": 0.5
+    },
+    "idealColors": {
+      "#4A3429": 1,
+      "#E58E4B": 0.9,
+      "#8C5A3C": 0.5
+    },
+    "idealToppings": {
+      "moon": 1,
+      "oreo_crumble": 0.9,
+      "chocolate_drizzle": 0.8,
+      "star": 0.7,
+      "marshmallow": 0.7,
+      "teardrop": 0.6,
+      "cocoa_powder": 0.6,
+      "sparkle": 0.5
+    },
+    "bonusCombos": [
+      [
+        "moon",
+        "star"
+      ],
+      [
+        "oreo_crumble",
+        "chocolate_drizzle"
+      ]
+    ]
+  },
+  {
+    "id": "t3_001",
+    "text": "Something that captures the feeling of a rainy afternoon.",
+    "tier": 3,
+    "offeredBases": [
+      "latte",
+      "toast",
+      "iced_drink"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "toast": 0.6,
+      "iced_drink": 0.3
+    },
+    "idealColors": {
+      "#6C87D1": 1,
+      "#D8BC94": 0.7,
+      "#FFFDF7": 0.6
+    },
+    "idealToppings": {
+      "teardrop": 1,
+      "cloud": 1,
+      "foam_art": 0.7,
+      "cinnamon": 0.6,
+      "cocoa_powder": 0.5,
+      "marshmallow": 0.5,
+      "moon": 0.4
+    },
+    "bonusCombos": [
+      [
+        "teardrop",
+        "cloud"
+      ]
+    ]
+  },
+  {
+    "id": "t3_002",
+    "text": "If jazz were a food, what would it look like?",
+    "tier": 3,
+    "offeredBases": [
+      "latte",
+      "cupcake",
+      "iced_drink"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "cupcake": 0.6,
+      "iced_drink": 0.6
+    },
+    "idealColors": {
+      "#4A3429": 1,
+      "#EAB94D": 0.9,
+      "#8C5A3C": 0.6
+    },
+    "idealToppings": {
+      "music_note": 1,
+      "swirl": 0.8,
+      "gold_leaf": 0.7,
+      "zigzag": 0.6,
+      "chocolate_curl": 0.6,
+      "spiral": 0.5,
+      "cocoa_powder": 0.4
+    },
+    "bonusCombos": [
+      [
+        "music_note",
+        "swirl"
+      ]
+    ]
+  },
+  {
+    "id": "t3_003",
+    "text": "A dessert that belongs in a fairy tale.",
+    "tier": 3,
+    "offeredBases": [
+      "cupcake",
+      "smoothie_bowl",
+      "latte"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "smoothie_bowl": 0.5,
+      "latte": 0.4
+    },
+    "idealColors": {
+      "#EFA9B8": 1,
+      "#EAB94D": 0.9,
+      "#6C87D1": 0.6
+    },
+    "idealToppings": {
+      "sparkle": 1,
+      "butterfly": 0.9,
+      "edible_flower": 0.8,
+      "crown": 0.7,
+      "star": 0.6,
+      "sugar_pearl": 0.6,
+      "moon": 0.5,
+      "diamond": 0.5
+    },
+    "bonusCombos": [
+      [
+        "sparkle",
+        "butterfly"
+      ],
+      [
+        "crown",
+        "star"
+      ]
+    ]
+  },
+  {
+    "id": "t3_004",
+    "text": "The feeling of a lazy Sunday morning, on a plate.",
+    "tier": 3,
+    "offeredBases": [
+      "toast",
+      "latte",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "toast": 1,
+      "latte": 0.8,
+      "smoothie_bowl": 0.5
+    },
+    "idealColors": {
+      "#D8BC94": 1,
+      "#EAB94D": 0.8,
+      "#FFFDF7": 0.7
+    },
+    "idealToppings": {
+      "honey": 1,
+      "egg_slice": 0.8,
+      "foam_art": 0.7,
+      "yogurt_dollop": 0.6,
+      "cloud": 0.6,
+      "cinnamon": 0.5,
+      "peach_slice": 0.5
+    },
+    "bonusCombos": [
+      [
+        "honey",
+        "cloud"
+      ]
+    ]
+  },
+  {
+    "id": "t3_005",
+    "text": "A thunderstorm, but you're safe inside watching it.",
+    "tier": 3,
+    "offeredBases": [
+      "latte",
+      "iced_drink",
+      "cupcake"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "iced_drink": 0.6,
+      "cupcake": 0.3
+    },
+    "idealColors": {
+      "#6C87D1": 1,
+      "#4A3429": 0.8,
+      "#FFFDF7": 0.7
+    },
+    "idealToppings": {
+      "lightning": 1,
+      "cloud": 1,
+      "teardrop": 0.8,
+      "marshmallow": 0.6,
+      "whipped_cream": 0.5,
+      "zigzag": 0.5,
+      "cocoa_powder": 0.4
+    },
+    "bonusCombos": [
+      [
+        "lightning",
+        "cloud"
+      ],
+      [
+        "teardrop",
+        "marshmallow"
+      ]
+    ]
+  },
+  {
+    "id": "t3_006",
+    "text": "Butterflies in your stomach — that first-crush feeling.",
+    "tier": 3,
+    "offeredBases": [
+      "cupcake",
+      "iced_drink",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "smoothie_bowl": 0.6,
+      "iced_drink": 0.5
+    },
+    "idealColors": {
+      "#EFA9B8": 1,
+      "#C9506B": 0.8,
+      "#EAB94D": 0.6
+    },
+    "idealToppings": {
+      "butterfly": 1,
+      "heart": 1,
+      "sparkle": 0.7,
+      "strawberry": 0.6,
+      "sugar_pearl": 0.5,
+      "bow": 0.5,
+      "edible_flower": 0.5
+    },
+    "bonusCombos": [
+      [
+        "butterfly",
+        "heart"
+      ]
+    ]
+  },
+  {
+    "id": "t3_007",
+    "text": "An old library full of dusty books and quiet corners.",
+    "tier": 3,
+    "offeredBases": [
+      "latte",
+      "toast",
+      "cupcake"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "toast": 0.7,
+      "cupcake": 0.3
+    },
+    "idealColors": {
+      "#8C5A3C": 1,
+      "#D8BC94": 0.9,
+      "#7BA05B": 0.5
+    },
+    "idealToppings": {
+      "cocoa_powder": 1,
+      "cinnamon": 0.8,
+      "foam_art": 0.7,
+      "walnuts": 0.6,
+      "graham_cracker": 0.6,
+      "moon": 0.5,
+      "honey": 0.4
+    },
+    "bonusCombos": [
+      [
+        "cocoa_powder",
+        "cinnamon"
+      ]
+    ]
+  },
+  {
+    "id": "t3_008",
+    "text": "A midnight swim under the moon.",
+    "tier": 3,
+    "offeredBases": [
+      "iced_drink",
+      "smoothie_bowl",
+      "latte"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "smoothie_bowl": 0.6,
+      "latte": 0.3
+    },
+    "idealColors": {
+      "#6C87D1": 1,
+      "#4A3429": 0.8,
+      "#FFFDF7": 0.6
+    },
+    "idealToppings": {
+      "moon": 1,
+      "wave": 1,
+      "star": 0.7,
+      "teardrop": 0.6,
+      "blueberry": 0.5,
+      "sparkle": 0.5,
+      "mint_leaf": 0.4
+    },
+    "bonusCombos": [
+      [
+        "moon",
+        "wave"
+      ],
+      [
+        "star",
+        "sparkle"
+      ]
+    ]
+  },
+  {
+    "id": "t3_009",
+    "text": "My grandmother's kitchen on baking day.",
+    "tier": 3,
+    "offeredBases": [
+      "cupcake",
+      "toast",
+      "latte"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "toast": 0.8,
+      "latte": 0.6
+    },
+    "idealColors": {
+      "#D8BC94": 1,
+      "#8C5A3C": 0.8,
+      "#EAB94D": 0.7
+    },
+    "idealToppings": {
+      "cinnamon": 1,
+      "graham_cracker": 0.9,
+      "honey": 0.8,
+      "walnuts": 0.7,
+      "maple_syrup": 0.6,
+      "whipped_cream": 0.5,
+      "chocolate_chips": 0.5
+    },
+    "bonusCombos": [
+      [
+        "cinnamon",
+        "graham_cracker"
+      ],
+      [
+        "honey",
+        "walnuts"
+      ]
+    ]
+  },
+  {
+    "id": "t3_010",
+    "text": "The city at midnight — neon lights and quiet streets.",
+    "tier": 3,
+    "offeredBases": [
+      "iced_drink",
+      "latte",
+      "cupcake"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "latte": 0.8,
+      "cupcake": 0.4
+    },
+    "idealColors": {
+      "#4A3429": 1,
+      "#EAB94D": 0.8,
+      "#C9506B": 0.7
+    },
+    "idealToppings": {
+      "star": 1,
+      "lightning": 0.8,
+      "moon": 0.8,
+      "gold_leaf": 0.6,
+      "zigzag": 0.6,
+      "sparkle": 0.5,
+      "diamond": 0.4
+    },
+    "bonusCombos": [
+      [
+        "star",
+        "moon"
+      ]
+    ]
+  },
+  {
+    "id": "t3_011",
+    "text": "A secret garden behind a locked gate.",
+    "tier": 3,
+    "offeredBases": [
+      "smoothie_bowl",
+      "cupcake",
+      "iced_drink"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "cupcake": 0.7,
+      "iced_drink": 0.4
+    },
+    "idealColors": {
+      "#7BA05B": 1,
+      "#EFA9B8": 0.8,
+      "#6C87D1": 0.5
+    },
+    "idealToppings": {
+      "edible_flower": 1,
+      "butterfly": 0.9,
+      "mint_leaf": 0.8,
+      "sparkle": 0.6,
+      "matcha_drizzle": 0.6,
+      "blueberry": 0.5,
+      "microgreens": 0.5
+    },
+    "bonusCombos": [
+      [
+        "edible_flower",
+        "sparkle"
+      ],
+      [
+        "butterfly",
+        "mint_leaf"
+      ]
+    ]
+  },
+  {
+    "id": "t3_012",
+    "text": "Morning fog rolling over the hills.",
+    "tier": 3,
+    "offeredBases": [
+      "latte",
+      "smoothie_bowl",
+      "toast"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "latte": 0.8,
+      "toast": 0.5
+    },
+    "idealColors": {
+      "#FFFDF7": 1,
+      "#D8BC94": 0.7,
+      "#6C87D1": 0.6
+    },
+    "idealToppings": {
+      "cloud": 1,
+      "foam_art": 0.9,
+      "whipped_cream": 0.8,
+      "coconut_flakes": 0.6,
+      "marshmallow": 0.6,
+      "swirl": 0.5,
+      "moon": 0.4
+    },
+    "bonusCombos": [
+      [
+        "cloud",
+        "foam_art"
+      ]
+    ]
+  },
+  {
+    "id": "t3_013",
+    "text": "A love letter you never sent.",
+    "tier": 3,
+    "offeredBases": [
+      "cupcake",
+      "latte",
+      "toast"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "latte": 0.7,
+      "toast": 0.3
+    },
+    "idealColors": {
+      "#C9506B": 1,
+      "#EFA9B8": 0.9,
+      "#FFFDF7": 0.7
+    },
+    "idealToppings": {
+      "heart": 1,
+      "teardrop": 0.9,
+      "edible_flower": 0.7,
+      "chocolate_drizzle": 0.6,
+      "sugar_pearl": 0.5,
+      "raspberry": 0.5,
+      "bow": 0.4
+    },
+    "bonusCombos": [
+      [
+        "heart",
+        "teardrop"
+      ]
+    ]
+  },
+  {
+    "id": "t3_014",
+    "text": "Childhood summers that seemed to last forever.",
+    "tier": 3,
+    "offeredBases": [
+      "iced_drink",
+      "smoothie_bowl",
+      "cupcake"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "smoothie_bowl": 0.8,
+      "cupcake": 0.6
+    },
+    "idealColors": {
+      "#EAB94D": 1,
+      "#E58E4B": 0.8,
+      "#C9506B": 0.7
+    },
+    "idealToppings": {
+      "ice_cream_scoop": 1,
+      "sprinkles": 0.9,
+      "cherry": 0.8,
+      "strawberry": 0.7,
+      "umbrella_pick": 0.6,
+      "lemon_slice": 0.6,
+      "star": 0.5
+    },
+    "bonusCombos": [
+      [
+        "ice_cream_scoop",
+        "sprinkles"
+      ],
+      [
+        "cherry",
+        "strawberry"
+      ]
+    ]
+  },
+  {
+    "id": "t3_015",
+    "text": "The gentlest lullaby, hummed softly.",
+    "tier": 3,
+    "offeredBases": [
+      "latte",
+      "cupcake",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "smoothie_bowl": 0.6,
+      "cupcake": 0.5
+    },
+    "idealColors": {
+      "#FFFDF7": 1,
+      "#EFA9B8": 0.8,
+      "#6C87D1": 0.7
+    },
+    "idealToppings": {
+      "music_note": 1,
+      "moon": 0.9,
+      "cloud": 0.8,
+      "marshmallow": 0.6,
+      "foam_art": 0.6,
+      "star": 0.5,
+      "whipped_cream": 0.5
+    },
+    "bonusCombos": [
+      [
+        "music_note",
+        "moon"
+      ],
+      [
+        "cloud",
+        "star"
+      ]
+    ]
+  },
+  {
+    "id": "t3_016",
+    "text": "Autumn wind chasing leaves down the street.",
+    "tier": 3,
+    "offeredBases": [
+      "latte",
+      "toast",
+      "iced_drink"
+    ],
+    "idealBase": {
+      "toast": 1,
+      "latte": 0.8,
+      "iced_drink": 0.2
+    },
+    "idealColors": {
+      "#E58E4B": 1,
+      "#8C5A3C": 0.9,
+      "#C9506B": 0.6
+    },
+    "idealToppings": {
+      "swirl": 1,
+      "cinnamon": 0.9,
+      "maple_syrup": 0.8,
+      "walnuts": 0.6,
+      "zigzag": 0.5,
+      "caramel_drizzle": 0.5,
+      "spiral": 0.5
+    },
+    "bonusCombos": [
+      [
+        "swirl",
+        "cinnamon"
+      ]
+    ]
+  },
+  {
+    "id": "t3_017",
+    "text": "Golden hour, when everything glows.",
+    "tier": 3,
+    "offeredBases": [
+      "smoothie_bowl",
+      "iced_drink",
+      "latte"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 0.8,
+      "iced_drink": 0.7,
+      "latte": 1
+    },
+    "idealColors": {
+      "#EAB94D": 1,
+      "#E58E4B": 0.9,
+      "#EFA9B8": 0.6
+    },
+    "idealToppings": {
+      "gold_leaf": 1,
+      "honey": 0.9,
+      "sparkle": 0.8,
+      "peach_slice": 0.6,
+      "orange_slice": 0.6,
+      "star": 0.5,
+      "caramel_drizzle": 0.5
+    },
+    "bonusCombos": [
+      [
+        "gold_leaf",
+        "sparkle"
+      ],
+      [
+        "honey",
+        "peach_slice"
+      ]
+    ]
+  },
+  {
+    "id": "t3_018",
+    "text": "A warm hug from someone you missed.",
+    "tier": 3,
+    "offeredBases": [
+      "latte",
+      "cupcake",
+      "toast"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "cupcake": 0.7,
+      "toast": 0.5
+    },
+    "idealColors": {
+      "#D8BC94": 1,
+      "#EFA9B8": 0.8,
+      "#8C5A3C": 0.7
+    },
+    "idealToppings": {
+      "heart": 1,
+      "whipped_cream": 0.8,
+      "marshmallow": 0.8,
+      "cinnamon": 0.7,
+      "honey": 0.6,
+      "cloud": 0.5,
+      "foam_art": 0.5
+    },
+    "bonusCombos": [
+      [
+        "heart",
+        "marshmallow"
+      ],
+      [
+        "whipped_cream",
+        "cinnamon"
+      ]
+    ]
+  },
+  {
+    "id": "t3_019",
+    "text": "Distant mountains you promise to climb someday.",
+    "tier": 3,
+    "offeredBases": [
+      "smoothie_bowl",
+      "latte",
+      "toast"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "latte": 0.7,
+      "toast": 0.4
+    },
+    "idealColors": {
+      "#6C87D1": 1,
+      "#FFFDF7": 0.9,
+      "#7BA05B": 0.7
+    },
+    "idealToppings": {
+      "coconut_flakes": 1,
+      "blueberry": 0.8,
+      "cloud": 0.8,
+      "granola": 0.7,
+      "mint_leaf": 0.5,
+      "diamond": 0.5,
+      "star": 0.4
+    },
+    "bonusCombos": [
+      [
+        "coconut_flakes",
+        "cloud"
+      ],
+      [
+        "blueberry",
+        "granola"
+      ]
+    ]
+  },
+  {
+    "id": "t3_020",
+    "text": "The bittersweet last day of vacation.",
+    "tier": 3,
+    "offeredBases": [
+      "iced_drink",
+      "smoothie_bowl",
+      "latte"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "smoothie_bowl": 0.7,
+      "latte": 0.5
+    },
+    "idealColors": {
+      "#E58E4B": 1,
+      "#6C87D1": 0.8,
+      "#EAB94D": 0.7
+    },
+    "idealToppings": {
+      "umbrella_pick": 1,
+      "teardrop": 0.9,
+      "orange_slice": 0.7,
+      "wave": 0.6,
+      "cherry": 0.5,
+      "mango_chunk": 0.5,
+      "moon": 0.4
+    },
+    "bonusCombos": [
+      [
+        "umbrella_pick",
+        "teardrop"
+      ]
+    ]
+  },
+  {
+    "id": "t3_021",
+    "text": "A wish whispered to a shooting star.",
+    "tier": 3,
+    "offeredBases": [
+      "cupcake",
+      "iced_drink",
+      "latte"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "iced_drink": 0.7,
+      "latte": 0.5
+    },
+    "idealColors": {
+      "#6C87D1": 1,
+      "#EAB94D": 0.9,
+      "#4A3429": 0.6
+    },
+    "idealToppings": {
+      "star": 1,
+      "sparkle": 1,
+      "moon": 0.7,
+      "sugar_pearl": 0.6,
+      "diamond": 0.5,
+      "whipped_cream": 0.4,
+      "cloud": 0.4
+    },
+    "bonusCombos": [
+      [
+        "star",
+        "sparkle"
+      ]
+    ]
+  },
+  {
+    "id": "t3_022",
+    "text": "Quiet snowfall at dusk, when the world goes soft.",
+    "tier": 3,
+    "offeredBases": [
+      "latte",
+      "cupcake",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "cupcake": 0.6,
+      "smoothie_bowl": 0.4
+    },
+    "idealColors": {
+      "#FFFDF7": 1,
+      "#6C87D1": 0.8,
+      "#EFA9B8": 0.5
+    },
+    "idealToppings": {
+      "coconut_flakes": 1,
+      "marshmallow": 0.9,
+      "cloud": 0.7,
+      "sparkle": 0.6,
+      "foam_art": 0.6,
+      "sugar_pearl": 0.5,
+      "moon": 0.5
+    },
+    "bonusCombos": [
+      [
+        "coconut_flakes",
+        "marshmallow"
+      ]
+    ]
+  },
+  {
+    "id": "t3_023",
+    "text": "The first brave flower after winter.",
+    "tier": 3,
+    "offeredBases": [
+      "cupcake",
+      "smoothie_bowl",
+      "toast"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 0.7,
+      "cupcake": 1,
+      "toast": 0.3
+    },
+    "idealColors": {
+      "#EFA9B8": 1,
+      "#7BA05B": 0.9,
+      "#FFFDF7": 0.8
+    },
+    "idealToppings": {
+      "edible_flower": 1,
+      "mint_leaf": 0.8,
+      "sparkle": 0.6,
+      "butterfly": 0.6,
+      "sugar_pearl": 0.5,
+      "coconut_flakes": 0.5,
+      "raspberry": 0.4
+    },
+    "bonusCombos": [
+      [
+        "edible_flower",
+        "mint_leaf"
+      ]
+    ]
+  },
+  {
+    "id": "t3_024",
+    "text": "Deja vu — haven't I ordered this before?",
+    "tier": 3,
+    "offeredBases": [
+      "latte",
+      "iced_drink",
+      "cupcake"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "iced_drink": 0.7,
+      "cupcake": 0.5
+    },
+    "idealColors": {
+      "#6C87D1": 1,
+      "#FFFDF7": 0.7,
+      "#4A3429": 0.6
+    },
+    "idealToppings": {
+      "spiral": 1,
+      "swirl": 1,
+      "moon": 0.6,
+      "teardrop": 0.5,
+      "foam_art": 0.5,
+      "zigzag": 0.4,
+      "star": 0.4
+    },
+    "bonusCombos": [
+      [
+        "spiral",
+        "swirl"
+      ]
+    ]
+  },
+  {
+    "id": "t3_025",
+    "text": "Stage fright, right before the curtain rises.",
+    "tier": 3,
+    "offeredBases": [
+      "iced_drink",
+      "cupcake",
+      "latte"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "iced_drink": 0.7,
+      "latte": 0.5
+    },
+    "idealColors": {
+      "#C9506B": 1,
+      "#EAB94D": 0.8,
+      "#4A3429": 0.7
+    },
+    "idealToppings": {
+      "lightning": 1,
+      "zigzag": 0.8,
+      "star": 0.8,
+      "teardrop": 0.6,
+      "music_note": 0.6,
+      "sparkle": 0.5,
+      "heart": 0.4
+    },
+    "bonusCombos": [
+      [
+        "lightning",
+        "star"
+      ],
+      [
+        "zigzag",
+        "teardrop"
+      ]
+    ]
+  },
+  {
+    "id": "t4_001",
+    "text": "The opposite of summer, in a cup.",
+    "tier": 4,
+    "offeredBases": [
+      "latte",
+      "iced_drink"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "iced_drink": 0.3
+    },
+    "idealColors": {
+      "#FFFDF7": 1,
+      "#6C87D1": 0.9,
+      "#4A3429": 0.5
+    },
+    "idealToppings": {
+      "candy_cane": 1,
+      "marshmallow": 0.9,
+      "coconut_flakes": 0.8,
+      "cloud": 0.4,
+      "whipped_cream": 0.4,
+      "moon": 0.3
+    },
+    "bonusCombos": [
+      [
+        "candy_cane",
+        "marshmallow"
+      ]
+    ]
+  },
+  {
+    "id": "t4_002",
+    "text": "Make me something that sounds quiet.",
+    "tier": 4,
+    "offeredBases": [
+      "latte",
+      "cupcake",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "smoothie_bowl": 0.5,
+      "cupcake": 0.3
+    },
+    "idealColors": {
+      "#FFFDF7": 1,
+      "#D8BC94": 0.7,
+      "#6C87D1": 0.5
+    },
+    "idealToppings": {
+      "cloud": 1,
+      "moon": 0.9,
+      "foam_art": 0.8,
+      "coconut_flakes": 0.4,
+      "marshmallow": 0.4,
+      "teardrop": 0.3
+    },
+    "bonusCombos": [
+      [
+        "cloud",
+        "moon"
+      ]
+    ]
+  },
+  {
+    "id": "t4_003",
+    "text": "A snack that tastes like nostalgia looks.",
+    "tier": 4,
+    "offeredBases": [
+      "toast",
+      "cupcake",
+      "latte"
+    ],
+    "idealBase": {
+      "toast": 1,
+      "cupcake": 0.6,
+      "latte": 0.4
+    },
+    "idealColors": {
+      "#D8BC94": 1,
+      "#EAB94D": 0.8,
+      "#8C5A3C": 0.6
+    },
+    "idealToppings": {
+      "peanut_butter": 1,
+      "graham_cracker": 0.9,
+      "banana_slice": 0.8,
+      "honey": 0.4,
+      "sprinkles": 0.4,
+      "cinnamon": 0.3
+    },
+    "bonusCombos": [
+      [
+        "peanut_butter",
+        "banana_slice"
+      ]
+    ]
+  },
+  {
+    "id": "t4_004",
+    "text": "What color is a whisper? Make me that.",
+    "tier": 4,
+    "offeredBases": [
+      "latte",
+      "iced_drink",
+      "cupcake"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "iced_drink": 0.4,
+      "cupcake": 0.4
+    },
+    "idealColors": {
+      "#FFFDF7": 1,
+      "#EFA9B8": 0.7,
+      "#D8BC94": 0.5
+    },
+    "idealToppings": {
+      "foam_art": 1,
+      "cloud": 0.9,
+      "sugar_pearl": 0.8,
+      "coconut_flakes": 0.4,
+      "moon": 0.4,
+      "sparkle": 0.3
+    },
+    "bonusCombos": [
+      [
+        "foam_art",
+        "cloud"
+      ]
+    ]
+  },
+  {
+    "id": "t4_005",
+    "text": "Serve me what Monday morning feels like.",
+    "tier": 4,
+    "offeredBases": [
+      "latte",
+      "toast"
+    ],
+    "idealBase": {
+      "toast": 1,
+      "latte": 0.7
+    },
+    "idealColors": {
+      "#4A3429": 1,
+      "#8C5A3C": 0.8,
+      "#6C87D1": 0.5
+    },
+    "idealToppings": {
+      "cocoa_powder": 1,
+      "teardrop": 0.9,
+      "zigzag": 0.8,
+      "egg_slice": 0.4,
+      "cloud": 0.4,
+      "lightning": 0.3
+    },
+    "bonusCombos": [
+      [
+        "cocoa_powder",
+        "teardrop"
+      ]
+    ]
+  },
+  {
+    "id": "t4_006",
+    "text": "What does the sound of gold taste like?",
+    "tier": 4,
+    "offeredBases": [
+      "latte",
+      "cupcake",
+      "iced_drink"
+    ],
+    "idealBase": {
+      "cupcake": 0.5,
+      "latte": 1,
+      "iced_drink": 0.4
+    },
+    "idealColors": {
+      "#EAB94D": 1,
+      "#FFFDF7": 0.6,
+      "#8C5A3C": 0.5
+    },
+    "idealToppings": {
+      "gold_leaf": 1,
+      "music_note": 1,
+      "honey": 0.8,
+      "sparkle": 0.4,
+      "sugar_pearl": 0.3,
+      "diamond": 0.3
+    },
+    "bonusCombos": [
+      [
+        "gold_leaf",
+        "music_note"
+      ]
+    ]
+  },
+  {
+    "id": "t4_007",
+    "text": "A memory you can't quite place.",
+    "tier": 4,
+    "offeredBases": [
+      "latte",
+      "smoothie_bowl",
+      "cupcake"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "latte": 0.7,
+      "cupcake": 0.5
+    },
+    "idealColors": {
+      "#D8BC94": 1,
+      "#EFA9B8": 0.7,
+      "#6C87D1": 0.6
+    },
+    "idealToppings": {
+      "spiral": 1,
+      "cloud": 0.9,
+      "cinnamon": 0.8,
+      "moon": 0.4,
+      "swirl": 0.4,
+      "teardrop": 0.3
+    },
+    "bonusCombos": [
+      [
+        "spiral",
+        "cloud"
+      ]
+    ]
+  },
+  {
+    "id": "t4_008",
+    "text": "What does the moon eat for breakfast?",
+    "tier": 4,
+    "offeredBases": [
+      "smoothie_bowl",
+      "toast",
+      "latte"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "toast": 0.6,
+      "latte": 0.4
+    },
+    "idealColors": {
+      "#FFFDF7": 1,
+      "#4A3429": 0.8,
+      "#EAB94D": 0.6
+    },
+    "idealToppings": {
+      "star": 1,
+      "yogurt_dollop": 0.9,
+      "coconut_flakes": 0.8,
+      "moon": 0.5,
+      "sugar_pearl": 0.4,
+      "sparkle": 0.3
+    },
+    "bonusCombos": [
+      [
+        "star",
+        "yogurt_dollop"
+      ]
+    ]
+  },
+  {
+    "id": "t4_009",
+    "text": "Time standing perfectly still. Serve that.",
+    "tier": 4,
+    "offeredBases": [
+      "iced_drink",
+      "latte"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "latte": 0.5
+    },
+    "idealColors": {
+      "#6C87D1": 1,
+      "#FFFDF7": 0.9,
+      "#4A3429": 0.4
+    },
+    "idealToppings": {
+      "diamond": 1,
+      "teardrop": 0.9,
+      "sugar_pearl": 0.8,
+      "moon": 0.4,
+      "sparkle": 0.4,
+      "wave": 0.3
+    },
+    "bonusCombos": [
+      [
+        "diamond",
+        "teardrop"
+      ]
+    ]
+  },
+  {
+    "id": "t4_010",
+    "text": "The taste of a shadow on a sunny day.",
+    "tier": 4,
+    "offeredBases": [
+      "iced_drink",
+      "latte",
+      "cupcake"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "latte": 0.6,
+      "cupcake": 0.3
+    },
+    "idealColors": {
+      "#4A3429": 1,
+      "#EAB94D": 0.7,
+      "#6C87D1": 0.5
+    },
+    "idealToppings": {
+      "oreo_crumble": 1,
+      "cocoa_powder": 0.9,
+      "moon": 0.8,
+      "blueberry": 0.4,
+      "chocolate_drizzle": 0.4,
+      "star": 0.3
+    },
+    "bonusCombos": [
+      [
+        "oreo_crumble",
+        "moon"
+      ]
+    ]
+  },
+  {
+    "id": "t4_011",
+    "text": "Something that feels like forgetting your own name.",
+    "tier": 4,
+    "offeredBases": [
+      "latte",
+      "iced_drink",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "latte": 0.7,
+      "smoothie_bowl": 0.4
+    },
+    "idealColors": {
+      "#FFFDF7": 1,
+      "#6C87D1": 0.7,
+      "#D8BC94": 0.5
+    },
+    "idealToppings": {
+      "swirl": 1,
+      "spiral": 0.9,
+      "cloud": 0.8,
+      "foam_art": 0.4,
+      "teardrop": 0.4,
+      "moon": 0.3
+    },
+    "bonusCombos": [
+      [
+        "swirl",
+        "spiral"
+      ]
+    ]
+  },
+  {
+    "id": "t4_012",
+    "text": "An old book's smell, in food form.",
+    "tier": 4,
+    "offeredBases": [
+      "toast",
+      "latte",
+      "cupcake"
+    ],
+    "idealBase": {
+      "toast": 1,
+      "latte": 0.7,
+      "cupcake": 0.2
+    },
+    "idealColors": {
+      "#8C5A3C": 1,
+      "#D8BC94": 0.9,
+      "#EAB94D": 0.4
+    },
+    "idealToppings": {
+      "graham_cracker": 1,
+      "cocoa_powder": 0.9,
+      "cinnamon": 0.8,
+      "walnuts": 0.4,
+      "honey": 0.4,
+      "coconut_flakes": 0.3
+    },
+    "bonusCombos": [
+      [
+        "graham_cracker",
+        "cocoa_powder"
+      ]
+    ]
+  },
+  {
+    "id": "t4_013",
+    "text": "Show me what silence looks like.",
+    "tier": 4,
+    "offeredBases": [
+      "latte",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "smoothie_bowl": 0.5
+    },
+    "idealColors": {
+      "#FFFDF7": 1,
+      "#6C87D1": 0.6,
+      "#4A3429": 0.5
+    },
+    "idealToppings": {
+      "moon": 1,
+      "foam_art": 0.9,
+      "sugar_pearl": 0.8,
+      "cloud": 0.5,
+      "coconut_flakes": 0.4,
+      "teardrop": 0.3
+    },
+    "bonusCombos": [
+      [
+        "moon",
+        "foam_art"
+      ]
+    ]
+  },
+  {
+    "id": "t4_014",
+    "text": "A dream I had once but can't describe.",
+    "tier": 4,
+    "offeredBases": [
+      "smoothie_bowl",
+      "cupcake",
+      "iced_drink"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "cupcake": 0.6,
+      "iced_drink": 0.5
+    },
+    "idealColors": {
+      "#EFA9B8": 1,
+      "#6C87D1": 0.9,
+      "#FFFDF7": 0.7
+    },
+    "idealToppings": {
+      "cloud": 1,
+      "sparkle": 0.9,
+      "spiral": 0.8,
+      "moon": 0.5,
+      "butterfly": 0.4,
+      "star": 0.4
+    },
+    "bonusCombos": [
+      [
+        "cloud",
+        "sparkle"
+      ]
+    ]
+  },
+  {
+    "id": "t4_015",
+    "text": "The exact opposite of a thunderstorm.",
+    "tier": 4,
+    "offeredBases": [
+      "smoothie_bowl",
+      "iced_drink",
+      "cupcake"
+    ],
+    "idealBase": {
+      "smoothie_bowl": 1,
+      "cupcake": 0.6,
+      "iced_drink": 0.4
+    },
+    "idealColors": {
+      "#EAB94D": 1,
+      "#EFA9B8": 0.8,
+      "#7BA05B": 0.6
+    },
+    "idealToppings": {
+      "edible_flower": 1,
+      "honey": 0.9,
+      "butterfly": 0.8,
+      "star": 0.4,
+      "peach_slice": 0.4,
+      "sparkle": 0.3
+    },
+    "bonusCombos": [
+      [
+        "edible_flower",
+        "honey"
+      ]
+    ]
+  },
+  {
+    "id": "t4_016",
+    "text": "What does luck taste like, do you think?",
+    "tier": 4,
+    "offeredBases": [
+      "iced_drink",
+      "cupcake",
+      "toast"
+    ],
+    "idealBase": {
+      "iced_drink": 0.5,
+      "cupcake": 1,
+      "toast": 0.2
+    },
+    "idealColors": {
+      "#7BA05B": 1,
+      "#EAB94D": 0.9,
+      "#FFFDF7": 0.5
+    },
+    "idealToppings": {
+      "mint_leaf": 1,
+      "gold_leaf": 0.9,
+      "star": 0.8,
+      "sparkle": 0.4,
+      "kiwi_slice": 0.4,
+      "diamond": 0.3
+    },
+    "bonusCombos": [
+      [
+        "mint_leaf",
+        "gold_leaf"
+      ]
+    ]
+  },
+  {
+    "id": "t4_017",
+    "text": "The ocean's best-kept secret.",
+    "tier": 4,
+    "offeredBases": [
+      "iced_drink",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "smoothie_bowl": 0.7
+    },
+    "idealColors": {
+      "#6C87D1": 1,
+      "#7BA05B": 0.7,
+      "#FFFDF7": 0.6
+    },
+    "idealToppings": {
+      "diamond": 1,
+      "wave": 0.9,
+      "sugar_pearl": 0.8,
+      "teardrop": 0.5,
+      "blueberry": 0.4,
+      "sparkle": 0.3
+    },
+    "bonusCombos": [
+      [
+        "diamond",
+        "wave"
+      ]
+    ]
+  },
+  {
+    "id": "t4_018",
+    "text": "What does winter dream about?",
+    "tier": 4,
+    "offeredBases": [
+      "latte",
+      "cupcake",
+      "iced_drink"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "latte": 0.7,
+      "iced_drink": 0.4
+    },
+    "idealColors": {
+      "#FFFDF7": 0.9,
+      "#EAB94D": 1,
+      "#7BA05B": 0.6
+    },
+    "idealToppings": {
+      "edible_flower": 1,
+      "strawberry": 0.9,
+      "sparkle": 0.8,
+      "butterfly": 0.5,
+      "honey": 0.4,
+      "mint_leaf": 0.4
+    },
+    "bonusCombos": [
+      [
+        "edible_flower",
+        "strawberry"
+      ]
+    ]
+  },
+  {
+    "id": "t4_019",
+    "text": "The first note of your favorite song.",
+    "tier": 4,
+    "offeredBases": [
+      "latte",
+      "cupcake",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "latte": 0.6,
+      "cupcake": 1,
+      "smoothie_bowl": 0.4
+    },
+    "idealColors": {
+      "#EAB94D": 1,
+      "#4A3429": 0.8,
+      "#EFA9B8": 0.6
+    },
+    "idealToppings": {
+      "music_note": 1,
+      "star": 0.9,
+      "sparkle": 0.8,
+      "heart": 0.4,
+      "gold_leaf": 0.4,
+      "swirl": 0.3
+    },
+    "bonusCombos": [
+      [
+        "music_note",
+        "star"
+      ]
+    ]
+  },
+  {
+    "id": "t4_020",
+    "text": "Something that tastes like slow dancing in the kitchen.",
+    "tier": 4,
+    "offeredBases": [
+      "latte",
+      "cupcake",
+      "toast"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "cupcake": 0.7,
+      "toast": 0.4
+    },
+    "idealColors": {
+      "#EFA9B8": 1,
+      "#8C5A3C": 0.8,
+      "#EAB94D": 0.6
+    },
+    "idealToppings": {
+      "music_note": 1,
+      "heart": 0.9,
+      "swirl": 0.8,
+      "chocolate_drizzle": 0.5,
+      "foam_art": 0.4,
+      "cinnamon": 0.4
+    },
+    "bonusCombos": [
+      [
+        "music_note",
+        "heart"
+      ]
+    ]
+  },
+  {
+    "id": "t4_021",
+    "text": "The inside of a snow globe, right after you shake it.",
+    "tier": 4,
+    "offeredBases": [
+      "iced_drink",
+      "cupcake",
+      "latte"
+    ],
+    "idealBase": {
+      "iced_drink": 1,
+      "cupcake": 0.6,
+      "latte": 0.5
+    },
+    "idealColors": {
+      "#FFFDF7": 1,
+      "#6C87D1": 0.8,
+      "#EAB94D": 0.5
+    },
+    "idealToppings": {
+      "coconut_flakes": 1,
+      "sparkle": 0.9,
+      "sugar_pearl": 0.8,
+      "star": 0.5,
+      "marshmallow": 0.4,
+      "diamond": 0.3
+    },
+    "bonusCombos": [
+      [
+        "coconut_flakes",
+        "sparkle"
+      ]
+    ]
+  },
+  {
+    "id": "t4_022",
+    "text": "What might a cloud regret?",
+    "tier": 4,
+    "offeredBases": [
+      "smoothie_bowl",
+      "latte",
+      "iced_drink"
+    ],
+    "idealBase": {
+      "latte": 0.6,
+      "smoothie_bowl": 1,
+      "iced_drink": 0.5
+    },
+    "idealColors": {
+      "#6C87D1": 1,
+      "#FFFDF7": 0.9,
+      "#4A3429": 0.4
+    },
+    "idealToppings": {
+      "teardrop": 1,
+      "cloud": 0.9,
+      "lightning": 0.8,
+      "wave": 0.4,
+      "moon": 0.4,
+      "swirl": 0.3
+    },
+    "bonusCombos": [
+      [
+        "teardrop",
+        "cloud"
+      ]
+    ]
+  },
+  {
+    "id": "t4_023",
+    "text": "Breakfast for a very polite ghost.",
+    "tier": 4,
+    "offeredBases": [
+      "toast",
+      "latte",
+      "smoothie_bowl"
+    ],
+    "idealBase": {
+      "toast": 1,
+      "latte": 0.6,
+      "smoothie_bowl": 0.5
+    },
+    "idealColors": {
+      "#FFFDF7": 1,
+      "#4A3429": 0.6,
+      "#D8BC94": 0.5
+    },
+    "idealToppings": {
+      "cream_cheese": 1,
+      "marshmallow": 0.9,
+      "cloud": 0.8,
+      "moon": 0.5,
+      "sugar_pearl": 0.4,
+      "coconut_flakes": 0.4
+    },
+    "bonusCombos": [
+      [
+        "cream_cheese",
+        "cloud"
+      ]
+    ]
+  },
+  {
+    "id": "t4_024",
+    "text": "The feeling of finding money in an old coat pocket.",
+    "tier": 4,
+    "offeredBases": [
+      "cupcake",
+      "iced_drink",
+      "latte"
+    ],
+    "idealBase": {
+      "cupcake": 1,
+      "iced_drink": 0.5,
+      "latte": 0.5
+    },
+    "idealColors": {
+      "#EAB94D": 1,
+      "#7BA05B": 0.8,
+      "#8C5A3C": 0.5
+    },
+    "idealToppings": {
+      "gold_leaf": 1,
+      "star": 0.9,
+      "sprinkles": 0.8,
+      "sparkle": 0.5,
+      "diamond": 0.4,
+      "crown": 0.4
+    },
+    "bonusCombos": [
+      [
+        "gold_leaf",
+        "star"
+      ]
+    ]
+  },
+  {
+    "id": "t4_025",
+    "text": "A secret told between two teacups.",
+    "tier": 4,
+    "offeredBases": [
+      "latte",
+      "cupcake"
+    ],
+    "idealBase": {
+      "latte": 1,
+      "cupcake": 0.6
+    },
+    "idealColors": {
+      "#EFA9B8": 1,
+      "#FFFDF7": 0.9,
+      "#EAB94D": 0.5
+    },
+    "idealToppings": {
+      "foam_art": 1,
+      "heart": 0.9,
+      "sugar_pearl": 0.8,
+      "edible_flower": 0.5,
+      "moon": 0.4,
+      "swirl": 0.3
+    },
+    "bonusCombos": [
+      [
+        "foam_art",
+        "heart"
+      ]
+    ]
+  }
 ]

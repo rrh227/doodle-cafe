@@ -91,3 +91,14 @@ and **novice runs average ~8 orders**.
 - Star thresholds (80/60/40/20), patience timers (90/80/75/70s, −10s after
   order 30), and starting rep 3.5 kept as designed — distributions above
   showed no need to change them.
+
+### Topping limit rework (2026-09-02)
+
+The flat 8-topping cap was replaced with an 8 **distinct type** cap
+(unlimited copies of each type) plus a clutter penalty in `scoring.js`:
+each off-theme topping type beyond a 2-type grace allowance costs
+−2 points (shown as a red row in the score breakdown). This stops
+"shotgun every topping" strategies while allowing decorative repetition
+(e.g. a ring of ten cherries) and light experimentation. Re-simulated
+with the penalty active: novice avg 8.7 / median 8 (target ~8),
+average 132/400 capped, good/skilled always cap — balance unchanged.
