@@ -36,7 +36,11 @@
       "Bash(curl -s http://localhost:4173/ -o /dev/null -w \"%{http_code}\\\\n\")",
       "Bash(curl -s http://localhost:4173/data/toppings.json -o /dev/null -w \"%{http_code}\\\\n\")",
       "Bash(curl -s http://localhost:4173/assets/bases/latte.svg -o /dev/null -w \"%{http_code}\\\\n\")",
-      "Bash(kill %1)"
+      "Bash(kill %1)",
+      "Bash(gh run *)",
+      "Bash(curl -s -o /dev/null -w \"toppings.json: %{http_code}\\\\n\" https://rrh227.github.io/doodle-cafe/data/toppings.json)",
+      "Bash(curl -s -o /dev/null -w \"latte.svg: %{http_code}\\\\n\" https://rrh227.github.io/doodle-cafe/assets/bases/latte.svg)",
+      "Bash(/usr/bin/python3 -c ' *)"
     ]
   }
 }

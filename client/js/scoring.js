@@ -11,9 +11,9 @@ export function scoreOrder(prompt, selectedBase, placedToppings, sectionColors, 
   // 2. Color score (0-35) — theme coverage. Each prompt lists ideal theme
   // colors; the player earns each color's weight by using something close to
   // it anywhere on the plate. Full credit means covering the whole theme
-  // palette, regardless of how many sections were painted. Coverage is
-  // squared so hitting one theme color of three pays far less than a third
-  // of the points — full-palette plates are what the customer imagined.
+  // palette, regardless of how many sections were painted. A mild power curve
+  // (^1.3) still rewards full-palette plates most, but partial coverage now
+  // pays fairly instead of being crushed by squaring.
   const chosenColors = Object.values(sectionColors);
   const themeEntries = Object.entries(prompt.idealColors);
   let colorPoints = 0;
@@ -31,30 +31,31 @@ export function scoreOrder(prompt, selectedBase, placedToppings, sectionColors, 
       if (bestQuality > 0) themeColorsHit++;
     }
     const coverage = earned / totalWeight;
-    colorPoints = Math.round(coverage * coverage * 35);
+    colorPoints = Math.round(Math.pow(coverage, 1.3) * 35);
   }
   breakdown.push({ label: `Theme colors (${themeColorsHit}/${themeEntries.length} matched)`, points: colorPoints });
 
   // 3. Topping score (0-35) — theme fit over count. Every placed type gets a
   // theme affinity: its explicit idealToppings weight, or a derived partial
   // score when it shares a category or tags (color/flavor/mood, e.g. "red",
-  // "creamy") with the prompt's ideal toppings. Fit (avg affinity, 0-25)
-  // dominates; variety (distinct on-theme types, 0-10) is the minor term, so
-  // a few well-chosen toppings beat a pile of loosely related ones.
+  // "creamy") with the prompt's ideal toppings. Fit (avg affinity of on-theme
+  // types, 0-25) dominates; variety (distinct on-theme types, 0-10) is the
+  // minor term. Off-theme toppings are neutral: they never subtract points or
+  // dilute the fit average — creative extras are free.
   const placedIds = new Set(placedToppings.map(p => p.id));
   const affinities = new Map(
     [...placedIds].map(id => [id, themeAffinity(id, prompt)])
   );
+  const onThemeAffinities = [...affinities.values()].filter(a => a >= 0.3);
 
   let fitPoints = 0;
-  if (placedIds.size > 0) {
-    let affinitySum = 0;
-    for (const a of affinities.values()) affinitySum += a;
-    fitPoints = Math.round((affinitySum / placedIds.size) * 25);
+  if (onThemeAffinities.length > 0) {
+    const affinitySum = onThemeAffinities.reduce((sum, a) => sum + a, 0);
+    fitPoints = Math.round((affinitySum / onThemeAffinities.length) * 25);
   }
   breakdown.push({ label: 'Topping theme fit', points: fitPoints });
 
-  const onThemeCount = [...affinities.values()].filter(a => a >= 0.3).length;
+  const onThemeCount = onThemeAffinities.length;
   const varietyPoints = Math.round(Math.min(4, onThemeCount) * 2.5);
   if (placedIds.size > 0) {
     breakdown.push({ label: `Topping variety (${onThemeCount} on-theme)`, points: varietyPoints });
@@ -75,15 +76,7 @@ export function scoreOrder(prompt, selectedBase, placedToppings, sectionColors, 
     breakdown.push({ label: `Combo bonus (×${combosHit})`, points: comboPoints });
   }
 
-  // Clutter penalty: off-theme topping types cost points, with a small
-  // grace allowance so a couple of experimental picks aren't punished.
-  const irrelevantCount = [...affinities.values()].filter(a => a < 0.3).length;
-  const clutterPenalty = Math.max(0, irrelevantCount - 2) * 2;
-  if (clutterPenalty > 0) {
-    breakdown.push({ label: `Off-theme toppings (×${irrelevantCount - 2})`, points: -clutterPenalty });
-  }
-
-  let points = Math.max(0, basePoints + colorPoints + toppingPoints + comboPoints - clutterPenalty);
+  let points = Math.max(0, basePoints + colorPoints + toppingPoints + comboPoints);
 
   // Patience bonus: up to +10% of earned points for serving quickly
   const patienceBonus = Math.round(points * 0.1 * patienceFraction);
@@ -106,10 +99,10 @@ export function scoreOrder(prompt, selectedBase, placedToppings, sectionColors, 
 
 // How well a topping fits the prompt's theme, 0-1. Explicitly ideal toppings
 // use their listed weight. Anything else earns derived partial credit by
-// resembling the ideal set: sharing tags (color/flavor/mood words like "red"
-// or "creamy") counts most, sharing a category counts a little. Derived
-// affinity is capped below the weakest explicit pick so curated lists stay
-// the gold standard.
+// resembling the ideal set: a single shared tag (color/flavor/mood word like
+// "red" or "creamy") already counts well, and sharing a category adds more.
+// This effectively widens each order's valid topping list — anything in the
+// same palette, flavor family, or category as an ideal pick scores decently.
 function themeAffinity(toppingId, prompt) {
   const explicit = prompt.idealToppings[toppingId];
   if (explicit > 0) return explicit;
@@ -126,14 +119,15 @@ function themeAffinity(toppingId, prompt) {
 
     const sharedTags = topping.tags.filter(tag => ideal.tags.includes(tag)).length;
     const sameCategory = topping.category === ideal.category ? 1 : 0;
-    // 2+ shared tags ≈ same palette/mood; category alone is weak evidence.
-    const similarity = Math.min(1, sharedTags / 2) * 0.35 + sameCategory * 0.1;
+    // One shared tag is already a solid signal; two maxes the tag term.
+    const similarity = Math.min(1, sharedTags / 2) * 0.6 + sameCategory * 0.25;
     best = Math.max(best, similarity * (prompt.idealToppings[id] || 0));
   }
-  return Math.min(best, 0.45);
+  return Math.min(best, 0.7);
 }
 
-// 1 for a close match, tapering partial credit up to a moderate distance.
+// 1 for a close match, tapering partial credit up to a generous distance —
+// being in the right color neighborhood is enough for most of the credit.
 function colorMatchQuality(hex, idealHex) {
   const rgb = hexToRgb(hex);
   const ideal = hexToRgb(idealHex);
@@ -142,8 +136,8 @@ function colorMatchQuality(hex, idealHex) {
   const dist = Math.sqrt(
     (rgb.r - ideal.r) ** 2 + (rgb.g - ideal.g) ** 2 + (rgb.b - ideal.b) ** 2
   );
-  if (dist <= 40) return 1;
-  if (dist <= 120) return (1 - (dist - 40) / 80) * 0.7;
+  if (dist <= 70) return 1;
+  if (dist <= 180) return (1 - (dist - 70) / 110) * 0.85;
   return 0;
 }
 
