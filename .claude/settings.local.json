@@ -40,7 +40,8 @@
       "Bash(gh run *)",
       "Bash(curl -s -o /dev/null -w \"toppings.json: %{http_code}\\\\n\" https://rrh227.github.io/doodle-cafe/data/toppings.json)",
       "Bash(curl -s -o /dev/null -w \"latte.svg: %{http_code}\\\\n\" https://rrh227.github.io/doodle-cafe/assets/bases/latte.svg)",
-      "Bash(/usr/bin/python3 -c ' *)"
+      "Bash(/usr/bin/python3 -c ' *)",
+      "Bash(/usr/bin/python3 *)"
     ]
   }
 }

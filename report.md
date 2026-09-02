@@ -1,137 +1,174 @@
 # Claude Usage Report — Doodle Cafe
 
-_Generated: 2026-09-02 · Source: local session transcript (`6344f4d3…jsonl`)_
+_Generated: 2026-09-02 · Source: local session transcripts from both project history directories (`-GitHub-galileo-game-jam` + `-GitHub-doodle-cafe`)_
 
-This report summarizes Claude Code usage for the **doodle-cafe** deployment work,
-based on the one recorded session for this project. All numbers are pulled
-directly from the session transcript, not estimated.
+This report consolidates Claude Code usage across the **entire life of the
+project** — both before and after the repo was renamed from `galileo-game-jam`
+to `doodle-cafe`. Stats are summed across all recorded sessions; findings are
+consolidated across the whole history. All numbers are pulled directly from the
+session transcripts, not estimated.
 
 ---
 
-## Session Overview
+## Scope
+
+- **9 transcript files** across 2 history directories (repo was renamed
+  mid-project, splitting history across two folders).
+- **7 sessions with real activity**; 2 are empty/stub sessions (`d61fbeeb` had
+  0 turns, `5548aff4` was a 2-turn no-op).
+- **Full span:** 2026-08-18 → 2026-09-02 (~15 days of on-and-off work).
+
+---
+
+## Grand Totals (all sessions summed)
 
 | Metric | Value |
 |---|---|
-| Sessions recorded | 1 |
-| Duration | ~27.5 min (16:24:44 → 16:52:13 UTC) |
-| User messages | 46 entries (5 substantive prompts) |
-| Assistant turns | 82 |
-| Models used | 2 (mid-session switch) |
-| Effort level | Switched to `medium` near the end |
-| Outcome | Game live at https://rrh227.github.io/doodle-cafe/ |
+| Recorded sessions | 9 files (7 active) |
+| Calendar span | 2026-08-18 14:32 → 2026-09-02 17:04 UTC |
+| Assistant turns (billed) | 1,740 |
+| Input tokens (fresh) | 111,126 |
+| Output tokens | 2,151,026 |
+| Cache read tokens | 134,372,058 |
+| Cache write tokens | 10,674,670 |
+
+Cache reads (~134M) dominate fresh input (~111K) by roughly 1,200×. Long
+multi-turn sessions replay a large cached prefix (system prompt, CLAUDE.md
+policy, accumulated conversation) on every turn, so fresh billed input stays
+small even as the project grows.
 
 ---
 
-## Token Usage
-
-| Metric | Total |
-|---|---|
-| Input tokens (fresh) | 170 |
-| Output tokens | 34,541 |
-| Cache read tokens | 2,368,357 |
-| Cache write tokens | 239,792 |
-
-Cache reads dwarf fresh input (~2.37M vs 170), which is expected: the large
-system prompt, CLAUDE.md policy, and growing conversation were served from
-prompt cache on nearly every turn. This is the cache working as intended —
-fresh billed input stayed tiny throughout.
-
-### Per-Model Breakdown
+## Per-Model Breakdown (summed across all sessions)
 
 | Model | Turns | Output | Cache read | Cache write |
 |---|---|---|---|---|
-| `claude-fable-5` (initial) | 74 | 29,978 | 2,178,168 | 123,676 |
-| `claude-opus-4-8` (after `/model`) | 11 | 6,459 | 190,189 | 235,711 |
+| `claude-fable-5` | 1,055 | 1,835,627 | 86,931,719 | 6,944,432 |
+| `claude-opus-4-6` | 661 | 295,132 | 46,765,129 | 3,416,564 |
+| `claude-opus-4-8` | 24 | 20,267 | 675,210 | 313,674 |
 
-The model switch happened right before this report request. Almost all
-deployment work (build fixes, repo rename, Pages enablement) ran on the
-initial model; Opus 4.8 came in only for the final reporting task.
+Three models appear across the project's life. Early game-building sessions
+(mid-to-late August) ran on **Opus 4.6**; the bulk of later work ran on
+**fable-5**; **Opus 4.8** appears only in the final deployment/reporting
+session after a manual `/model` switch.
 
 ---
 
-## Tool Usage
+## Tool Usage (summed across all sessions)
 
 | Tool | Calls |
 |---|---|
-| Bash | 28 |
-| Read | 2 |
-| AskUserQuestion | 2 |
-| Edit | 2 |
-| Write | 1 |
-| ToolSearch | 1 |
+| Edit | 304 |
+| Bash | 228 |
+| Write | 181 |
+| Read | 179 |
+| TaskUpdate | 48 |
+| TaskCreate | 26 |
+| AskUserQuestion | 14 |
+| Agent | 12 |
+| ToolSearch | 8 |
 | TaskStop | 1 |
 
-Bash dominated — appropriate for a deploy task (builds, `gh` CLI, `curl` smoke
-tests, git remote work). The two `AskUserQuestion` calls were used at genuine
-decision points (host choice, repo rename) rather than for confirmation noise.
+Edit + Write (485 combined) exceed reads, reflecting a project that was mostly
+*authored* here — game code, assets config, JSON data, docs — rather than just
+explored. `Agent` (12) and the Task tools (74 combined) show subagent
+delegation and progress tracking were used during the heavier build sessions.
 
 ---
 
-## Conversation Findings
+## Per-Session Summary
 
-### What worked
+| Session | Span | Turns | Output | Model(s) | Notable |
+|---|---|---|---|---|---|
+| `863cfd3a` | 08-18 → 08-26 | 461 | 205K | Opus 4.6 | Longest-running; heavy authoring (108 Write, 104 Edit) — core game build |
+| `fb021995` | 08-31 → 09-01 | 198 | 90K | Opus 4.6 | Feature/polish pass (39 Edit, 27 Write) |
+| `51fd493d` | 09-01 → 09-02 | 393 | 865K | fable-5 | Highest output; big edit session (82 Edit) |
+| `2b61318a` | 09-02 | 258 | 347K | fable-5 | Multi-agent work (7 Agent), tasks tracked |
+| `ceeee5f5` | 09-02 | 322 | 582K | fable-5 | Late build/refactor session |
+| `70e4e9ff` | 09-02 | 8 | 11K | fable-5 | Short; one Agent + one Write |
+| `6344f4d3` | 09-02 | 98 | 50K | fable-5 → Opus 4.8 | **Deployment session** (this one) |
+| `5548aff4` | 09-01 | 2 | 188 | Opus 4.6 | Stub / no-op |
+| `d61fbeeb` | 09-01 | 0 | 0 | — | Empty |
 
-- **Static-site detection up front.** Early greps confirmed the "AI judging"
-  ran client-side with only local JSON fetches — no backend. This correctly
-  ruled out serverless hosts and pointed straight at GitHub Pages.
-- **Catching the build blocker before deploy.** Noticed `dist/` was missing
-  `data/` and `assets/` because Vite only copies from `public/`. Moving them
-  and setting `base: './'` was verified with a local `preview` + `curl` smoke
-  test (200s across page, JSON, SVG) *before* recommending a push.
-- **Diagnosing the 404 from real signals.** `gh run list` (deploy failure) plus
-  `gh api …/pages` (404 = Pages not enabled) pinpointed the actual cause rather
-  than guessing. Enabling Pages via API and re-running the workflow fixed it,
-  confirmed with live-URL smoke tests.
-- **Decision points surfaced cleanly.** Host selection and the repo rename were
-  offered as explicit choices with tradeoffs, not silent assumptions.
+---
+
+## Consolidated Findings
+
+### What worked (across the project)
+
+- **Iterative build → verify loops.** The recurring pattern — make a change,
+  run it, check output, adjust — held up across every active session. In the
+  deploy session specifically, a local `preview` + `curl` smoke test caught a
+  missing-assets bug *before* pushing.
+- **Static-first architecture paid off at deploy time.** Because the game was
+  built as a pure client-side Vite app (AI judging runs in-browser, data via
+  local JSON), the eventual hosting choice was trivial and free (GitHub Pages).
+- **Subagent delegation on heavy sessions.** The 09-02 build sessions used the
+  `Agent` tool (12 calls) to parallelize/isolate research, keeping the main
+  thread focused.
+- **Decision points surfaced explicitly.** 14 `AskUserQuestion` calls over the
+  project's life were used for genuine forks (host choice, repo rename, feature
+  direction) rather than confirmation noise.
 
 ### What didn't work (first time)
 
-- **The initial push 404'd.** The workflow was committed, but GitHub Pages was
-  never enabled in repo settings, so the first `main` push failed to deploy.
-  Root cause: the "enable Pages" step is a one-time manual/API action that
-  hadn't been done. Fixed by `gh api …/pages -X POST -f build_type=workflow`.
-- **`python3` was shimmed by asdf.** A stats query failed (`No version is set`)
-  until falling back to `/usr/bin/python3`. Minor, but a reminder that the
-  environment's version managers can intercept common binaries.
+- **First deploy 404'd.** The deploy workflow was committed and pushed, but
+  GitHub Pages was never *enabled* in repo settings, so the first `main` push
+  failed. Root cause: a one-time manual/API enablement step. Fixed via
+  `gh api …/pages -X POST -f build_type=workflow` + workflow re-run.
+- **Missing build assets.** `dist/` initially lacked `data/` and `assets/`
+  because Vite only copies from a `public/` dir. Fixed by relocating them into
+  `client/public/` and setting `base: './'`.
+- **Environment friction.** `python3` was shimmed by asdf (`No version is
+  set`), requiring a fallback to `/usr/bin/python3` for stats extraction.
+- **CI deprecation warnings.** The deploy workflow flagged Node 20 deprecation
+  on `checkout@v4` / `setup-node@v4` / `deploy-pages@v4`.
 
-### What changed over the session
+### What changed over the project's life
 
-1. **Repo identity:** `galileo-game-jam` → `doodle-cafe` (via `gh repo rename`),
-   with the local remote and `package.json` URLs updated to match.
-2. **Build config:** added `base: './'`; relocated `client/data` and
-   `client/assets` into `client/public/` so Vite bundles them.
-3. **CI/CD:** added `.github/workflows/deploy.yml` for auto-deploy on push.
-4. **Hosting:** GitHub Pages enabled with "GitHub Actions" as the source.
+1. **Model progression:** Opus 4.6 (Aug, core build) → fable-5 (Sep, bulk of
+   work) → Opus 4.8 (final deploy/reporting).
+2. **Repo identity:** `galileo-game-jam` → `doodle-cafe`, with git remote and
+   `package.json` URLs updated. This is why history spans two folders.
+3. **Build config:** added `base: './'`; moved `client/data` + `client/assets`
+   into `client/public/` so Vite bundles them.
+4. **CI/CD:** added `.github/workflows/deploy.yml` for auto-deploy on push.
+5. **Hosting:** GitHub Pages enabled → game live at
+   https://rrh227.github.io/doodle-cafe/.
 
 ---
 
 ## Model & Effort Comparison
 
-Because the model/effort switch happened only at the reporting stage, this is a
-qualitative comparison, not a controlled benchmark:
+The project used three models, but they worked on **different phases**, so this
+is qualitative, not a controlled benchmark:
 
-| Dimension | `claude-fable-5` (deploy work) | `claude-opus-4-8` @ medium (reporting) |
-|---|---|---|
-| Task type | Multi-step deploy, debugging, tool orchestration | Data extraction + document synthesis |
-| Turns | 74 | 11 |
-| Output tokens | 29,978 (spread over many small tool cycles) | 6,459 (few, denser turns) |
-| Style observed | Many short verify-as-you-go tool loops | Fewer turns, front-loaded data gathering |
+| Model | Phase | Turns | Output | Character of work |
+|---|---|---|---|---|
+| `claude-opus-4-6` | Aug 18–Sep 1 | 661 | 295K | Core game authoring & polish; high Write/Edit ratio |
+| `claude-fable-5` | Sep 1–2 | 1,055 | 1.84M | Bulk of later build/refactor; highest output volume |
+| `claude-opus-4-8` | Sep 2 (end) | 24 | 20K | Deployment finishing + this report; few dense turns |
 
-**Caveat:** the two models worked on different tasks, so raw turn/token counts
-reflect task shape more than model capability. A fair comparison would require
-running the same task on both. For the deploy work, the tight
-build→verify→adjust loop was the right pattern regardless of model.
+**Caveats on comparison:**
+- Models were not run on identical tasks, so turn/token differences reflect
+  **task shape and phase**, not isolated model capability.
+- `claude-fable-5`'s huge output total is a function of running the longest,
+  most edit-heavy sessions — not necessarily more "verbose" per turn.
+- Effort level was only explicitly set (`medium`) in the final session, so
+  effort-vs-effort comparison isn't supported by the data.
+
+A fair head-to-head would require running the same scoped task on each model
+and comparing turns, tokens, and correctness.
 
 ---
 
 ## Recommendations
 
-- **Pin CI action versions off Node 20.** Workflow annotations flagged Node 20
-  deprecation (`checkout@v4`, `setup-node@v4`, etc.). Bump when newer majors
-  ship to avoid forced-runtime warnings.
-- **Document the one-time Pages enablement** in the repo README so future
-  clones/forks don't hit the same 404.
-- **For a true model/effort comparison,** run an identical scoped task on each
-  model and compare turns, tokens, and correctness — the current data can't
-  isolate model performance from task differences.
+- **Pin CI actions off Node 20** to clear the deprecation warnings when newer
+  action majors ship.
+- **Document the one-time Pages enablement** in the README so future
+  clones/forks don't repeat the 404.
+- **Consolidate history awareness:** the repo rename split transcripts across
+  two folders — worth noting for any future usage analysis.
+- **For a real model comparison,** run an identical task on each model rather
+  than inferring from phase-separated sessions.
