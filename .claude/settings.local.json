@@ -30,7 +30,13 @@
       "Bash(sed -n '125,160p' client/index.html)",
       "Bash(rm -rf svg_preview)",
       "Bash(mkdir svg_preview)",
-      "Bash(qlmanage -t -s 160 -o svg_preview /Users/81035493/GitHub/galileo-game-jam/client/assets/toppings/__TRACKED_VAR__.svg)"
+      "Bash(qlmanage -t -s 160 -o svg_preview /Users/81035493/GitHub/galileo-game-jam/client/assets/toppings/__TRACKED_VAR__.svg)",
+      "Bash(mkdir -p client/public)",
+      "Bash(git mv *)",
+      "Bash(curl -s http://localhost:4173/ -o /dev/null -w \"%{http_code}\\\\n\")",
+      "Bash(curl -s http://localhost:4173/data/toppings.json -o /dev/null -w \"%{http_code}\\\\n\")",
+      "Bash(curl -s http://localhost:4173/assets/bases/latte.svg -o /dev/null -w \"%{http_code}\\\\n\")",
+      "Bash(kill %1)"
     ]
   }
 }

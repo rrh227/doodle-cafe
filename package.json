@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rrh227/galileo-game-jam.git"
+    "url": "git+https://github.com/rrh227/doodle-cafe.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rrh227/galileo-game-jam/issues"
+    "url": "https://github.com/rrh227/doodle-cafe/issues"
   },
-  "homepage": "https://github.com/rrh227/galileo-game-jam#readme",
+  "homepage": "https://rrh227.github.io/doodle-cafe/",
   "devDependencies": {
     "vite": "^8.2.1"
   }
